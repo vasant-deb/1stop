@@ -1,0 +1,47 @@
+<app-header></app-header>
+<section class="inner_page_breadcrumb">
+    <div class="container">
+        <div class="row">
+    <div class="col-xl-12">
+      <div class="breadcrumb_content">
+        <h3>{{this.pagename}}</h3>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<div class="container">
+<div class="row" *ngIf="categories">
+    <div class="col-sm-6 col-lg-4 col-xl-2 p0" *ngFor="let category of categories">
+      <div class="shop_item style6 bdr1 mx--1">
+        <a href="/categories/{{category.slug}}" class="thumb pb30">
+            <img [src]="category.image ? 'https://www.yusyah.com/images/categories/' + category.image : 'https://www.yusyah.com/images/no-image.jpg'" alt="{{category.name}}">
+
+        </a>
+        <div class="details text-center">
+          <div class="title"><a href="/categories/{{category.slug}}">{{category.name}}</a></div>
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+  <div class="row" *ngIf="products">
+    <div class="col-sm-6  col-lg-4 col-xl-3 p0 card-container" *ngFor="let product of products">
+      <div class="card">
+        <a href="/product/{{product.slug}}" class="thumb">
+            <img [src]="product.image ? 'https://www.yusyah.com/images/products/' + product.image : 'https://www.yusyah.com/images/no-image.jpg'" alt="{{product.name}}">
+
+        </a>
+        <div class="details text-center">
+          <div class="title"><a href="/product/{{product.slug}}">{{product.name}}</a></div>
+          <div class="price">${{product.discounted_price}}</div>
+        </div>
+       
+      </div>
+    </div>
+ 
+  </div>
+</div>
+
+<app-footer></app-footer>
+

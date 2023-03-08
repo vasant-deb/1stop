@@ -1,0 +1,285 @@
+   
+       <app-header></app-header>
+     
+        <div class="container mg30">
+            <div class="row">
+                <div class="col-md-6"  *ngIf="!showSignup">
+                    <div class="registered-customers card">
+                        <h4 class="text-uppercase mb-2"><strong>REGISTERED CUSTOMERS</strong></h4>
+                        <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+                            <div class="login-account p-30 box-shadow">
+                                <p>If you have an account with us, Please log in.</p>
+                                <div class="form-group">
+                                    <label for="email">Email address:</label>
+                                    <input name="email" type="email" ngModel required  class="form-control" placeholder="Email" />
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="pwd">Password:</label>
+                                    <input type="password" class="form-control" name="password" ngModel required  placeholder="Password" />
+                                  </div>                            
+                                <button type="submit" value="register" class="btn btn-log btn-thm mt20">Login</button>
+                            </div>
+                        </form>                                
+                    </div>
+                </div>
+<!--new div--->                  
+                <div class="col-md-6" *ngIf="!showSignup">
+                    <div class="registered-customers card">
+                        <h4 class="text-uppercase mb-5"><strong>Create An Account</strong></h4>
+                               
+             <p>Register and save time!</p>					
+             <p>Register with us for future convenience:</p>
+             <p><i class="fa fa-dot-circle-o" aria-hidden="true"></i> Fast and easy check out <br>
+                <i class="fa fa-dot-circle-o" aria-hidden="true"></i> Easy access to your order history and status
+             </p><br>
+             <button (click)='getregisterform()' class="btn btn-log btn-thm mt20">Register</button>  
+                    </div>
+                </div>
+                
+                <!--Registered Page-->
+                <div class="col-md-12" *ngIf="showSignup">
+                    <div class="registered-customer new-customers">
+                        <div class="section-title text-uppercase mb-2">
+                            <div class="row">
+                            <div class="col-md-9 col-sm-6">
+                            <h3 class="title">Register New Account </h3>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                            <button class="btn btn-log btn-thm backtologin" (click)='getlogin()'>Back To Login</button>
+                            </div>
+                            </div>
+                        </div>
+                        <form [formGroup]="angForm" (ngSubmit)="signup()">
+                            <div class="row clearfix">
+                                <div class="form-group col-md-4 col-sm-4 col-xs-12">
+                                    <label for="email">First Name</label>
+                                    <div class="input text">
+                                      
+                                        <input  class="form-control col-md-3" id="firstName" type="text" formControlName="firstName"  [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }">
+                    
+                                    </div>
+                                    <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['firstName'].errors['required']">FirstName is required</div>
+                                      </div>
+                                  </div>
+                              
+                                  <div class="form-group col-md-4 col-sm-4 col-xs-12">
+                                    <label for="email">Middle Name</label>
+                                    <div class="input text">
+                                        <input type="text" formControlName="middleName" name="middleName" class="form-control col-md-3" maxlength="100">
+                                    </div>
+                                    
+                                  </div>
+                              
+                                  <div class="form-group col-md-4 col-sm-4 col-xs-12">
+                                    <label for="email">Last Name</label>
+                                    <div class="input text">
+                                        <input type="text" formControlName="lastName" name="lastName" class="form-control col-md-3" maxlength="50">
+                                    </div>
+                                  
+                                  </div>
+                           
+                      <div class="form-group col-md-4 col-sm-4 col-xs-12">
+                         <label for="country">Preferred Doc Type</label>
+                         <select formControlName="docType" name="docType" class="form-control">
+                            <option value="" disabled>Select Doc Type</option>
+                            <option value="Full Invoice">Full Invoice</option>
+                            <option value="Dispatch Note">Dispatch Note</option>
+                         </select>
+                      </div>
+
+                      <div class="form-group col-md-4 col-sm-4 col-xs-12">
+                         <label for="email">Referred By</label>
+                         <div class="input text">
+                            <input  formControlName="referredBy" name="referredBy" class="form-control col-md-3" maxlength="50" type="text" id="UserReferredBy">
+                        </div>	
+                       
+                      </div>
+                       <div class="form-group col-md-4 col-sm-4 col-xs-12">
+                         <label for="email">GST</label>
+                         <div class="input text">
+                            <input formControlName="gst" name="gst" class="form-control col-md-3" maxlength="50" type="text" id="UserGst"></div>
+                       <!--  <div *ngIf="submitted && f['gst'].errors" class="invalid-feedback">
+                                <div *ngIf="f['gst'].errors['required']">Referred By is required</div>
+                            </div>	-->   
+                      </div>
+                      <div class="form-group col-md-4 col-sm-4 col-xs-12">
+                         <label for="email">Email address</label>                                     
+                         <div class="input email required">
+                            <input formControlName="email"  name="email" class="form-control col-md-3"   maxlength="255" type="email" id="UserEmail" required="required"></div>	
+                            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                <div *ngIf="f['email'].errors['required']">Referred By is required</div>
+                            </div>	
+                        </div>
+                       <div class="form-group col-md-4 col-sm-4 col-xs-12">
+                         <label for="password">Password</label>
+                         <div class="input password required">
+                            <input formControlName="password" name="password" class="form-control col-md-3" type="password" id="UserPassword" required="required"></div>	
+                            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+                                <div *ngIf="f['email'].errors['required']">Referred By is required</div>
+                            </div>	
+                        </div>
+                      <div class="form-group col-md-4 col-sm-4 col-xs-12">
+                         <label for="confirmpassword">Confirm Password</label>
+                         <!-- <input type="password" name="confirmpassword" required="required" class="form-control" id="confirmpassword" required> -->
+                         <div class="input password">
+                            <input formControlName="confirmPassword" name="confirmpassword" class="form-control col-md-3" required="required" type="password" id="UserConfirmpassword"></div>	
+                            <div *ngIf="submitted && f['confirmPassword'].errors" class="invalid-feedback">
+                                <div *ngIf="f['confirmPassword'].errors['required']">Referred By is required</div>
+                            </div>	
+                            <div *ngIf="angForm.hasError('confirmPasswordValidator')">Passwords do not match</div>
+
+                        </div>
+                      
+                      <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                         <label for="email">Name</label>
+                         <div class="input text">
+                            <input  formControlName="addressName" name="addressName" class="form-control col-md-3" maxlength="100" type="text" id="UserAddressName"></div>	
+                            <div *ngIf="submitted && f['addressName'].errors" class="invalid-feedback">
+                                <div *ngIf="f['addressName'].errors['required']">Referred By is required</div>
+                            </div>	
+                        </div>
+                       <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                         <label for="email">Company Name</label>
+                         <div class="input text">
+                            <input formControlName="company"   name="company" class="form-control col-md-3" maxlength="50" type="text" id="UserCompany"></div>	
+                            <div *ngIf="submitted && f['company'].errors" class="invalid-feedback">
+                                <div *ngIf="f['company'].errors['required']">Company is required</div>
+                            </div>	
+                        </div>
+                       <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                         <label for="email">Street 1</label>
+                         <div class="input text">
+                            <input formControlName="address" name="address"  class="form-control col-md-3" maxlength="255" type="text" id="UserAddress"></div>	
+                            <div *ngIf="submitted && f['address'].errors" class="invalid-feedback">
+                                <div *ngIf="f['address'].errors['required']">Address is required</div>
+                            </div>	
+                        </div>
+                      <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                         <label for="email">Street 2</label>
+                         <div class="input text">
+                            <input formControlName="address2" name="address2"  class="form-control col-md-3" maxlength="255" type="text" id="UserAddress2"></div>	
+                          	
+                        </div>
+                      <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                         <label for="email">City</label>
+                         <div class="input text">
+                            <input formControlName="city" name="city"  class="form-control col-md-3" maxlength="50" type="text" id="UserCity"></div>	
+                            <div *ngIf="submitted && f['city'].errors" class="invalid-feedback">
+                                <div *ngIf="f['city'].errors['required']">City is required</div>
+                            </div>	
+                        </div>
+                       <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                         <label for="Zip">Postal Code</label>
+                         <div class="input text">
+                            <input formControlName="zipcode"  name="zipcode"  class="form-control col-md-3" maxlength="100" type="text" id="UserZipcode"></div>	
+                            <div *ngIf="submitted && f['zipcode'].errors" class="invalid-feedback">
+                                <div *ngIf="f['zipcode'].errors['required']">Zipcode is required</div>
+                            </div>	
+                        </div>
+                      
+                      
+                      <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                         <label for="email">Province</label>
+                     
+                         
+                           <select  formControlName="state" class="form-control" name="state">
+                            <option value="" disabled selected>Select a Province</option>
+
+                               <option>Alberta</option>
+                               <option>British Columbia</option>
+                               <option>Manitoba</option>
+                               <option>New Brunswick</option>
+                               <option>Newfoundland and Labrador</option>
+                               <option>Northwest Territories</option>
+                               <option>Nova Scotia</option>
+                               <option>Nunavut</option>
+                               <option>Ontario</option>
+                               <option>Prince Edward Island</option>
+                               <option>Quebec</option>
+                               <option>Saskatchewan</option>
+                               <option>Yukon Territory</option>
+                               </select>
+                               <div *ngIf="submitted && f['state'].errors" class="invalid-feedback">
+                                <div *ngIf="f['state'].errors['required']">State is required</div>
+                            </div>	
+                         
+                         
+                      </div>
+                      
+                      
+                      
+                      <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                         <label for="email">Phone</label>
+                         <div class="input tel"><input formControlName="phone"  name="phone" class="form-control col-md-3" maxlength="20" type="tel" id="UserPhone"></div>	
+                         <div *ngIf="submitted && f['phone'].errors" class="invalid-feedback">
+                            <div *ngIf="f['phone'].errors['required']">Phone is required</div>
+                        </div>	
+                        </div>
+                     
+                     
+                   </div>
+                   <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                      <button value="register" [disabled]="!angForm.valid" type="submit" class="btn btn-log btn-thm mt20">Register</button>
+                   </div>
+                   </form>
+                </div>
+             </div>
+
+                <!--End Registration Page-->
+                
+            </div>
+            </div>
+
+<!--
+       <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form #signupForm="ngForm" (ngSubmit)="signup(signupForm.value)">
+                <h1>Create Account</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your email for registration</span>
+                <input type="text" ngModel required  name="firstname" placeholder="First Name" />
+                <input type="text" ngModel  name="lastname" placeholder="Last Name" />
+                <input type="email" ngModel required  name="email" placeholder="Email" />
+                <input type="password" ngModel required  name="password" placeholder="Password" />
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+                <h1>Sign in</h1>
+                <div class="social-container">
+                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <span>or use your account</span>
+                <input name="email" type="email" ngModel required  placeholder="Email" />
+                <input type="password" name="password" ngModel required  placeholder="Password" />
+                <a href="#">Forgot your password?</a>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+      -->
+<app-footer></app-footer>

@@ -1,0 +1,84 @@
+.logo img {
+    width: 100px;
+}
+.header_middle.home10_style {
+    background-color: #ffffff;
+}
+span.flaticon-profile {
+    color: black !important;
+}
+
+.details {
+    color: black !important;
+}
+
+p.subtitle {
+    color: black !important;
+}
+
+h5.title {
+    color: black !important;
+}
+a.header_top_iconbox.home10_style.cart-filter-btn img {
+    filter: /* for demonstration purposes; originals not entirely black */ contrast(1000%) /* black to white */ invert(100%) /* white to off-white */ sepia(100%) /* off-white to yellow */ saturate(10000%) /* do whatever you want with yellow */ hue-rotate(0deg);
+    color: black !important;
+}
+.header_middle_advnc_search {
+    box-shadow: -20px 1px 10px rgb(0 0 0 / 20%);
+}
+.quantity-arrow-plus{
+    
+    transform: rotate(0deg) !important;
+}
+.quantity-arrow-plus.inner_page{
+    top: 10px !important;
+}
+.latestdevices  img {
+    width: 100%; /* set the width of each image */
+    height: 250px; /* set the height of each image */
+    object-fit: contain; /* scale images to fill container */
+    /* add any other styles for your images */
+  }
+  #addalltocart {
+    z-index: 10;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    right: 5%;
+    background-color: #397388;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgb(10 10 10 / 30%);
+    transition: all 0.2s ease-in-out;
+  }
+  #addalltocart i.fa.fa-shopping-cart {
+    color: white;
+    font-size: 36px;
+}
+.header_top_iconbox.home6_style .icon span.badge, .header_top_iconbox.home8_style .icon span.badge, .header_top_iconbox.home9_style .icon span.badge, .header_top_iconbox.home10_style .icon span.badge {
+    color: #ffffff;
+}
+span.flaticon-search {
+    color: white;
+}
+section {
+    padding: 0px 0;
+    position: relative;
+}
+section.inner_page_breadcrumb {
+    background: #397386;
+    margin:0px auto;
+    text-align:center;
+}
+
+.inner_page_breadcrumb h3 {
+    text-align:center;
+    color:white;
+    font-weight:500;
+    font-size:40px;
+}

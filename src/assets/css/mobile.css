@@ -1,0 +1,54 @@
+a.add-button {
+    background: none;
+    color: var(--main-color);
+}
+.app-header-right a {
+    margin-left: 10px;
+}
+.desktoponly{
+    display:block;
+}
+.mobileonly{
+display: none;
+}
+@media only screen and (max-width: 600px) {
+    .mobileonly{
+        display: block;
+        }
+        .desktoponly{
+            display:none;
+        }
+        a.cart-btn.mobileonly,a.notification-btn.mobileonly  {
+            display: flex;
+            color: var(--main-color);
+            margin-left: 10px;
+        }
+       
+.app-header {
+    display: block;
+}
+.app-header-right {
+    margin: 10px auto;
+}
+.brand span {
+    font-size: 28px;
+    line-height: 10px;
+    padding: 10px 0px 0px 0px;
+}
+.app-header-right button, .app-header-right a {
+    margin: 0px 10px;
+    width: 100%;
+    height: auto;
+}
+svg.moon {
+    width: 24px;
+    height: 24px;
+}
+.app-header-right svg,.app-header-right i,.app-header-right img{
+width:24px;
+height:24px;
+}
+.app-header-right a {
+    margin-left: 0px;
+}
+}

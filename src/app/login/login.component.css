@@ -1,0 +1,24 @@
+
+.registered-customers {
+    padding:15px;
+}
+button.btn.btn-log.btn-thm.mt20,.backtologin{
+    color: white;
+}
+
+
+.btn:before, .btn-gray:before, .btn-thm:before, .btn-thm:before, .btn-thm1:before, .btn-thm1:before, .btn-thm2:before, .btn-thm2-light:before, .btn-blue:before, .btn-light-green:before, .btn-transparent:before, .btn-transparent-dark:before {
+    background-color: #6668b2;
+}
+.mg30{
+	margin:30px auto;
+}
+label {
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+}
+p {
+    font-size: 16px;
+    font-weight: 400;
+}

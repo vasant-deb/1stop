@@ -1,0 +1,88 @@
+<app-header></app-header>
+<section class="inner_page_breadcrumb">
+    <div class="container">
+        <div class="row">
+    <div class="col-xl-12">
+      <div class="breadcrumb_content">
+        <h3>{{this.pagename}}</h3>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<section class="shop-single-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-7">
+      <div class="column" style="position: relative;"><div class="scrollbalance-inner">
+        <div class="shop_single_natabmenu">
+          <div class="d-block d-sm-flex align-items-start">
+            <div class="nav flex-column nav-pills me-0 me-md-3" id="v-pills-tab2" role="tablist" aria-orientation="vertical">
+              <button *ngIf="product.image" class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"><img src="https://www.yusyah.com/images/products/{{product.image}}" alt=""></button>
+              <button *ngIf="product.back_image" class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false"><img src="https://www.yusyah.com/images/products/{{product.back_image}}" alt=""></button>
+           
+            </div>
+            <div class="tab-content m-auto" id="v-pills-tabContent">
+              <div *ngIf="product.image" class="tab-pane fade active show" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                <div class="shop_single_navmenu_content justify-content-center">
+                  <a class="product_popup popup-img" href="https://www.yusyah.com/images/products/{{product.image}}"><span class="flaticon-full-screen"></span></a>
+                  <div class="zoomimg_wrapper m-auto">
+                    <img class="zoom-img" id="zoom_01" src="https://www.yusyah.com/images/products/{{product.image}}" data-zoom-image="images/shop/ss1.png" width="550" alt="Shop Single Image">
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane fade" *ngIf="product.back_image" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                <div class="shop_single_navmenu_content justify-content-center">
+                  <a class="product_popup popup-img" href="https://www.yusyah.com/images/products/{{product.back_image}}"><span class="flaticon-full-screen"></span></a>
+                  <div class="zoomimg_wrapper m-auto">
+                    <img class="zoom-img" id="zoom_02" src="https://www.yusyah.com/images/products/{{product.back_image}}" data-zoom-image="images/shop/ss2.png" width="550" alt="Shop Single Image">
+                  </div>
+                </div>
+              </div>
+             
+            </div>
+          </div>
+        </div></div></div>
+            </div>
+            <div class="col-xl-4 offset-xl-1 d-none d-xl-block">
+      <div class="column"><div class="scrollbalance-inner"><div class="shop_single_product_details sidebar mb-3 mb-xl-0">
+          <ul class="db-400 d-flex">
+            <li class="border-right heading-color fz14">APPLE</li>
+            
+       <!-- <li class="border-right me-3 heading-color fz14">3,014 reviews</li>
+            <li class="color-light-green fz14">330 in stock</li>-->    
+          </ul>
+                      <h4 class="title mb15">{{product.name}}</h4>
+          <hr>
+                      <div class="sspd_price mb25 mt20">${{product.discounted_price}}</div>
+                      <p class="para" [innerHTML]="sanitizedHtml"></p>
+          <ul class="cart_btn_widget shop_single3_style align-items-center mb-0">
+            <li class="list-inline-item me-2 mb-2">
+                <div class="cart_btn">
+                    <div class="quantity-block">
+                      <button class="quantity-arrow-minus inner_page" (click)="decrement()"> <span class="fa fa-minus"></span> </button>
+                      <input class="quantity-num inner_page" type="number" [value]="product.quantity ? product.quantity : 0">
+                      <button class="quantity-arrow-plus inner_page" (click)="increment()"> <span class="fas fa-plus"></span> </button>
+                    </div>
+                </div>
+            </li>
+          
+          </ul>
+         
+          <hr class="mt-0">
+          <ul class="cart_btn_widget shop_single3_sbt_style align-items-center mb-0">
+            <li class="list-inline-item me-3 mb-3"><a href="#" class="btn btn-thm">Add to cart</a></li>
+          </ul>
+        
+                  </div></div></div>
+            </div>
+        </div>
+  <div class="row">
+    
+  </div>
+  
+    </div>
+</section>
+
+<app-footer></app-footer>
+

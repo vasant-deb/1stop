@@ -1,0 +1,82 @@
+
+    <!--brand header-->
+    <app-header></app-header>
+
+    <div class="body_content_wrapper position-relative" >
+	   	   
+        <section class="home-one">
+            <div class="container-fluid px-0">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ngx-slick-carousel class="carousel" [config]="bannerOptions">
+                            <div ngxSlickItem *ngFor="let slide of sliders" class="slide">
+                              <img src="https://www.yusyah.com/images/banners/{{slide.image}}" alt="">
+                            </div>
+                          </ngx-slick-carousel>
+                       
+                    </div>
+                </div>
+            </div>
+        </section>
+  <!--Latest Devices-->
+   
+  <section class="features pb20">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10">
+                <div class="main-title text-center text-sm-start mb80-520 mb25-414">
+                    <h2 class="">Latest Devices</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <ngx-slick-carousel class="carousel" [config]="latestdevicesOptions">
+                    <a  [routerLink]="['/categories', latest.slug]"  ngxSlickItem *ngFor="let latest of latestdevices" class="slide latestdevices">
+                      <img src="https://www.yusyah.com/images/categories/{{latest.image}}" alt="">
+                      <h4>{{latest.name}}</h4>
+                    </a>
+                  </ngx-slick-carousel>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Accessories-->
+<section class="our-blog pt0 pb60 latestdevices">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="main-title text-center text-sm-start">
+                    <h2>Accessories</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xl-3 card" *ngFor="let product of accessories">
+                <div class="for_blog">
+                    <div class="thumb"><img class="img-whp" src="https://www.yusyah.com/images/products/{{product.image}}" alt="{{product.name}}"></div>
+                    <div class="details">
+                        <div class="tc_content pt-4">
+                            <h4 class="title mt-0 text-center">
+                                <div *ngIf="auth" class="price">${{product.discounted_price}}<small><!--<del>$45</del>--></small></div>
+                                <a href="product/{{product.slug}}">{{product.name}}</a>
+                                <div *ngIf="auth"  class="cart_btn">
+        <div class="quantity-block">
+          <button class="quantity-arrow-minus inner_page" (click)="decrement(product.id)"> <span class="fa fa-minus"></span> </button>
+          <input class="quantity-num inner_page" type="number" [value]="product.quantity ? product.quantity : 0">
+          <button class="quantity-arrow-plus inner_page" (click)="increment(product.id)"> <span class="fas fa-plus"></span> </button>
+        </div>
+      </div>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+    </div>
+</section>
+
+  
+   
+       <app-footer></app-footer></div>
