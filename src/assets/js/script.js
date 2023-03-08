@@ -453,25 +453,7 @@
             }
         })();
     });
-    $(function() {
-        (function quantityProducts() {
-            var $quantityArrowMinus = $(".quantity-arrow-minus2");
-            var $quantityArrowPlus = $(".quantity-arrow-plus2");
-            var $quantityNum = $(".quantity-num2");
-            $quantityArrowMinus.click(quantityMinus);
-            $quantityArrowPlus.click(quantityPlus);
-
-            function quantityMinus() {
-                if ($quantityNum.val() > 1) {
-                    $quantityNum.val(+$quantityNum.val() - 1);
-                }
-            }
-
-            function quantityPlus() {
-                $quantityNum.val(+$quantityNum.val() + 1);
-            }
-        })();
-    });
+  
     $(function() {
         (function quantityProducts() {
             var $quantityArrowMinus = $(".quantity-arrow-minus3");

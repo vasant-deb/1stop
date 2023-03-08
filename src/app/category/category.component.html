@@ -34,7 +34,14 @@
         </a>
         <div class="details text-center">
           <div class="title"><a href="/product/{{product.slug}}">{{product.name}}</a></div>
-          <div class="price">${{product.discounted_price}}</div>
+          <div class="price" *ngIf="auth">${{product.discounted_price}}</div>
+          <div class="cart_btn" *ngIf="auth">
+            <div class="quantity-block">
+              <button class="quantity-arrow-minus inner_page" (click)="decrement(product.id)"> <span class="fa fa-minus"></span> </button>
+              <input class="quantity-num inner_page" type="number" value="{{product.quantity}}">
+              <button class="quantity-arrow-plus inner_page" (click)="increment(product.id)"> <span class="fas fa-plus"></span> </button>
+            </div>
+          </div>
         </div>
        
       </div>

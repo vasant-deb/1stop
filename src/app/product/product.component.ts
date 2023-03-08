@@ -17,9 +17,9 @@ export class ProductComponent {
   categories:any[]=[];
   products:any[]=[];
   sanitizedHtml: any;
-
-  product: any = {quantity: 0};
-  quantity=0;
+  auth=false;
+  product: any = {};
+  quan:number=0;
   pagename:string| null = null;
     constructor(private sanitizer: DomSanitizer,private spinner: NgxSpinnerService,private router: Router,private authService: AuthService,private route: ActivatedRoute) { }
   
@@ -30,20 +30,28 @@ export class ProductComponent {
       if(this.slug){
       this.getcategories();
       }
+      let email=localStorage.getItem('email');
+    let token=localStorage.getItem('token');
+    if(email && token){
+      this.checkauth();
+    }
     }
     getcategories() {
       this.slug = this.route.snapshot.paramMap.get('slug');
       this.spinner.show();
-      this.authService.getProduct(this.slug)
+      const token = localStorage.getItem('token');
+
+      this.authService.getProduct(this.slug,token)
         .subscribe(
           res => {
             this.spinner.hide();
             if (res === null) {
               // handle null case here
             } else {
-              this.pagename = res.stats.name;
-             this.quantity=0;
-              this.product =res.stats;
+              this.pagename = res.stats.product.name;
+            
+              this.product =res.stats.product;
+              this.quan=this.product.quantity;
               if(this.product.description!=null){
               this.sanitizedHtml = this.sanitizer.bypassSecurityTrustHtml(this.product.description);
               }
@@ -56,17 +64,39 @@ export class ProductComponent {
         );
     }
     
-    increment() {
-      
+    increment(quantity:number) {
       if (isNaN(this.product.quantity)) {
         this.product.quantity = 0;
       }
       this.product.quantity += 1;
+      this.quan = this.product.quantity; // update the input value
     }
     
-    decrement() {
+    decrement(quantity:number) {
+      if (isNaN(this.product.quantity)) {
+        this.product.quantity = 0;
+      }
       if (this.product.quantity > 0) {
         this.product.quantity -= 1;
+        this.quan = this.product.quantity; // update the input value
+      }
+    }
+    checkauth(){
+      let email = localStorage.getItem('email');
+      let token = localStorage.getItem('token');
+      if (email && token) {
+        this.authService.checkauths({ email, token })
+          .subscribe(
+            res => {
+              const error = res.error;
+              if(error === false){
+                this.auth = true;
+               }
+            },
+            err => {
+              console.log(err);
+            }
+          );
       }
     }
 }

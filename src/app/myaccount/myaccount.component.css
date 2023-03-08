@@ -1,0 +1,28 @@
+
+.myaccount .header {
+  background: #397388;
+  color: white;
+  padding: 10px;
+  height: auto;
+  text-align: left;
+  border-radius: 5px;
+}
+.myaccount a.items-center.-is-active {
+  color: white !important;
+}
+.myaccount a.items-center:hover{
+  color: white !important;
+}
+.sidebar_list_item {
+  margin: 10px 0px;
+}
+.card.account_details_page.form_grid {
+  padding: 10px;
+}
+button.btn.btn-thm,a.btn.btn-thm {
+  color: white;
+}
+button.btn.btn-thm::before,a.btn.btn-thm::before  {
+  background-color: #397388 !important;
+  color: white;
+}

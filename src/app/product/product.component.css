@@ -1,0 +1,18 @@
+button.btn.btn-thm,a.btn.btn-thm {
+    color: white;
+}
+button.btn.btn-thm::before,a.btn.btn-thm::before  {
+    background-color: #397388 !important;
+    color: white;
+}
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    flex: 1;
+    padding: 10px;
+    background: white;
+    margin: 10px;
+  }

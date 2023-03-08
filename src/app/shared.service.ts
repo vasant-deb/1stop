@@ -13,7 +13,7 @@ export class SharedService {
   async setValue(value: any): Promise<any> {
     try {
       const res = await this.authService.userdetails(value).toPromise();
-      return Promise.resolve({firstname: res?.firstname, lastname: res?.lastname, email: res?.email, countcart: res?.countcart, cart: res?.cart});
+      return Promise.resolve({firstname: res?.firstname, lastname: res?.lastname, email: res?.email, countcart: res?.countcart, cart: res?.cart, total: res?.total});
     } catch (err) {
       console.log(err);
     }

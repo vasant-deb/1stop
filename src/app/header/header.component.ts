@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
   firstname: string = '';
   lastname: string = '';
   countcart: number = 0;
+  total: number = 0.00; // initializes the variable to 0.00
   auth=false;
   cart: any[] = [];
   devices:any[]=[];
@@ -25,7 +26,7 @@ export class HeaderComponent implements OnInit {
   category: any; // add this line to define the category property
   subcategory: any; // add this line to define the category property
   subsubcategory:any;
-  
+
   ngOnInit() {
    this.device();
    this.menu();
@@ -36,9 +37,11 @@ export class HeaderComponent implements OnInit {
       this.spinner.show();
     this.sharedService.setValue({email: email, token: token})
       .then(res => {
+        debugger;
         this.firstname = res?.firstname;
         this.lastname = res?.lastname;
         this.countcart = res?.countcart;
+        this.total = res?.total;
         this.cart = res?.cart;
         console.log(res?.countcart);
         this.spinner.hide();
@@ -96,6 +99,9 @@ export class HeaderComponent implements OnInit {
   }
   home() {
     this.router.navigate(['']);
+  }
+  myaccount() {
+    this.router.navigate(['myaccount']);
   }
   logout() {
  
