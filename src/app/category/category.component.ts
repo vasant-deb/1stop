@@ -18,20 +18,23 @@ pagename:string| null = null;
   constructor(private spinner: NgxSpinnerService,private router: Router,private authService: AuthService,private route: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log('CategoryComponent initialized!');
+ 
     this.slug = this.route.snapshot.paramMap.get('slug');
-    // console.log('Slug parameter:', this.slug);
+  
     if(this.slug){
     this.getcategories();
     }
   }
   getcategories(){
+    this.spinner.show();
+
     this.slug = this.route.snapshot.paramMap.get('slug');
    
     this.authService.getCategory(this.slug)
     .subscribe(
       res => {
-     
+        this.spinner.hide();
+
         if (res === null) {
           // handle null case here
         } else {
