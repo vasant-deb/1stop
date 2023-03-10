@@ -1,0 +1,79 @@
+<app-header></app-header>
+
+<section class="shop-cart pt30 mycart">
+    <div class="container">
+  
+  <div class="row mt15">
+    <div class="col-lg-8 col-xl-9">
+      <div class="shopping_cart_table table-responsive">
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th scope="col">PRODUCT</th>
+              <th scope="col">PRICE</th>
+              <th scope="col">QUANTITY</th>
+              <th scope="col">TOTAL</th>
+              <th scope="col">REMOVE</th>
+            </tr>
+          </thead>
+          <tbody class="table_body" *ngIf="products">
+            <tr *ngFor="let product of products">
+              <th scope="row">
+                <ul class="cart_list d-block d-xl-flex">
+                  <li class="ps-1 ps-sm-4 pe-1 pe-sm-4"><a href="/product/{{product.slug}}"><img src="https://www.yusyah.com/images/products/{{product.image}}" width="100px" height="100px" alt=""></a></li>
+                  <li class="ms-2 ms-md-3">
+                    <a class="cart_title" href="/product/{{product.slug}}">
+                      <span class="fz16">{{product.name}} </span>
+                    
+                    </a>
+                  </li>
+                </ul>
+              </th>
+              <td>${{product.discounted_price}} </td>
+              <td>
+                <div class="cart_btn" *ngIf="auth">
+                    <div class="quantity-block">
+                      <button class="quantity-arrow-minus inner_page" (click)="decrement(product.id)"> <span class="fa fa-minus"></span> </button>
+                      <input class="quantity-num inner_page" #quantityInputs type="number" [value]="product.quantity" (input)="product.quantity = quantityInputs.value">
+                      <button class="quantity-arrow-plus inner_page" (click)="increment(product.id)"> <span class="fas fa-plus"></span> </button>
+                    </div>
+                  </div>
+                <!-- <input class="cart_count text-center" placeholder="2" type="number"> -->
+              </td>
+              <td class="">${{(product.discounted_price * product.quantity).toFixed(2)}}</td>
+              <td class=""><span (click)="deleteProduct(product.cart_id)" class="flaticon-close"></span></td>
+            </tr>
+           
+          </tbody>
+        </table>
+        <div class="checkout_form mt30">
+          
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-xl-3">
+      <div class="order_sidebar_widget style2">
+        <h4 class="title">Summary</h4>
+        <p class="summary">Shipping charges will be added after order is processed. Your order will be processed within 24 working hours. Orders placed after 2:00 pm EST will be processed next working day.</p>
+        <ul>
+          <li class="subtitle"><p>Subtotal <span class="float-end">${{this.subtotal}}</span></p></li>
+          <li class="subtitle"><p>Shipping <span class="float-end">TBD Later</span></p></li>
+          <li class="subtitle"><p>Taxes <span class="float-end">{{this.tax}}</span></p></li>
+        
+          <li class="subtitle"><hr></li>
+          <li class="subtitle totals"><p>Order Total <span class="float-end">${{this.total}}</span></p></li>
+        </ul>
+        <div class="ui_kit_button payment_widget_btn">
+          <button type="button" (click)="checkout()" class="btn btn-thm btn-block">Proceed to checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+</section>
+<div *ngIf="auth" id="addalltocart" (click)="onAddAllToCart()">
+    <div id="wrapper">
+      <i class="fa fa-shopping-cart"></i>
+    </div>
+  </div>
+<app-footer></app-footer>

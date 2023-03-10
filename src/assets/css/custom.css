@@ -121,3 +121,21 @@ section.inner_page_breadcrumb {
 .productmyview button.btn.btn-thm {
     margin: 0px 30px;
 }
+.mycart button.btn.btn-thm {
+    color: white;
+}
+.mycart button.btn.btn-thm:before{
+background:#397388;
+}
+.mycart p.summary {
+    background: #3973872e;
+    padding: 10px;
+    margin: 0px;
+    font-size: 12px;
+}
+.mycart button.quantity-arrow-plus.inner_page {
+    top: 5px !important;
+}
+.mycart .order_sidebar_widget.style2 {
+    padding: 10px;
+}

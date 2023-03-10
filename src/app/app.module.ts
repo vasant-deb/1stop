@@ -17,6 +17,9 @@ import {  ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CategoryComponent } from './category/category.component';
 import { ProductComponent } from './product/product.component';
+import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { ProductComponent } from './product/product.component';
     LoginComponent,
     MyaccountComponent,
     CategoryComponent,
-    ProductComponent
+    ProductComponent,
+    CartComponent,
+    CheckoutComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

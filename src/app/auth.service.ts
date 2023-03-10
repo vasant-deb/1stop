@@ -18,8 +18,10 @@ export class AuthService {
   checkauths({ email, token }: { email: string, token: string }): Observable<{ error: boolean }> {
     return this.http.post<{ error: boolean }>('https://checklistforme.online/api/public/checkauth', { email, token });
   }
-  
-  
+ 
+  deletecart({ cartId }: { cartId: number }): Observable<{ error: boolean }> {
+    return this.http.post<{ error: boolean }>('https://checklistforme.online/api/public/deletecartitem', { cartId });
+  }
   userdetails(value: {email: string, token: string }) {
     return this.http.post<{message:string,firstname:string,lastname: string,email: string,countcart:number,total:number,cart: any[]}>('https://checklistforme.online/api/public/userdetails', value);
   }
@@ -33,6 +35,10 @@ export class AuthService {
   getCategory(slug: string | null, token: string | null, email: string | null): Observable<any> {
     let params = new HttpParams().set('token', token || '').set('email', email || '');
     return this.http.get<any>(`https://checklistforme.online/api/public/getcategory/${slug}`, { params });
+  }
+  getCartItems(token: string | null, email: string | null): Observable<any> {
+    let params = new HttpParams().set('token', token || '').set('email', email || '');
+    return this.http.get<any>(`https://checklistforme.online/api/public/getcartitems`, { params });
   }
   getProduct(slug: string | null, token: string | null): Observable<any> {
     let params = new HttpParams().set('token', token || '');
