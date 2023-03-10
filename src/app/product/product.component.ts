@@ -6,6 +6,7 @@ import { AuthService } from '../auth.service';
 import { DomSanitizer } from '@angular/platform-browser';
 
 import { NgxSpinnerService } from 'ngx-spinner';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-product',
@@ -18,10 +19,12 @@ export class ProductComponent {
   products:any[]=[];
   sanitizedHtml: any;
   auth=false;
+  cartQuantity: {[key: number]: number} = {};
+
   product: any = {};
   quan:number=0;
   pagename:string| null = null;
-    constructor(private sanitizer: DomSanitizer,private spinner: NgxSpinnerService,private router: Router,private authService: AuthService,private route: ActivatedRoute) { }
+    constructor(private snackBar: MatSnackBar,private sanitizer: DomSanitizer,private spinner: NgxSpinnerService,private router: Router,private authService: AuthService,private route: ActivatedRoute) { }
   
     ngOnInit() {
      
@@ -36,51 +39,60 @@ export class ProductComponent {
       this.checkauth();
     }
     }
-    getcategories() {
-      this.slug = this.route.snapshot.paramMap.get('slug');
-      this.spinner.show();
-      const token = localStorage.getItem('token');
 
-      this.authService.getProduct(this.slug,token)
-        .subscribe(
-          res => {
-            this.spinner.hide();
-            if (res === null) {
-              // handle null case here
-            } else {
-              this.pagename = res.stats.product.name;
-            
-              this.product =res.stats.product;
-              this.quan=this.product.quantity;
-              if(this.product.description!=null){
-              this.sanitizedHtml = this.sanitizer.bypassSecurityTrustHtml(this.product.description);
-              }
-              console.log(this.categories);
-            }
-          },
-          err => {
-            console.log(err);
+getcategories() {
+  this.slug = this.route.snapshot.paramMap.get('slug');
+  this.spinner.show();
+  const token = localStorage.getItem('token');
+
+  this.authService.getProduct(this.slug,token)
+    .subscribe(
+      res => {
+        this.spinner.hide();
+        if (res === null) {
+          // handle null case here
+        } else {
+          this.pagename = res.stats.product.name;
+          this.product = res.stats.product;
+          this.quan = this.product.quantity;
+          this.cartQuantity[this.product.id] = this.product.quantity;
+          this.product.prevQuantity = this.product.quantity;
+
+          if(this.product.description!=null){
+            this.sanitizedHtml = this.sanitizer.bypassSecurityTrustHtml(this.product.description);
           }
-        );
-    }
-    
-    increment(quantity:number) {
-      if (isNaN(this.product.quantity)) {
-        this.product.quantity = 0;
+
+          // populate the products array with the fetched product data
+          this.products = [this.product];
+        }
+      },
+      err => {
+        console.log(err);
       }
-      this.product.quantity += 1;
-      this.quan = this.product.quantity; // update the input value
-    }
-    
-    decrement(quantity:number) {
-      if (isNaN(this.product.quantity)) {
-        this.product.quantity = 0;
+    );
+}
+
+increment(productId: number) {
+ 
+  const product = this.products.find(p => p.id === productId);
+  if (product) {
+      const quantity = parseInt(product.quantity, 10) || 0; // convert to integer and handle NaN
+      product.quantity = quantity + 1;
+  }
+ 
+}
+
+decrement(productId: number) {
+
+  const product = this.products.find(p => p.id === productId);
+  if (product) {
+      const quantity = parseInt(product.quantity, 10) || 0; // convert to integer and handle NaN
+      if (quantity > 0) {
+          product.quantity = quantity - 1;
+        
       }
-      if (this.product.quantity > 0) {
-        this.product.quantity -= 1;
-        this.quan = this.product.quantity; // update the input value
-      }
-    }
+  }
+}
     checkauth(){
       let email = localStorage.getItem('email');
       let token = localStorage.getItem('token');
@@ -99,4 +111,42 @@ export class ProductComponent {
           );
       }
     }
+   
+onAddAllToCart() {
+  this.spinner.show();
+  const cartItems: any[] = [];
+  this.products.forEach(product => {
+    if (product.quantity === "0" && product.prevQuantity > 0) {
+      cartItems.push({
+        product_id: product.id,
+        quantity: product.quantity
+      });
+    } else if (product.quantity > 0) {
+      cartItems.push({
+        product_id: product.id,
+        quantity: product.quantity
+      });
+    }
+  });
+  const token = localStorage.getItem('token');
+  const email = localStorage.getItem('email');
+  if (token && email) {
+    this.authService.addTocart(cartItems, token, email).subscribe(
+      res => {
+        this.spinner.hide();
+        var message = res.message;
+        this.snackBar.open(message, 'Dismiss', {
+          verticalPosition: 'top',
+          horizontalPosition: 'right',
+          duration: 5000
+        });
+        this.getcategories();
+        window.location.reload();
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+}
 }

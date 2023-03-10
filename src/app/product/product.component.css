@@ -16,3 +16,6 @@ button.btn.btn-thm::before,a.btn.btn-thm::before  {
     background: white;
     margin: 10px;
   }
+  .quantity-block.home_page_sidebar {
+    border: 1px solid #eaeaea;
+}

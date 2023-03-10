@@ -37,7 +37,6 @@ export class HeaderComponent implements OnInit {
       this.spinner.show();
     this.sharedService.setValue({email: email, token: token})
       .then(res => {
-        debugger;
         this.firstname = res?.firstname;
         this.lastname = res?.lastname;
         this.countcart = res?.countcart;

@@ -26,8 +26,12 @@ export class AuthService {
   getcategories() {
     return this.http.get<{message:string,stats: any[]}>('https://checklistforme.online/api/public/categories');
   }
-  getCategory(slug: string | null, token: string | null): Observable<any> {
-    let params = new HttpParams().set('token', token || '');
+  addTocart(cartItems: any[], token: string | null, email: string | null): Observable<any> {
+    let params = new HttpParams().set('token', token || '').set('email', email || '');
+    return this.http.post<any>(`https://checklistforme.online/api/public/addalltoacart`, { cartItems }, { params });
+}
+  getCategory(slug: string | null, token: string | null, email: string | null): Observable<any> {
+    let params = new HttpParams().set('token', token || '').set('email', email || '');
     return this.http.get<any>(`https://checklistforme.online/api/public/getcategory/${slug}`, { params });
   }
   getProduct(slug: string | null, token: string | null): Observable<any> {

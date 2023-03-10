@@ -1,0 +1,26 @@
+span.badge.bgc-thm.rounded-circle {
+    color: white !important;
+}
+.header a.menubar:after,.header a.menubar span,.header a.menubar:before {
+    background: #000;
+}
+.header.stylehome1.home10_style {
+    background: #ffffff;
+}
+span.icon.flaticon-profile {
+     color: black !important;
+}
+a.menubar {
+    color: black !important;
+}
+img.mobilemenu {
+    filter: invert(100%);
+  }
+  .mobile_menu_bar.float-start .logo img {
+    width: 100%;
+    height: 50px;
+}
+
+span.badge.bgc-thm {
+    color: white !important;
+}

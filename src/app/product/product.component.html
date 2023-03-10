@@ -45,39 +45,27 @@
         </div></div></div>
             </div>
             <div class="col-xl-6 offset-xl-1 d-none d-xl-block card">
-      <div class="column"><div class="scrollbalance-inner"><div class="shop_single_product_details sidebar mb-3 mb-xl-0">
-          <ul class="db-400 d-flex">
-          
-            
-       <!-- <li class="border-right me-3 heading-color fz14">3,014 reviews</li>
-            <li class="color-light-green fz14">330 in stock</li>-->    
-          </ul>
-                      <h4 class="title mb15">{{product.name}}</h4>
-            
-                      <div *ngIf="auth" class="sspd_price mb25 mt20">${{product.discounted_price}}</div>
-                      <h4>About This Item</h4>
-                      <p class="para" [innerHTML]="sanitizedHtml"></p>
-                      <h5 *ngIf="!auth" >Register or Login Now To get price details</h5>
-                        <a *ngIf="!auth" href="login" class="btn btn-thm">Click Here to Get Started</a>
-         
-                     
+                <div class="details text-center">
+                    <div class="title"><a href="/product/{{product.slug}}">{{product.name}}</a></div>
+                    <h4>About This Item</h4>
+                    <p class="para" [innerHTML]="sanitizedHtml"></p>
+                    <h5 *ngIf="!auth" >Register or Login Now To get price details</h5>
+                    <a *ngIf="!auth" href="login" class="btn btn-thm">Click Here to Get Started</a>
+                    <div class="price" *ngIf="auth">${{product.discounted_price}}</div>
+                    <div class="cart_btn" *ngIf="auth">
+                      <div class="quantity-block">
+                        <button class="quantity-arrow-minus inner_page" (click)="decrement(product.id)"> <span class="fa fa-minus"></span> </button>
+                        <input class="quantity-num inner_page" #quantityInputs type="number" [value]="product.quantity" (input)="product.quantity = quantityInputs.value">
+                        <button class="quantity-arrow-plus inner_page" (click)="increment(product.id)"> <span class="fas fa-plus"></span> </button>
+                      </div>
+                      <button *ngIf="auth" (click)="onAddAllToCart()" type="button" class="btn btn-thm">Add to cart</button>
+                    </div>
+                   
+                    <span class="price" *ngIf="cartQuantity[product.id] > 0 && auth">{{cartQuantity[product.id]}} in cart</span>
+                  </div>
 
 
-          <hr class="mt-0"  *ngIf="auth">
-          <ul class="cart_btns ui_kit_button mb15 d-flex justify-content-between" *ngIf="auth">
-            <li>
-              <div class="cart_btn home_page_sidebar">
-                <div class="quantity-block home_page_sidebar">
-                  <button (click)="decrement(this.quan)" class="quantity-arrow-minus2 shop_single_page_sidebar"><img src="assets/images/icons/minus.svg" alt=""></button>
-                  <input class="quantity-num2 shop_single_page_sidebar" type="number" value="{{this.quan}}">
-                  <button (click)="increment(this.quan)" class="quantity-arrow-plus2 shop_single_page_sidebar"> <span class="flaticon-close"></span> </button>
-                </div>
-              </div>
-            </li>
-            <li><button type="button" class="btn btn-thm">Add to cart</button></li>
-          </ul>
-        
-                  </div></div></div>
+      
             </div>
         </div>
     </div>

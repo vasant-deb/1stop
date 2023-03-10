@@ -507,6 +507,18 @@
         $(".drop_btn3").on('click', function() {
             $(".drop_content3").toggle();
         });
+        $(window).on('scroll', function() {
+            var header = $('.main-menu');
+            var scroll = $(window).scrollTop();
+          
+            if (scroll >= header.outerHeight()) {
+                $('#respMenu2').show();
+              header.addClass('fixed-top');
+            } else {
+                $('#respMenu2').hide();
+              header.removeClass('fixed-top');
+            }
+          });
     });
 
     //  Fixed sidebar Custom Script For That 
