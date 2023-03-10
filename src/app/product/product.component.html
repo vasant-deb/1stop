@@ -10,7 +10,7 @@
   </div>
 </div>
 </section>
-<section class="shop-single-content">
+<section class="shop-single-content productmyview">
     <div class="container">
         <div class="row container-card">
             <div class="col-xl-5 card">
@@ -45,8 +45,8 @@
         </div></div></div>
             </div>
             <div class="col-xl-6 offset-xl-1 d-none d-xl-block card">
-                <div class="details text-center">
-                    <div class="title"><a href="/product/{{product.slug}}">{{product.name}}</a></div>
+                <div class="details">
+                    <div class="title">{{product.name}}</div>
                     <h4>About This Item</h4>
                     <p class="para" [innerHTML]="sanitizedHtml"></p>
                     <h5 *ngIf="!auth" >Register or Login Now To get price details</h5>

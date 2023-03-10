@@ -38,6 +38,10 @@ export class AuthService {
     let params = new HttpParams().set('token', token || '');
     return this.http.get<any>(`https://checklistforme.online/api/public/getproduct/${slug}`, { params });
   }
+  getaccessories(token: string | null, email: string | null): Observable<any> {
+    let params = new HttpParams().set('token', token || '').set('email', email || '');
+    return this.http.get<any>(`https://checklistforme.online/api/public/accessories`, { params });
+  }
   getslides() {
     return this.http.get<{message:string,stats: any[]}>('https://checklistforme.online/api/public/slides');
   }
@@ -50,9 +54,8 @@ export class AuthService {
   getmenus(){
     return this.http.get<{message:string,stats: any[]}>('https://checklistforme.online/api/public/menus');
   }
-  getaccessories() {
-    return this.http.get<{message:string,stats: any[]}>('https://checklistforme.online/api/public/accessories');
-  }
+ 
+  
   saleproducts(){
     return this.http.get<{message:string,stats: any[]}>('https://checklistforme.online/api/public/saleproducts');
   }

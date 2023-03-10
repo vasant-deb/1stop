@@ -82,3 +82,42 @@ section.inner_page_breadcrumb {
     font-weight:500;
     font-size:40px;
 }
+.details.text-center a {
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+}
+.price{
+     font-size: 14px;
+    font-weight: 500;
+    line-height:35px;
+    color: black;
+}
+
+
+
+.productmyview .title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.productmyview h4 {
+    line-height: 35px;
+}
+
+.productmyview p {
+    font-size: 14px;
+}
+
+.productmyview .price {
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.productmyview .cart_btn {
+    display: flex;
+}
+
+.productmyview button.btn.btn-thm {
+    margin: 0px 30px;
+}

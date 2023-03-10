@@ -34,7 +34,7 @@
                 <ngx-slick-carousel class="carousel" [config]="latestdevicesOptions">
                     <a href="category/{{latest.slug}}" ngxSlickItem *ngFor="let latest of latestdevices" class="slide latestdevices">
                       <img src="https://www.yusyah.com/images/categories/{{latest.image}}" alt="">
-                      <h4>{{latest.name}}</h4>
+                      <h4 class="text-center">{{latest.name}}</h4>
                     </a>
                   </ngx-slick-carousel>
             </div>
@@ -54,22 +54,19 @@
         <div class="row">
             <div class="col-md-6 col-xl-3 card" *ngFor="let product of accessories">
                 <div class="for_blog">
-                    <div class="thumb"><img class="img-whp" src="https://www.yusyah.com/images/products/{{product.image}}" alt="{{product.name}}"></div>
-                    <div class="details">
-                        <div class="tc_content pt-4">
-                            <h4 class="title mt-0 text-center">
-                                <div *ngIf="auth" class="price">${{product.discounted_price}}<small><!--<del>$45</del>--></small></div>
-                                <a href="product/{{product.slug}}">{{product.name}}</a>
-                                <div *ngIf="auth"  class="cart_btn">
-        <div class="quantity-block">
-          <button class="quantity-arrow-minus inner_page" (click)="decrement(product.id)"> <span class="fa fa-minus"></span> </button>
-          <input class="quantity-num inner_page" type="number" [value]="product.quantity ? product.quantity : 0">
-          <button class="quantity-arrow-plus inner_page" (click)="increment(product.id)"> <span class="fas fa-plus"></span> </button>
-        </div>
-      </div>
-                            </h4>
+                    <a class="thumb" href="/product/{{product.slug}}"><img class="img-whp" src="https://www.yusyah.com/images/products/{{product.image}}" alt="{{product.name}}"></a>
+                    <div class="details text-center">
+                        <div class="title"><a href="/product/{{product.slug}}">{{product.name}}</a></div>
+                        <div class="price" *ngIf="auth">${{product.discounted_price}}</div>
+                        <div class="cart_btn" *ngIf="auth">
+                          <div class="quantity-block">
+                            <button class="quantity-arrow-minus inner_page" (click)="decrement(product.id)"> <span class="fa fa-minus"></span> </button>
+                            <input class="quantity-num inner_page" #quantityInputs type="number" [value]="product.quantity" (input)="product.quantity = quantityInputs.value">
+                            <button class="quantity-arrow-plus inner_page" (click)="increment(product.id)"> <span class="fas fa-plus"></span> </button>
+                          </div>
                         </div>
-                    </div>
+                        <span class="price" *ngIf="cartQuantity[product.id] > 0 && auth">{{cartQuantity[product.id]}} in cart</span>
+                      </div>
                 </div>
             </div>
         
@@ -78,7 +75,7 @@
 </section>
 
   
-<div *ngIf="auth" id="addalltocart">
+<div *ngIf="auth" id="addalltocart" (click)="onAddAllToCart()">
     <div id="wrapper">
       <i class="fa fa-shopping-cart"></i>
     </div>
