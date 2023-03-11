@@ -1,0 +1,410 @@
+<app-header></app-header>
+
+<div class="container billing mycart">
+    <div class="row mb-5">
+        <div class="col-md-9 col-sm-12">
+            <div class="card">
+                <div class="card-header bg-white">
+                    <ul class="nav nav-tabs card-header-tabs justify-content-center" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link" [ngClass]="{ 'active': this.pagename === 'Shipping' }" data-toggle="tab" role="tab" id="tab" href="#tab-checkout-option">
+                                <p>
+                                    <span class="float-left display-3 mr-2">1</span>
+                                    <span class="d-block lead">Step</span>
+                                    <span>Shipping</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [ngClass]="{ 'active': this.pagename === 'Billing' }" id="tab">
+                                <p>
+                                    <span class="float-left display-3 mr-2">2</span>
+                                    <span class="d-block lead">Step</span>
+                                    <span>Billing</span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" [ngClass]="{ 'active': this.pagename === 'Confirm' }" id="tab">
+                                <p>
+                                    <span class="float-left display-3 mr-2">3</span>
+                                    <span class="d-block lead">Step</span>
+                                    <span>Confirmation</span>
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card-body" *ngIf="shippingview">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane p-4 active" role="tabpanel" id="tab-checkout-option">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form class="ant-form ant-form-horizontal" id="shippingform">
+                                        <h3 class="checkout_sectionHeading__29Tvy">Shipping Address</h3>
+
+                                        <div *ngFor="let address of addresses" (click)="shippingaddress(address.id)">
+                                            <div class="ant-row ant-form-item shipping_addressItem__1p4yL shippingid" id="{{address.id}}">
+                                              <div class="ant-col ant-form-item-control-wrapper">
+                                                <div class="ant-form-item-control has-success">
+                                                  <span class="ant-form-item-children">
+                                                    <div class="ant-radio-group ant-radio-group-outline shipping_addressRadioGroup__2DEMK" id="shippingCheckoutForm_addressId">
+                                                      <label class="shipping_addressRadio__3eCAN ant-radio-wrapper ant-radio-wrapper-checked">
+                                                        <span class="ant-radio ant-radio-checked"> 
+                                                          <input type="radio" name="shippingid" class="ant-radio-input" value="{{address.id}}">
+                                                          <span class="ant-radio-inner"></span>
+                                                        </span>
+                                                        <span>
+                                                          <div>
+                                                            <span class="shipping_addName__2f3vN"> {{address.name}} </span>
+                                                            <span class="shipping_addLine__gChc7">{{address.company}}</span>
+                                                            <span class="shipping_addLine__gChc7">{{address.street1}} {{address.street2}}</span> 
+                                                            <span class="shipping_addLine__gChc7">{{address.city}} {{address.state}} {{address.postalcode}}</span>
+                                                            <span class="shipping_addLine__gChc7">{{address.phone}}</span>
+                                                            <div class="hidden">
+                                                              <svg *ngIf="this.shippingId == address.id" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check-square" class="svg-inline--fa fa-check-square fa-w-14 shipping_addSelectedIcon__3vc7I" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"> <path fill="currentColor" d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path> </svg>
+                                                            </div>
+                                                          </div>
+                                                        </span>
+                                                      </label>
+                                                    </div>
+                                                  </span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          
+           
+                     <label class="error" *ngIf="this.shippingId == 0">Please select a shipping Address.</label>
+
+                                        <div class="ant-row ant-form-item shipping_addNewAddBtnContainer__sBqEv">
+                                            <div class="ant-col ant-form-item-control-wrapper">
+                                                <div class="ant-form-item-control">
+                                                    <span class="ant-form-item-children">
+                                                        <button type="button" (click)='createnew()' data-toggle="modal" data-target="#myModal" class="ant-btn"><span>Add New</span></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h3 class="checkout_sectionHeading__29Tvy">Shipping Method</h3>
+                                        <div data-show="true" class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon shipping_shippingAlert__1rlC7">
+                                            <span class="ant-alert-message"></span>
+                                            <span class="ant-alert-description">
+                                                Shipping charges will be added after order is processed. Your order will be processed within 24 working hours. Orders placed after 2:00 pm EST will be processed next working day.
+                                            </span>
+                                        </div>
+                                        <div class="ant-row ant-form-item shipping_methodItem__23Nru">
+                                            <div class="ant-col ant-form-item-control-wrapper">
+                                                <div class="ant-form-item-control">
+                                                    <span class="ant-form-item-children">
+                                                        <div class="ant-radio-group ant-radio-group-outline" id="shippingCheckoutForm_method">
+                                                            <label (click)='shippingType("Standard Shipping")' class="shipping_methodRadio__5S_v7 ant-radio-wrapper shippingmethod" id="Standard Shipping">
+                                                                <span class="ant-radio"> 
+                                                                <input type="radio" id="shippingtype" name="shippingtype" value="Standard Shipping">
+                                                                
+                                                               </span>
+                                                                <span>
+                                                                    <span class="shipping_methodName__MymJb">Standard Shipping </span>
+                                                                    <span class="shipping_methodDesc__3aPef"> Approx. 3 - 5 days</span>
+                                                                    <span class="shipping_methodCharges__N3_1Z"> Charges will be added later</span>
+                                                                </span>
+                                                            </label><br>
+                                                            <label (click)='shippingType("Expedited Shipping")' class="shipping_methodRadio__5S_v7 ant-radio-wrapper shippingmethod" id="Expedited Shipping">
+                                                                <span class="ant-radio">
+                                                                     <input  type="radio" id="shippingtype" name="shippingtype" value="Expedited Shipping">
+                                                                     </span>
+                                                                <span>
+                                                                    <span class="shipping_methodName__MymJb">Expedited Shipping </span>
+                                                                    <span class="shipping_methodDesc__3aPef"> Approx. 2 days</span>
+                                                                    <span class="shipping_methodCharges__N3_1Z"> Charges will be added later</span>
+                                                                </span>
+                                                            </label><br>
+                                                            <label (click)='shippingType("Express Shipping")' class="shipping_methodRadio__5S_v7 ant-radio-wrapper shippingmethod" id="Express Shipping">
+                                                                <span class="ant-radio"> 
+                                                                <input type="radio" id="shippingtype" name="shippingtype" value="Express Shipping" >
+                                                                </span>
+                                                                <span>
+                                                                    <span class="shipping_methodName__MymJb">Express Shipping </span>
+                                                                    <span class="shipping_methodDesc__3aPef"> Approx. 1 day</span>
+                                                                    <span class="shipping_methodCharges__N3_1Z"> Charges will be added later</span>
+                                                                </span>
+                                                            </label><br>
+                                                              
+                                                        </div>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="checkout_actionBtnContainer__2MPSW">
+                                            <button  (click)="billing(this.pagename)"  type="submit" class="ant-btn checkout_nextBtn__1950V ant-btn-primary ant-btn-lg"><span>Next</span></button>
+                                        </div>
+                                    </form>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <!-- second tab -->
+                      
+                    </div>
+                </div>
+
+
+                <div class="card-body" *ngIf="billingview">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane p-4 active" role="tabpanel" id="tab-checkout-option">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form class="ant-form ant-form-horizontal" id="shippingform">
+                                        <h3 class="checkout_sectionHeading__29Tvy">Billing Address</h3>
+
+                                        <div *ngFor="let address of addresses" (click)="billingaddress(address.id)">
+                                            <div class="ant-row ant-form-item shipping_addressItem__1p4yL shippingid" id="{{address.id}}">
+                                              <div class="ant-col ant-form-item-control-wrapper">
+                                                <div class="ant-form-item-control has-success">
+                                                  <span class="ant-form-item-children">
+                                                    <div class="ant-radio-group ant-radio-group-outline shipping_addressRadioGroup__2DEMK" id="shippingCheckoutForm_addressId">
+                                                      <label class="shipping_addressRadio__3eCAN ant-radio-wrapper ant-radio-wrapper-checked">
+                                                        <span class="ant-radio ant-radio-checked"> 
+                                                          <input type="radio" name="shippingid" class="ant-radio-input" value="{{address.id}}">
+                                                          <span class="ant-radio-inner"></span>
+                                                        </span>
+                                                        <span>
+                                                          <div>
+                                                            <span class="shipping_addName__2f3vN"> {{address.name}} </span>
+                                                            <span class="shipping_addLine__gChc7">{{address.company}}</span>
+                                                            <span class="shipping_addLine__gChc7">{{address.street1}} {{address.street2}}</span> 
+                                                            <span class="shipping_addLine__gChc7">{{address.city}} {{address.state}} {{address.postalcode}}</span>
+                                                            <span class="shipping_addLine__gChc7">{{address.phone}}</span>
+                                                            <div class="hidden">
+                                                              <svg *ngIf="this.billingId == address.id" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check-square" class="svg-inline--fa fa-check-square fa-w-14 shipping_addSelectedIcon__3vc7I" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"> <path fill="currentColor" d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path> </svg>
+                                                            </div>
+                                                          </div>
+                                                        </span>
+                                                      </label>
+                                                    </div>
+                                                  </span>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          
+           
+                     <label class="error" *ngIf="this.billingId == 0">Please select a Billing Address.</label>
+
+                                        <div class="ant-row ant-form-item shipping_addNewAddBtnContainer__sBqEv">
+                                            <div class="ant-col ant-form-item-control-wrapper">
+                                                <div class="ant-form-item-control">
+                                                    <span class="ant-form-item-children">
+                                                        <button type="button" (click)='createnew()' data-toggle="modal" data-target="#myModal" class="ant-btn"><span>Add New</span></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h3 class="checkout_sectionHeading__29Tvy">Payment Method</h3>
+                                        
+                                        <div class="ant-row ant-form-item shipping_methodItem__23Nru">
+                                            <div class="ant-col ant-form-item-control-wrapper">
+                                                <div class="ant-form-item-control">
+                                                    <span class="ant-form-item-children">
+                                                        <div class="ant-radio-group ant-radio-group-outline" id="shippingCheckoutForm_method">
+                                                            <label (click)='shippingType("Standard Shipping")' class="shipping_methodRadio__5S_v7 ant-radio-wrapper shippingmethod" id="Standard Shipping">
+                                                                <span class="ant-radio"> 
+                                                                <input type="radio" id="paymentmethod" name="paymentmethod" checked value="Pay by card on file">
+                                                                
+                                                               </span>
+                                                                <span>
+                                                                    <span class="shipping_methodName__MymJb">Pay by card on file</span>
+                                                                    <span class="shipping_methodDesc__3aPef"></span>
+                                                                    <span class="shipping_methodCharges__N3_1Z"> Charge my card on file as per our agreed pay terms.</span>
+                                                                </span>
+                                                            </label><br>
+                                                            <label class="col-md-12">
+                                                                <textarea class="form-control" name="notes"></textarea>
+                                                             </label>   
+                                                      
+                                                              
+                                                        </div>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="checkout_actionBtnContainer__2MPSW">
+                                            <button  (click)="billing(this.pagename)"  type="submit" class="ant-btn checkout_nextBtn__1950V ant-btn-primary ant-btn-lg"><span>Next</span></button>
+                                        </div>
+                                    </form>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <!-- second tab -->
+                      
+                    </div>
+                </div>
+
+                <div class="card-body myconfirm" *ngIf="confirmview">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane p-4 active" role="tabpanel" id="tab-checkout-option">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3 class="checkout_sectionHeading__29Tvy">Shipping Address</h3>
+                                    <div class="shippingdetails">
+                                        <p class="confirm_addName__1yeMM">{{statsData.shipping.name}}</p>
+                                        <p>{{statsData.shipping.company}}</p>
+                                        <p>{{statsData.shipping.street1}} {{statsData.shipping.street2}}</p>
+                                        <p>{{statsData.shipping.city}}, {{statsData.shipping.state}} {{statsData.shipping.postalcode}}</p>
+                                        <p>Phone: {{statsData.shipping.phone}}</p>
+                                    </div>
+                                    <h3 class="checkout_sectionHeading__29Tvy">Shipping Method</h3>
+                                    <p class="confirm_method__1OJpz"><span>{{this.shipType}}</span> - 
+                                    Approx. 2 days                                
+                                    </p>
+    
+                                    <h3 class="checkout_sectionHeading__29Tvy">Billing Address</h3>
+                                    <div class="billingdetails">
+                                        <p class="confirm_addName__1yeMM">{{statsData.billing.name}}</p>
+                                        <p>{{statsData.billing.company}}</p>
+                                        <p>{{statsData.billing.street1}} {{statsData.billing.street2}}</p>
+                                        <p>{{statsData.billing.city}}, {{statsData.billing.state}} {{statsData.billing.postalcode}}</p>
+                                        <p>Phone: {{statsData.billing.phone}}</p>
+                                    </div>
+                                    <h3 class="checkout_sectionHeading__29Tvy">Payment Method</h3>
+                                    <p class="confirm_method__1OJpz"><span>Pay by card on file</span> - Charge my card on file as per our agreed pay terms.</p>
+                                    <h3 class="checkout_sectionHeading__29Tvy">Notes</h3>
+                                    <p class="confirm_method__1OJpz"><span></span></p>
+    
+    
+                                    <div class="checkout_actionBtnContainer__2MPSW">
+                                        <a type="button" href="cart" class="ant-btn confirm_viewCart__1Jx3r ant-btn-lg mybuttonview">View Cart</a>
+                                        <form method="post">
+                                        <button type="submit" (click)='orderplace()'  class="ant-btn checkout_nextBtn__1950V ant-btn-primary ant-btn-lg"><span>Place Order</span></button>
+                                        </form>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <!-- second tab -->
+                      
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="card-footer"></div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-12">
+                                    <!--summary start -->
+                                    <div class="order_sidebar_widget style2">
+                                        <h4 class="title">Summary</h4>
+                                        <p class="summary">Shipping charges will be added after order is processed. Your order will be processed within 24 working hours. Orders placed after 2:00 pm EST will be processed next working day.</p>
+                                        <ul>
+                                          <li class="subtitle"><p>Subtotal <span class="float-end">${{this.subtotal}}</span></p></li>
+                                          <li class="subtitle"><p>Shipping <span class="float-end">TBD Later</span></p></li>
+                                          <li class="subtitle"><p>Taxes <span class="float-end">{{this.tax}}</span></p></li>
+                                        
+                                          <li class="subtitle"><hr></li>
+                                          <li class="subtitle totals"><p>Order Total <span class="float-end">${{this.total}}</span></p></li>
+                                        </ul>
+                                      
+                                      </div>
+
+                                    <!--summary end -->
+          </div>
+                                
+                                
+                                <!--Modal Popup -->
+                                
+ <div class="modal" id="myModal" role="dialog" *ngIf="modalshow">
+    <!-- modal dialog -->
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- modal header -->
+        <div class="modal-header">
+          <button type="button" (click)='close()' class="close" data-dismiss="modal">×</button>
+          <div class="mohe">
+            <h4 class="modal-title"> Add New Address</h4>
+          </div>
+        </div>
+        <!-- end modal header-->
+        <!-- modal body -->
+        <div class="modal-body">
+          <form method="post">
+            <fieldset class="row">
+              <div class="form-group col-md-6 col-xs-6">
+                <label for="name"> Name: *</label>
+                <input type="text" class="form-control" name="data[Address][name]" id="name">
+              </div>
+
+              <div class="form-group col-md-6 col-xs-6">
+                <label for="email"> Company *</label>
+                <input type="text" class="form-control" name="data[Address][company]" id="company">
+              </div>
+
+              <div class="form-group col-md-6 col-xs-6">
+                <label for="tel"> Street 1 *</label>
+                <input type="text" class="form-control" name="data[Address][street1]" id="street1">
+              </div>
+
+              <div class="form-group col-md-6 col-xs-6">
+                <label for="tel"> Street 2 *</label>
+                <input type="text" class="form-control" name="data[Address][street2]" id="street2">
+              </div>
+              
+              <div class="form-group col-md-6 col-xs-6">
+                <label for="tel"> City *</label>
+                <input type="text" class="form-control" name="data[Address][city]" id="city">
+              </div>
+              
+              <div class="form-group col-md-6 col-xs-6">
+                <label for="tel"> Postal Code *</label>
+                <input type="text" class="form-control" name="data[Address][postalcode]" id="postalcode">
+              </div>
+              
+              <div class="form-group col-md-6 col-xs-6">
+                <label for="tel"> Province *</label>
+                 <select class="form-control" name="data[Address][state]">
+                                       <option>Alberta</option>
+                                       <option>British Columbia</option>
+                                       <option>Manitoba</option>
+                                       <option>New Brunswick</option>
+                                       <option>Newfoundland and Labrador</option>
+                                       <option>Northwest Territories</option>
+                                       <option>Nova Scotia</option>
+                                       <option>Nunavut</option>
+                                       <option>Ontario</option>
+                                       <option>Prince Edward Island</option>
+                                       <option>Quebec</option>
+                                       <option>Saskatchewan</option>
+                                       <option>Yukon Territory</option>
+                                       </select>
+              </div>
+              <div class="form-group col-md-6 col-xs-6">
+                <label for="tel"> Phone Number *</label>
+                <input type="hidden" class="form-control" name="data[Address][user_id]" value="11" id="user_id">
+                <input type="text" class="form-control" name="data[Address][phone]" id="phone">
+              </div>
+            </fieldset>
+        </form></div>
+        <!-- end modal body -->
+        <!-- modal footer-->
+        <div class="modal-footer">
+          <div class="mohe">
+            <button type="submit" class="btn btn-default btn-md btn-sm"> Create</button>
+          </div>
+        </div>
+         
+        <!-- end modal footer -->
+      </div>
+      <!-- end modal content-->
+    </div>
+    <!-- end modal dialog-->
+  </div>
+</div>
+<!--end modal -->
+    </div>
+    <app-footer></app-footer>

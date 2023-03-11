@@ -15,7 +15,6 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: '404', component: NotFoundComponent },
-  { path: '**', canActivate: [NotFoundGuard] },
   // other routes here
   { path: 'login', component: LoginComponent },
   { path: 'myaccount', component: MyaccountComponent },
@@ -23,6 +22,7 @@ const routes: Routes = [
   { path: 'category/:slug', component: CategoryComponent },
   { path: 'cart', component: CartComponent },
   { path: 'product/:slug', component: ProductComponent },
+  { path: '**', redirectTo: '/404' }
  //{ path: 'product/:slug', component: ProductComponent },
 
 ];

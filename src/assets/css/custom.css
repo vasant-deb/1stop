@@ -139,3 +139,560 @@ background:#397388;
 .mycart .order_sidebar_widget.style2 {
     padding: 10px;
 }
+
+/*shipping style */
+.billing li.nav-item {
+    width: 33%;
+}
+.billing ul#myTab {
+    width: 100%;
+}
+.billing button.ant-btn {
+    padding: 0px 10px;
+    background: #387388;
+    border-radius: 5px;
+    float: right;
+    color: white;
+}
+.billing .nav-link {
+    color: #387388;
+}
+.billing input#button-login {
+    background: #387388;
+}
+.billing input#button-account {
+    background: #387388;
+}
+
+.billing .ant-form {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    list-style: none;
+    -webkit-font-feature-settings: "tnum", "tnum";
+    font-feature-settings: "tnum", "tnum";
+}
+.billing .checkout_sectionHeading__29Tvy {
+    font-size: 22px;
+    display: block;
+    color: #333;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #ccc;
+}
+.billing .ant-form-item {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    list-style: none;
+    -webkit-font-feature-settings: "tnum", "tnum";
+    font-feature-settings: "tnum", "tnum";
+    margin: 0 0 24px;
+    vertical-align: top;
+}
+.billing .ant-row {
+    position: relative;
+    height: auto;
+    margin-right: 0;
+    margin-left: 0;
+    zoom: 1;
+    display: block;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.billing .ant-col {
+    position: relative;
+    min-height: 1px;
+}
+.billing .ant-form-item-control {
+    position: relative;
+    line-height: 40px;
+    zoom: 1;
+}
+.billing .ant-form-item-children {
+    position: relative;
+}
+.billing .shipping_addressItem__1p4yL .shipping_addressRadioGroup__2DEMK {
+    display: block;
+}
+.billing .ant-radio-group {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    list-style: none;
+    -webkit-font-feature-settings: "tnum", "tnum";
+    font-feature-settings: "tnum", "tnum";
+    display: inline-block;
+    line-height: unset;
+}
+.billing .shipping_addressRadio__3eCAN.ant-radio-wrapper-checked {
+    border: 2px solid #42447f;
+}
+.billing .ant-form-item label {
+    position: relative;
+}
+.billing .ant-form label {
+    font-size: 14px;
+}
+.billing .shipping_addressRadio__3eCAN {
+    padding: 25px;
+    width: 100%;
+    border: 2px solid #eee;
+    margin-top: 20px;
+}
+.billing .shipping_addressRadio__3eCAN > span:first-child {
+    display: none;
+}
+.billing .ant-radio {
+    margin: 0;
+    line-height: 1;
+    vertical-align: sub;
+    outline: none;
+}
+.billing .ant-radio,
+.ant-radio-wrapper {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    list-style: none;
+    -webkit-font-feature-settings: "tnum", "tnum";
+    font-feature-settings: "tnum", "tnum";
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.billing .ant-radio-input {
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+z-index: 1;
+cursor: pointer;
+opacity: 0;
+}
+.billing .ant-radio-checked .ant-radio-inner {
+border-color: #da2937;
+}
+.billing .ant-radio-inner {
+position: relative;
+top: 0;
+left: 0;
+display: block;
+width: 16px;
+height: 16px;
+background-color: #fff;
+border: 1px solid #d9d9d9;
+border-radius: 100px;
+-webkit-transition: all .3s;
+transition: all .3s;
+}
+
+.billing .shipping_addressRadio__3eCAN > span:last-child {
+    display: block;
+}
+.billing span.ant-radio + * {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+.billing .shipping_addLine__gChc7,
+.shipping_addName__2f3vN {
+    display: block;
+    width: 100%;
+    padding: 5px;
+}
+.billing .shipping_addName__2f3vN {
+    font-weight: 700;
+}
+.billing .shipping_addLine__gChc7,
+.shipping_addName__2f3vN {
+    display: block;
+    width: 100%;
+    padding: 5px;
+}
+.billing .shipping_addressRadio__3eCAN.ant-radio-wrapper-checked .shipping_addSelectedIcon__3vc7I {
+    display: block;
+}
+
+.billing svg:not(:root).svg-inline--fa {
+    overflow: visible;
+}
+.billing .shipping_addressRadio__3eCAN .shipping_addSelectedIcon__3vc7I {
+    color: #42447f;
+    font-size: 28px;
+    position: absolute;
+    top: -3px;
+    right: 0;
+    display: none;
+}
+
+.billing .svg-inline--fa.fa-w-14 {
+    width: 0.875em;
+}
+.billing svg:not(:root) {
+    overflow: hidden;
+}
+
+.billing .svg-inline--fa {
+    display: inline-block;
+    font-size: inherit;
+    height: 1em;
+    overflow: visible;
+    vertical-align: -0.125em;
+}
+.billing .ant-form-item-control {
+    position: relative;
+    line-height: 40px;
+    zoom: 1;
+}
+.billing .ant-form-item-control:after,
+.ant-form-item-control:before {
+    display: table;
+    content: "";
+}
+.billing .ant-form-item-children {
+    position: relative;
+}
+.billing .checkout_sectionHeading__29Tvy {
+    font-size: 22px;
+    display: block;
+    color: #333;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #ccc;
+}
+.billing .ant-alert-with-description.ant-alert-no-icon {
+    padding: 15px;
+}
+.billing .ant-alert.ant-alert-no-icon {
+    padding: 8px 15px;
+}
+.billing .shipping_shippingAlert__1rlC7 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.billing .ant-alert-with-description {
+    position: relative;
+    padding: 15px 15px 15px 64px;
+    color: rgba(0, 0, 0, 0.65);
+    line-height: 1.5;
+    border-radius: 4px;
+}
+.billing .ant-alert-info {
+    background-color: #3973872e;
+    border: 1px solid #91d5ff;
+}
+.billing .ant-alert {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    list-style: none;
+    -webkit-font-feature-settings: "tnum", "tnum";
+    font-feature-settings: "tnum", "tnum";
+    position: relative;
+    padding: 8px 15px 8px 37px;
+    word-wrap: break-word;
+    border-radius: 4px;
+}
+.billing .ant-alert-with-description .ant-alert-message {
+    display: block;
+    margin-bottom: 4px;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 16px;
+}
+.billing .ant-alert-message {
+    color: rgba(0, 0, 0, 0.85);
+}
+.billing .ant-alert-with-description .ant-alert-description {
+    display: block;
+}
+.billing .ant-alert-description {
+    /*  display: none; */
+    font-size: 12px;
+
+    line-height: 22px;
+}
+.billing .ant-form-item {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    list-style: none;
+    -webkit-font-feature-settings: "tnum", "tnum";
+    font-feature-settings: "tnum", "tnum";
+    margin: 0 0 24px;
+    vertical-align: top;
+}
+.billing .ant-form-item-control {
+    position: relative;
+    line-height: 40px;
+    zoom: 1;
+}
+.billing .ant-radio-group {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    list-style: none;
+    -webkit-font-feature-settings: "tnum", "tnum";
+    font-feature-settings: "tnum", "tnum";
+    display: inline-block;
+    line-height: unset;
+}
+.billing .ant-form-item label {
+    position: relative;
+}
+.billing .ant-form label {
+    font-size: 14px;
+}
+.billing .shipping_methodRadio__5S_v7 {
+    padding-bottom: 25px;
+    padding-top: 25px;
+    border-bottom: 1px solid #ccc;
+}
+
+.billing .shipping_methodRadio__5S_v7 > span:first-child {
+    margin-left: 15px;
+}
+.billing .ant-radio {
+    margin: 0;
+    line-height: 1;
+    vertical-align: sub;
+    outline: none;
+}
+.billing .checkout_actionBtnContainer__2MPSW {
+    text-align: right;
+    margin-bottom: 150px;
+    margin-top: 20px;
+}
+.billing .checkout_actionBtnContainer__2MPSW .checkout_nextBtn__1950V {
+    width: 150px;
+}
+.billing .ant-btn-primary {
+    color: #fff;
+    background-color: #da2937;
+    border-color: #da2937;
+    text-shadow: 0 -1px 0 rgb(0 0 0 / 12%);
+    -webkit-box-shadow: 0 2px 0 rgb(0 0 0 / 5%);
+    box-shadow: 0 2px 0 rgb(0 0 0 / 5%);
+}
+.billing .ant-btn-lg {
+    height: 40px;
+    padding: 0 15px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+.billing input.ant-radio-input {
+    color: #387388;
+}
+.billing div#shippingCheckoutForm_method {
+    width: 100%;
+}
+.billing .billingstep2 span.shipping_methodCharges__N3_1Z {
+    float: right;
+    width: 50%;
+}
+.container.billing {
+    margin: 10px auto;
+}
+.billing button.ant-btn.mybuttonview {
+padding: 0px 10px;
+background: #ffffff;
+border-radius: 5px;
+display: block;
+color: black;
+border: 2px solid #bfbfbf;
+float: left;
+}
+.billing .shippingdetails {
+margin: 10px auto;
+display: block;
+}
+
+.billing .billingdetails {
+margin: 10px 0px;
+}
+.billing .confirm_method__1OJpz {
+margin: 10px 0px;
+}
+.billing .confirm_addName__1yeMM {
+line-height: 20px;
+}
+.billing .card{
+    display: block;
+}
+/* popup Css */
+.welcome-message .borderBtn {
+position: absolute;
+top: 300%;
+left: 45%;
+text-align: center;
+text-decoration: none;
+font-weight: 500;
+font-size: 1.05em;
+color: white;
+padding: 1.45em 3.35em;
+border-radius: 0.25em;
+background: rgba(195, 40, 40, 1);
+}
+
+.borderBtn:hover {
+color: white;
+background-color: #363B3F;
+}
+
+.container .btn-lg {
+background: rgba(195, 40, 40, 1);
+border: 0.05em solid rgba(195, 40, 40, .7);
+color: white;
+}
+
+.container .btn-lg:hover {
+background: white;
+border: 0.05em solid rgba(195, 40, 40, 1);
+color: rgba(195, 40, 40, 1);
+}
+
+.modal-body .form-control {
+border-radius: 0.35em;
+margin-right: 0.25em;
+padding: 0.15em;
+}
+
+.modal-body .form-group label {
+margin-left: 0.35em;
+}
+
+.modal-header {
+background: rgb(29 58 69);
+}
+
+.modal-body .form-group {
+text-align: left;
+}
+
+.close {
+color: white !important;
+opacity: 0.8 !important;
+}
+
+.mohe {
+position: relative;
+display: block;
+color: white;
+float: left;
+padding: 0.75em;
+}
+
+.mohe:after {
+position: absolute;
+content: "";
+top: -1.45em;
+bottom: -1.45em;
+right: -7.15em;
+border-left: 0.05em solid rgba(0, 0, 0, 0.2);
+border-right: 0.05em solid rgba(255, 255, 255, 0.7);
+transform: rotate(25deg);
+}
+
+.modal-footer {
+background: rgb(29 58 69);
+}
+
+.modal-footer button {
+background: white;
+color: black;
+width: 9em;
+border-radius: 0.35em;
+}
+
+.input-group textarea {
+height: 6.35em !important;
+background-color: rgba(255, 255, 255, 0.9);
+}
+
+.form-control {
+height: 2em;
+padding: 0.75em 1.15em;
+font-size: 1.15em;
+border: 0.05em solid rgb(29 58 69) !important;
+background-color: rgba(255, 255, 255, 0.9) !important;
+color: black;
+}
+
+.input-group .btn-primary {
+color: rgba(255, 255, 255, 1);
+background-color: rgba(195, 40, 40, 0.9) !important;
+width: 50% !important;
+float: right !important;
+margin-right: 0 !important;
+}
+
+.input-group .btn-primary:hover {
+background-color: rgba(255, 255, 255, 1) !important;
+color: #363B3F;
+border: 0.15em solid rgba(195, 40, 40, 1);
+border-radius: 0.35em;
+font-weight: 700;
+}
+.billing .modal {
+    display: block;
+z-index: 99999;
+}
+.billing button.close {
+    color: black !important;
+    border-radius: 50%;
+    font-size: 16px;
+    width: 30px;
+    font-weight: 600;
+    line-height: 0px;
+    height: 30px;
+}
+.billing h4.modal-title {
+    color: white;
+}
+.billing .form-group {
+    font-size: 16px;
+    color: black;
+}
+.billing .modal-content {
+overflow: hidden;
+}
+.billing .modal-body .form-group {
+text-align: left;
+margin: 10px 0px;
+}
+.billing button.btn.btn-default.btn-md.btn-sm:hover {
+background: white;
+color: black;
+}
+/*shipping style end
