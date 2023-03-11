@@ -695,4 +695,10 @@ margin: 10px 0px;
 background: white;
 color: black;
 }
-/*shipping style end
+/*shipping style end */
+#mega-menu ul.menu li .drop-menu .one-third, .mega_button_dropdown_menu ul.menu li .drop-menu .one-third {
+    width: 20%;
+}
+.drop-menu {
+    overflow-y: scroll;
+}
