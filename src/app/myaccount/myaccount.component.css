@@ -7,6 +7,9 @@
   text-align: left;
   border-radius: 5px;
 }
+.contactinformation .mg30 {
+  margin: 30px auto;
+}
 .myaccount a.items-center.-is-active {
   color: white !important;
 }
@@ -28,4 +31,49 @@ button.btn.btn-thm::before,a.btn.btn-thm::before  {
 }
 .red{
   color:Red;
+}
+.edit-address-modal.card {
+  position: absolute;
+  z-index: 999;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  margin: 0px auto;
+}
+.profiledetails{
+  font-size: 16px;
+}
+.sameheight{
+  display: flex;
+  align-items: stretch;
+}
+.profiledetails .card {
+  padding: 10px;
+  flex:1;
+}
+.profiledetails p.heading b {
+  font-size: 18px;
+  color: black;
+}
+.edit-address-modal .modal-content {
+  padding: 10px;
+}
+.changepassword {
+  padding: 10px;
+}
+.changepassword .btn{
+margin: 10px;   
+}
+.changepassword .form-control{
+  width: 50%;
+  height: auto;
+  margin: 10px;
+}
+.edit-address-modal .form-control {
+  width: 95%;
+  height: auto;
+}
+
+.edit-address-modal button.btn.btn-thm {
+  margin: 10px;
 }

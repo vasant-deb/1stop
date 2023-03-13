@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { Router, NavigationEnd } from '@angular/router';
 import { AuthService } from '../auth.service';
@@ -18,7 +18,47 @@ export class LoginComponent {
   constructor(private spinner: NgxSpinnerService,private snackBar: MatSnackBar,private fb: FormBuilder,private authService: AuthService, private router: Router) {
     this.createForm();
   }
-  
+  ngOnInit(): void {
+    let email=localStorage.getItem('email');
+    let token=localStorage.getItem('token');
+    if(email && token){
+      this.checkauth();
+    }
+    var check=localStorage.getItem('justSignedUp') ;
+    this.router.events.subscribe(event => {
+      if (check === 'true') {
+        // Reload the page only if the user has just signed up
+        localStorage.removeItem('justSignedUp');
+        location.reload();
+      }
+    });
+  }
+  checkauth(){
+    let email = localStorage.getItem('email');
+    let token = localStorage.getItem('token');
+    if (email && token) {
+      this.authService.checkauths({ email, token })
+        .subscribe(
+          res => {
+            const error = res.error;
+            if(error === false){
+              localStorage.setItem('justSignedUp', 'true');
+
+              this.router.navigate(['/myaccount']);
+            }
+            if(res.message=="Wait for Admin To Get You Verified"){
+              localStorage.setItem('justSignedUp', 'true');
+
+              this.router.navigate(['/myaccount']);
+            }
+             
+          },
+          err => {
+            console.log(err);
+          }
+        );
+    }
+  }
   createForm() {
     this.angForm = this.fb.group({
       firstName: ['', Validators.required],

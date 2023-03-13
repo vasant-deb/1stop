@@ -20,7 +20,7 @@
         <div class="sidebar_list_item ">
           <a (click)="myaddress()" class="items-center" [ngClass]="{ '-is-active': this.pagestate === 'My Address' }"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="feather feather-users">
+            class="feather feather-users mr15">
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
             <circle cx="9" cy="7" r="4" />
             <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
@@ -34,94 +34,45 @@
     </div>
     <div class="col-md-9">
       
-        <div class="header">{{this.pagestate}}</div>
-        <div class="card account_details_page form_grid" *ngIf="profileview">
-          <form class="contact_form" name="contact_form" action="#" method="post" novalidate="">
-            <div class="row">
-              
-              <div class="col-md-6">
-                <div class="form-group mb-4">
-                  <label class="form-label">Full Name</label>
-                  <input class="form-control" type="text" placeholder="Your Name">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group mb-4">
-                  <label class="form-label">Last Name</label>
-                  <input class="form-control" type="text" placeholder="Your Name">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group mb-4">
-                  <label class="form-label">Phone Number</label>
-                  <input class="form-control" type="number" placeholder="Phone Number">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group mb-4">
-                  <label class="form-label">Email</label>
-                  <input class="form-control email" type="email" placeholder="Your Email">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="dashboard_page sidebar_location_filter">
-                  <div class="form-group mb-3">
-                    <label class="form-label">Country</label>
-                    <div class="checkout_country_form actegory">
-                      <div class="dropdown bootstrap-select show-tick"><select class="selectpicker show-tick">
-                        <option>Select</option>
-                        <option value="Turkey">Turkey</option>
-                        <option value="United Kingdom">United Kingdom</option>
-                        <option value="United States">United States</option>
-                        <option value="Ukraine">Ukraine</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="UK">UK</option>
-                        <option value="Uzbekistan">Uzbekistan</option>
-                      </select><button type="button" tabindex="-1" class="btn dropdown-toggle btn-light" data-bs-toggle="dropdown" role="combobox" aria-owns="bs-select-1" aria-haspopup="listbox" aria-expanded="false" title="Select"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">Select</div></div> </div></button><div class="dropdown-menu "><div class="inner show" role="listbox" id="bs-select-1" tabindex="-1"><ul class="dropdown-menu inner show" role="presentation"></ul></div></div></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="dashboard_page sidebar_location_filter">
-                  <div class="form-group mb-3">
-                    <label class="form-label">State</label>
-                    <div class="checkout_country_form actegory">
-                      <div class="dropdown bootstrap-select show-tick"><select class="selectpicker show-tick">
-                        <option>Select</option>
-                        <option value="Istanbul">Istanbul</option>
-                        <option value="London">London</option>
-                        <option value="NewYork">New York</option>
-                        <option value="Paris">Paris</option>
-                        <option value="Dubai">Dubai</option>
-                        <option value="Rome">Rome</option>
-                        <option value="Singapore">Singapore</option>
-                      </select><button type="button" tabindex="-1" class="btn dropdown-toggle btn-light" data-bs-toggle="dropdown" role="combobox" aria-owns="bs-select-2" aria-haspopup="listbox" aria-expanded="false" title="Select"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">Select</div></div> </div></button><div class="dropdown-menu "><div class="inner show" role="listbox" id="bs-select-2" tabindex="-1"><ul class="dropdown-menu inner show" role="presentation"></ul></div></div></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group mb-4">
-                  <label class="form-label">Address Line 1</label>
-                  <input class="form-control" type="text" placeholder="Address Line">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group mb-4">
-                  <label class="form-label">Address Line 2</label>
-                  <input class="form-control" type="text" placeholder="Address Line">
-                </div>
+        <div class="header">{{this.pagestate}}  <span *ngIf="this?.message">( {{this?.message}} )</span></div>
+       
+        <div class=" account_details_page form_grid profiledetails" *ngIf="profileview">
+          <div class="contactinformation">
+            <div class="row mg30">
+            <div class="col-lg-6 sameheight">
+              <div class="card">
+            <p class="heading"><b>Personal Information</b></p>
+            <p><b>First Name :</b> {{userdetails?.first_name}}</p>
+              <p><b>Middle Name :</b> {{userdetails?.middle_name}}</p>
+            <p><b>Last Name :</b> {{userdetails?.last_name}}</p>
+            <p><b>Email :</b> {{userdetails?.email}}</p>
+            <p><b>Phone :</b> {{userdetails?.phone}}</p>
+              <p><b>Preferred Doc Type :</b> {{userdetails?.doc_type}}</p>
+                <p><b>HST/GST Number
+   :</b> {{userdetails?.gst}}</p>
+          
+          </div>
               </div>
             
-              <div class="col-sm-12">
-                <div class="form-group d-grid d-sm-flex mb0">
-                  <button type="button" class="btn btn-thm">Update Profile</button>
-                
-                </div>
-              </div>
+            
+            <div class="col-lg-6 sameheight">
+              <div class="card">
+            <p class="heading"><b>Address Information</b></p>
+              <p><b> Name : </b> {{userdetails?.address_name}}</p>
+            <p><b> Street 1 : </b>  {{userdetails?.address}}</p>
+            <p><b> Street 2 : </b> {{userdetails?.address2}}</p>
+              <p><b> City : </b> {{userdetails?.city}}</p>
+                <p><b> Postal Code : </b> {{userdetails?.zipcode}}</p>
+                  <p><b> Province : </b> {{userdetails?.state}}</p><br>
             </div>
-          </form>
+            </div>
+            <div class="col-lg-6">
+            <p class="heading"><b>Account Status </b></p>
+                      <p *ngIf="userdetails?.active==1">Verified</p>
+                      <p *ngIf="userdetails?.active!='1'">Not Verified</p>
+            </div>
+            </div>
+            </div>
         </div>
 
 
@@ -161,26 +112,86 @@
             <thead class="table-light">
               <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Date</th>
                 <th scope="col">Name</th>
-                <th scope="col">Shipping Method</th>
-                <th scope="col">Items</th>
-                <th scope="col">Total</th>
-                <th scope="col">Status</th>
+                <th scope="col">Company</th>
+                <th scope="col">Street 1</th>
+                <th scope="col">Street 2</th>
+                <th scope="col">City</th>
+                <th scope="col">Province</th>
+                <th scope="col">Postal Code</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Edit</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <th scope="row">#1923</th>
-                <td>Lenovo IdeaPad 3 15.6" Laptop - Sand</td>
-                <td>Aug 15, 2020</td>
-                <td>Paid</td>
-                <td class="status"><span class="style1">Delivered</span></td>
-                <td>$56.00</td>
-                <td class="action"><span class="details">...</span></td>
+            <tbody *ngIf="addresses">
+              <tr *ngFor="let address of addresses">
+                <th scope="row">#{{address?.id}}</th>
+                <td>{{address?.name}}</td>
+                <td>{{address?.company}}</td>
+                <td>{{address?.street1}}</td>
+                <td>{{address?.street2}}</td>
+                <td>{{address?.city}}</td>
+                <td>{{address?.state}}</td>
+                <td>{{address?.postalcode}}</td>
+                <td>{{address?.phone}}</td>
+                <td class="action"><i class="details fa fa-edit" (click)="openEditAddressModal(address)"></i></td>
               </tr>
             </tbody>
           </table>
+          <!--Modal Edit-->
+          <div class="edit-address-modal card" [hidden]="!showEditAddressModal">
+            <div class="modal-content">
+              <h2>Edit Address</h2>
+              <form [formGroup]="editAddressForm" (submit)="onSave()">
+                <input class="form-control" formControlName="id" type="hidden">
+                <label class="col-md-6">Name
+                <input class="form-control" formControlName="name">
+                </label>
+                <label class="col-md-6">Company
+                <input class="form-control" formControlName="company">
+                </label>
+                <label class="col-md-6">Street 1
+                <input class="form-control" formControlName="street1">
+                </label>
+                <label class="col-md-6">Street 2
+                <input class="form-control" formControlName="street2">
+                </label>
+                <label class="col-md-6">City
+                 <input class="form-control" formControlName="city">
+                </label>
+                <label class="col-md-6">State
+                <input class="form-control" formControlName="state">
+                </label>
+                <label class="col-md-6">Postal Code
+                <input class="form-control" formControlName="postalcode">
+                </label>
+                <label class="col-md-6">Phone
+                <input class="form-control" formControlName="phone">
+                </label>
+                <button type="submit" class="btn btn-thm">Save</button>
+                <button type="button" (click)="onCancel()">Cancel</button>
+              </form>
+            </div>
+          </div>
+          
+          <!--Modal Edit End-->
+        </div>
+
+
+        <div class="order_table table-responsive changepassword" *ngIf="changepasswordview">
+         
+        
+            
+              <form [formGroup]="changePasswordForm" (submit)="onChange()">
+                <input class="form-control" formControlName="token" type="hidden">
+                <input class="form-control" formControlName="email" type="hidden">
+                <label class="col-md-6">New Password
+                <input class="form-control" formControlName="password">
+                </label><br>
+                <button type="submit" class="btn btn-thm">Update</button>
+              </form>
+            
+          <!--Modal Edit End-->
         </div>
       
 </div>    

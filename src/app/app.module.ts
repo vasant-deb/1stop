@@ -22,6 +22,10 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { OrderComponent } from './order/order.component';
 
+import { MatDialogModule } from '@angular/material/dialog'; // import MatDialogModule
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +50,8 @@ import { OrderComponent } from './order/order.component';
     BrowserAnimationsModule,
     SlickCarouselModule,
     ReactiveFormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

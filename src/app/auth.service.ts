@@ -15,8 +15,14 @@ export class AuthService {
   login(value: {email: string, password: string }) {
     return this.http.post<{error:boolean,message:string,email:string,token: string}>('https://checklistforme.online/api/public/login', value);
   }
-  checkauths({ email, token }: { email: string, token: string }): Observable<{ error: boolean }> {
-    return this.http.post<{ error: boolean }>('https://checklistforme.online/api/public/checkauth', { email, token });
+  checkauths({ email, token }: { email: string, token: string }): Observable<any> {
+    return this.http.post<any>('https://checklistforme.online/api/public/checkauth', { email, token });
+  }
+  updateaddress({updatedAddress}: { updatedAddress:any }): Observable<any> {
+    return this.http.post<any>('https://checklistforme.online/api/public/updateaddress', {updatedAddress });
+  }
+  updatepassword({change}: { change:any }): Observable<any> {
+    return this.http.post<any>('https://checklistforme.online/api/public/updatepassword', {change });
   }
   getorderhistory({ email, token }: { email: string, token: string }): Observable<{ error: boolean ,stats:any[]}> {
     return this.http.post<{ error: boolean,stats:any[] }>('https://checklistforme.online/api/public/orderhistory', { email, token });

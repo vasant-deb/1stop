@@ -49,8 +49,11 @@
                     <div class="title">{{product.name}}</div>
                     <h4>About This Item</h4>
                     <p class="para" [innerHTML]="sanitizedHtml"></p>
+                    <h5 *ngIf="this?.message">{{this?.message}}</h5>
+                    <div *ngIf="!message">
                     <h5 *ngIf="!auth" >Register or Login Now To get price details</h5>
                     <a *ngIf="!auth" href="login" class="btn btn-thm">Click Here to Get Started</a>
+                    </div>
                     <div class="price" *ngIf="auth">${{product.discounted_price}}</div>
                     <div class="cart_btn" *ngIf="auth">
                       <div class="quantity-block">

@@ -21,7 +21,14 @@ export class OrderComponent implements OnInit {
   constructor(private snackBar: MatSnackBar,private spinner: NgxSpinnerService,private router: Router,private authService: AuthService,private route: ActivatedRoute) { }
 
   ngOnInit() {
-  
+    var check=localStorage.getItem('justSignedUp') ;
+    this.router.events.subscribe(event => {
+      if (check === 'true') {
+        // Reload the page only if the user has just signed up
+        localStorage.removeItem('justSignedUp');
+        location.reload();
+      }
+    });
     // Fetch order details from a service or API using this.orderId
     let email=localStorage.getItem('email');
     let token=localStorage.getItem('token');

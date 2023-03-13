@@ -20,7 +20,7 @@ export class ProductComponent {
   sanitizedHtml: any;
   auth=false;
   cartQuantity: {[key: number]: number} = {};
-
+message:String='';
   product: any = {};
   quan:number=0;
   pagename:string| null = null;
@@ -103,6 +103,8 @@ decrement(productId: number) {
               const error = res.error;
               if(error === false){
                 this.auth = true;
+               }else{
+                this.message=res.message;
                }
             },
             err => {
