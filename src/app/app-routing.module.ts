@@ -10,6 +10,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { CartComponent } from './cart/cart.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NotFoundGuard } from './not-found.guard';
+import { OrderComponent } from './order/order.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'category/:slug', component: CategoryComponent },
   { path: 'cart', component: CartComponent },
+  { path: 'order/:id', component: OrderComponent },
   { path: 'product/:slug', component: ProductComponent },
   { path: '**', redirectTo: '/404' }
  //{ path: 'product/:slug', component: ProductComponent },

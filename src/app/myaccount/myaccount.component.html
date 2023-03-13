@@ -6,19 +6,19 @@
     <div class="col-md-3">
       <div class="dashboard_sidebar_list">
         <div class="sidebar_list_item">
-          <a href="page-dashboard.html" class="items-center -is-active"><i class="flaticon-house mr15"></i>Profile</a>
+          <a (click)="profile()" class="items-center" [ngClass]="{ '-is-active': this.pagestate === 'Profile' }"><i class="flaticon-house mr15"></i>Profile</a>
         </div>
        
         <div class="sidebar_list_item ">
-          <a href="page-dashboard-order.html" class="items-center"><i class="flaticon-checked-box mr15"></i>Order</a>
+          <a  (click)="order()" class="items-center" [ngClass]="{ '-is-active': this.pagestate === 'Order History' }"><i class="flaticon-checked-box mr15"></i>Order</a>
         </div>
         <div class="sidebar_list_item ">
-          <a href="page-dashboard-customer.html" class="items-center"><i class="flaticon-growth mr15"></i>Change Password</a>
+          <a (click)="changepassword()" class="items-center" [ngClass]="{ '-is-active': this.pagestate === 'Change Password' }"><i class="flaticon-growth mr15"></i>Change Password</a>
         </div>
        
       
         <div class="sidebar_list_item ">
-          <a href="page-dashboard-setting.html" class="items-center"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          <a (click)="myaddress()" class="items-center" [ngClass]="{ '-is-active': this.pagestate === 'My Address' }"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
             class="feather feather-users">
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -27,15 +27,15 @@
             <path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>My Address</a>
         </div>
         <div class="sidebar_list_item ">
-          <a href="page-login.html" class="items-center"><i class="flaticon-exit mr15"></i>Logout</a>
+          <a  (click)="logout()" class="items-center"><i class="flaticon-exit mr15"></i>Logout</a>
         </div>
       </div>
 
     </div>
     <div class="col-md-9">
       
-        <div class="header">Profile</div>
-        <div class="card account_details_page form_grid">
+        <div class="header">{{this.pagestate}}</div>
+        <div class="card account_details_page form_grid" *ngIf="profileview">
           <form class="contact_form" name="contact_form" action="#" method="post" novalidate="">
             <div class="row">
               
@@ -122,6 +122,65 @@
               </div>
             </div>
           </form>
+        </div>
+
+
+
+        <div class="order_table table-responsive" *ngIf="orderview">
+          <table class="table">
+            <thead class="table-light">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Date</th>
+                <th scope="col">Name</th>
+                <th scope="col">Shipping Method</th>
+                <th scope="col">Items</th>
+                <th scope="col">Total</th>
+                <th scope="col">Status</th>
+                <th scope="col">Invoice</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let order of orders">
+                <th scope="row">#{{order.orderId}}</th>
+                <td>{{order.created}}</td>
+                <td>{{order.first_name}} {{order.last_name}}</td>
+                <td>{{order.shipping_method}}</td>
+                <td>{{order.quantity}}</td>
+                <td>${{order.total}}</td>
+                <td class="status"><span class="style1">{{order.status}}</span></td>
+               
+                <td class="action"><span class="details"><i (click)="viewOrder(order.orderId)" class="fa fa-file-invoice red" aria-hidden="true"></i></span></td>
+              </tr>             
+            </tbody>
+          </table>
+        </div>
+
+        <div class="order_table table-responsive" *ngIf="addressview">
+          <table class="table">
+            <thead class="table-light">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Date</th>
+                <th scope="col">Name</th>
+                <th scope="col">Shipping Method</th>
+                <th scope="col">Items</th>
+                <th scope="col">Total</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">#1923</th>
+                <td>Lenovo IdeaPad 3 15.6" Laptop - Sand</td>
+                <td>Aug 15, 2020</td>
+                <td>Paid</td>
+                <td class="status"><span class="style1">Delivered</span></td>
+                <td>$56.00</td>
+                <td class="action"><span class="details">...</span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       
 </div>    

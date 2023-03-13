@@ -26,3 +26,6 @@ button.btn.btn-thm::before,a.btn.btn-thm::before  {
   background-color: #397388 !important;
   color: white;
 }
+.red{
+  color:Red;
+}

@@ -19,16 +19,17 @@ export class CheckoutComponent {
   total :number=0.00;
   shippingId:number=0;
   billingId:number=0;
-
+billings:any;
   error=false;
   billingview=false;
   shippingview=true;
-
+  shipping:any;
   confirmview=false;
   pagename:string='Shipping';
   shipType:string='';
   auth=false;
   statsData :any;
+ 
   addresses:any[]=[];
   ngOnInit(){
     let email=localStorage.getItem('email');
@@ -42,8 +43,15 @@ export class CheckoutComponent {
       this.getaddress();
     }else{
       this.router.navigate(['']);
-
     }
+    var check=localStorage.getItem('justSignedUp') ;
+    this.router.events.subscribe(event => {
+      if (check === 'true') {
+        // Reload the page only if the user has just signed up
+        localStorage.removeItem('justSignedUp');
+        location.reload();
+      }
+    });
   }
   checkauth(){
     let email = localStorage.getItem('email');
@@ -121,6 +129,8 @@ export class CheckoutComponent {
              res => {
                const error = res.error;
                this.statsData =res.stats;
+               this.shipping=this.statsData.shipping;
+               this.billings=this.statsData.billing;
                this.spinner.hide();
              },
              err => {
@@ -140,6 +150,7 @@ export class CheckoutComponent {
   }
   }
   orderplace(){
+    this.spinner.show();
     let email = localStorage.getItem('email');
     let token = localStorage.getItem('token');
     const shippingId = localStorage.getItem('shippingId');
@@ -149,12 +160,18 @@ export class CheckoutComponent {
       .subscribe(
         res => {
           const error = res.error;
-         if(error===true){
+          const message=res.message;
+          this.snackBar.open(message, 'Dismiss', {
+            verticalPosition: 'top',
+            horizontalPosition: 'right',
+            duration: 5000
+          });
+         if(error===false){
+          localStorage.setItem('justSignedUp','true') ;
 
-         }else{
-          
+          this.router.navigate(['myaccount']);
          }
-          this.spinner.hide();
+         this.spinner.hide();
         },
         err => {
           console.log(err);

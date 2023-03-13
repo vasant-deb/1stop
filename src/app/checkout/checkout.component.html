@@ -7,31 +7,31 @@
                 <div class="card-header bg-white">
                     <ul class="nav nav-tabs card-header-tabs justify-content-center" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link" [ngClass]="{ 'active': this.pagename === 'Shipping' }" data-toggle="tab" role="tab" id="tab" href="#tab-checkout-option">
+                            <div class="nav-link" [ngClass]="{ 'active': this.pagename === 'Shipping' }" data-toggle="tab" role="tab" id="tab">
                                 <p>
                                     <span class="float-left display-3 mr-2">1</span>
                                     <span class="d-block lead">Step</span>
                                     <span>Shipping</span>
                                 </p>
-                            </a>
+                            </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" [ngClass]="{ 'active': this.pagename === 'Billing' }" id="tab">
+                            <div class="nav-link" [ngClass]="{ 'active': this.pagename === 'Billing' }" id="tab">
                                 <p>
                                     <span class="float-left display-3 mr-2">2</span>
                                     <span class="d-block lead">Step</span>
                                     <span>Billing</span>
                                 </p>
-                            </a>
+                            </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" [ngClass]="{ 'active': this.pagename === 'Confirm' }" id="tab">
+                            <div class="nav-link" [ngClass]="{ 'active': this.pagename === 'Confirm' }" id="tab">
                                 <p>
                                     <span class="float-left display-3 mr-2">3</span>
                                     <span class="d-block lead">Step</span>
                                     <span>Confirmation</span>
                                 </p>
-                            </a>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -249,24 +249,24 @@
                                 <div class="col-md-12">
                                     <h3 class="checkout_sectionHeading__29Tvy">Shipping Address</h3>
                                     <div class="shippingdetails">
-                                        <p class="confirm_addName__1yeMM">{{statsData.shipping.name}}</p>
-                                        <p>{{statsData.shipping.company}}</p>
-                                        <p>{{statsData.shipping.street1}} {{statsData.shipping.street2}}</p>
-                                        <p>{{statsData.shipping.city}}, {{statsData.shipping.state}} {{statsData.shipping.postalcode}}</p>
-                                        <p>Phone: {{statsData.shipping.phone}}</p>
+                                        <p  class="confirm_addName__1yeMM">{{this.shipping?.name}}</p>
+                                        <p>{{this.shipping?.company}}</p>
+                                        <p>{{this.shipping?.street1}} {{this.shipping?.street2}}</p>
+                                        <p>{{this.shipping?.city}}, {{this.shipping?.state}} {{this.shipping?.postalcode}}</p>
+                                        <p> Phone: {{this.shipping?.phone}}</p>
                                     </div>
                                     <h3 class="checkout_sectionHeading__29Tvy">Shipping Method</h3>
-                                    <p class="confirm_method__1OJpz"><span>{{this.shipType}}</span> - 
+                                    <p *ngIf="this.shipType" class="confirm_method__1OJpz"><span>{{this.shipType}}</span> - 
                                     Approx. 2 days                                
                                     </p>
     
                                     <h3 class="checkout_sectionHeading__29Tvy">Billing Address</h3>
                                     <div class="billingdetails">
-                                        <p class="confirm_addName__1yeMM">{{statsData.billing.name}}</p>
-                                        <p>{{statsData.billing.company}}</p>
-                                        <p>{{statsData.billing.street1}} {{statsData.billing.street2}}</p>
-                                        <p>{{statsData.billing.city}}, {{statsData.billing.state}} {{statsData.billing.postalcode}}</p>
-                                        <p>Phone: {{statsData.billing.phone}}</p>
+                                        <p class="confirm_addName__1yeMM">{{this.billings?.name}}</p>
+                                        <p>{{this.billings?.company}}</p>
+                                        <p>{{this.billings?.street1}} {{this.billings?.street2}}</p>
+                                        <p>{{this.billings?.city}}, {{this.billings?.state}} {{this.billings?.postalcode}}</p>
+                                        <p>Phone: {{this.billings?.phone}}</p>
                                     </div>
                                     <h3 class="checkout_sectionHeading__29Tvy">Payment Method</h3>
                                     <p class="confirm_method__1OJpz"><span>Pay by card on file</span> - Charge my card on file as per our agreed pay terms.</p>
@@ -303,9 +303,9 @@
                                         <h4 class="title">Summary</h4>
                                         <p class="summary">Shipping charges will be added after order is processed. Your order will be processed within 24 working hours. Orders placed after 2:00 pm EST will be processed next working day.</p>
                                         <ul>
-                                          <li class="subtitle"><p>Subtotal <span class="float-end">${{this.subtotal}}</span></p></li>
+                                          <li class="subtitle"><p>Subtotal <span class="float-end">${{this?.subtotal}}</span></p></li>
                                           <li class="subtitle"><p>Shipping <span class="float-end">TBD Later</span></p></li>
-                                          <li class="subtitle"><p>Taxes <span class="float-end">{{this.tax}}</span></p></li>
+                                          <li class="subtitle"><p>Taxes <span class="float-end">{{this?.tax}}</span></p></li>
                                         
                                           <li class="subtitle"><hr></li>
                                           <li class="subtitle totals"><p>Order Total <span class="float-end">${{this.total}}</span></p></li>

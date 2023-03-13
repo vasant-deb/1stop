@@ -1,0 +1,137 @@
+<app-header></app-header>
+<section class="inner_page_breadcrumb">
+    <div class="container">
+        <div class="row">
+    <div class="col-xl-12">
+      <div class="breadcrumb_content">
+        <h3>Order History</h3>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<div class="container mg30">
+     
+    <section class="shopping-cart cart-section">
+      
+        <div class="row">
+            
+
+
+
+
+
+<div class="col col-sm-3">
+    <div class="panel panel-default card">
+       <div class="panel-heading">
+          <h3 class="panel-title">1StopWireless</h3>
+       </div>
+       <div class="panel-body"> 5200 Dixie Road Mississauga, ON, L4W 1E4<br>
+       
+        Email: info@1StopWireless.ca<br>
+        Phone: 905-232-2080<br>
+          &nbsp; 
+       </div>
+    </div>
+ </div>
+          <div class="col col-sm-3">
+             <div class="panel panel-default card">
+                <div class="panel-heading">
+                   <h3 class="panel-title">Customer Info</h3>
+                </div>
+                <div class="panel-body"> {{this.orderDetails?.first_name}} {{this.orderDetails?.last_name}}<br>
+                   Email: {{this.orderDetails?.email}}<br>
+                   Phone: {{this.orderDetails?.phone}}<br>
+                   &nbsp; 
+                </div>
+             </div>
+          </div>
+          <div class="col col-sm-3">
+             <div class="panel panel-default card">
+                <div class="panel-heading">
+                   <h3 class="panel-title">Billing Address</h3>
+                </div>
+                <div class="panel-body"> {{this.orderDetails?.billing_name}}<br>
+                    {{this.orderDetails?.billing_address}} {{this.orderDetails?.billing_address2}}<br>
+                
+                   {{this.orderDetails?.billing_city}},  {{this.orderDetails?.billing_state}}  {{this.orderDetails?.billing_zip}}<br>
+                   {{this.orderDetails?.billing_phone}}
+                </div>
+             </div>
+          </div>
+          <div class="col col-sm-3">
+             <div class="panel panel-default card">
+                <div class="panel-heading">
+                   <h3 class="panel-title">Shipping Address</h3>
+                </div>
+                <div class="panel-body"> {{this.orderDetails?.shipping_name}}<br>
+                    {{this.orderDetails?.shipping_address}} {{this.orderDetails?.shipping_address2}}<br>
+                
+                   {{this.orderDetails?.shipping_city}},  {{this.orderDetails?.shipping_state}}  {{this.orderDetails?.shipping_zip}}<br>
+                   {{this.orderDetails?.shipping_phone}}
+                </div>
+             </div>
+          </div>
+       </div>
+       <!--Cart Column-->
+       <div class="cart-column mg30">
+          <!--Cart Outer-->
+          <div class="cart-outer">
+             <div class="table-outer">
+                <table class="cart-table table table-bordered">
+                   <thead class="cart-header">
+                      <tr>
+                         <th class="prod-column">Product</th>
+                         <th class="prod-column">Image</th> 
+                         <th class="price">Unit Price</th>
+                         <th>Quantity</th>
+                         <th>Subtotal</th>
+                         
+                      </tr>
+                   </thead>
+                   <tbody>
+                    <tr id="row-507" *ngFor="let item of orderItems">
+                         <td class="prod-column" colspan="1">
+                          
+                            <div class="prod-info">
+                               <h5 class="prod-title"><a href="/product/{{item.slug}}">{{item.name}}</a></h5>
+                                                         </div>
+                         </td>
+                         <td class="price" id="price-507"><img width="100px" height="100px" src="https://www.yusyah.com/images/products/{{item.image}}"></td>
+                         <td class="price" id="price-507">$ {{item.discounted_price}}</td>
+                         <td class="">										 
+                            {{item.quantity}}									 
+                         </td>
+                         <td class="sub-total" id="subtotal_507">$ {{item.subtotal}}</td>
+                         
+                      </tr>
+                      <tr>
+                        <td class="text-right" colspan="4"><strong>Tax:</strong></td>
+                        <td class="sub-total">$ {{this.orderDetails?.tax}}</td>
+                      </tr>                      
+                                              
+                       <tr>
+          <td class="text-right" colspan="4"><strong>Order Total:</strong></td>
+          <td class="sub-total">$ {{this.orderDetails?.total}}</td>
+        </tr>
+                   </tbody>
+                </table>
+             </div>
+          </div>
+       </div>
+       <!--End Cart Column-->
+     
+       <div class="row clearfix">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+             <div class="continue-column pull-left clearfix">
+                <a href="myaccount" class="theme-btn btn-style-two proceed-btn">Back to Order History</a>
+
+             </div>
+              
+          </div>
+       </div>
+         
+    </section>
+     
+ </div>
+ <app-footer></app-footer>

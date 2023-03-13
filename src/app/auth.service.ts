@@ -18,11 +18,14 @@ export class AuthService {
   checkauths({ email, token }: { email: string, token: string }): Observable<{ error: boolean }> {
     return this.http.post<{ error: boolean }>('https://checklistforme.online/api/public/checkauth', { email, token });
   }
+  getorderhistory({ email, token }: { email: string, token: string }): Observable<{ error: boolean ,stats:any[]}> {
+    return this.http.post<{ error: boolean,stats:any[] }>('https://checklistforme.online/api/public/orderhistory', { email, token });
+  }
   checkconfirm({shippingId, billingId  }: { shippingId: string, billingId: string }): Observable<{ error: boolean ,stats:any[]}> {
     return this.http.post<{ error: boolean ,stats:any[]}>('https://checklistforme.online/api/public/confirmdetails', { shippingId, billingId });
   }
-  checkout({shippingId, billingId,token,email }: { shippingId: string, billingId: string,email: string, token: string }): Observable<{ error: boolean}> {
-    return this.http.post<{ error: boolean }>('https://checklistforme.online/api/public/checkout', { shippingId, billingId ,token,email});
+  checkout({shippingId, billingId,token,email }: { shippingId: string, billingId: string,email: string, token: string }): Observable<{ error: boolean,message:string}> {
+    return this.http.post<{ error: boolean,message:string }>('https://checklistforme.online/api/public/checkout', { shippingId, billingId ,token,email});
   }
   deletecart({ cartId }: { cartId: number }): Observable<{ error: boolean }> {
     return this.http.post<{ error: boolean }>('https://checklistforme.online/api/public/deletecartitem', { cartId });
@@ -40,6 +43,9 @@ export class AuthService {
   getCategory(slug: string | null, token: string | null, email: string | null): Observable<any> {
     let params = new HttpParams().set('token', token || '').set('email', email || '');
     return this.http.get<any>(`https://checklistforme.online/api/public/getcategory/${slug}`, { params });
+  }
+  getOrderDetails(id: string | null): Observable<any> {
+    return this.http.post<any>(`https://checklistforme.online/api/public/getorderdetails`, { id });
   }
   getCartItems(token: string | null, email: string | null): Observable<any> {
     let params = new HttpParams().set('token', token || '').set('email', email || '');

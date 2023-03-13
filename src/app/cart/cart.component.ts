@@ -61,6 +61,7 @@ cartQuantity: {[key: number]: number} = {};
       if (res === null) {
         // handle null case here
       } else {
+        
         this.subtotal = res.stats.subtotal.toFixed(2);
         this.tax = res.stats.tax.toFixed(2);
         this.total = res.stats.total.toFixed(2);
@@ -176,6 +177,8 @@ cartQuantity: {[key: number]: number} = {};
   }
   checkout(){
     if(this.total > 0){
+     localStorage.setItem('justSignedUp','true') ;
+
     this.router.navigate(['checkout']);
   }else{
     this.snackBar.open('Add Products TO Proceed Further', 'Dismiss', {
