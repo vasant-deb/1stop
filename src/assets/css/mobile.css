@@ -28,6 +28,7 @@ display: none;
             width: 95% !important;
             left: 10px !important;
             margin:10px auto !important;
+            z-index: 99 !important;
         }
        
 .app-header {
