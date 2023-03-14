@@ -71,6 +71,9 @@ span.badge.bgc-thm {
     line-height: 25px;
     color: white;
 }
+span.mobiletotal {
+    color: black;
+}
 .mymobilemenu li a {
     font-size: 16px;
     padding: 0px 10px;
