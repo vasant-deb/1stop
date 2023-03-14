@@ -177,9 +177,10 @@
                   <div class="mobile_menu_bar float-start"><a class="menubar" href="#menu"><span></span></a><a class="mobile_logo" href="#"> <div class="logo text-thm"><img  src="/assets/images/logo.png"/></div></a></div>
                   <div class="mobile_menu_widget_icons">
                       <ul class="cart mt15">
-                          <li class="list-inline-item"><a class="cart_btn signin-filter-btn" href="myaccount"><span class="icon flaticon-profile"></span></a></li>
-                          <li class="list-inline-item"><a class="cart_btn signin-filter-btn" href="cart"><span class="mobiletotal">${{this.total.toFixed(2)}}</span></a></li>
-                          <li class="list-inline-item"><a class="cart_btn cart-filter-btn" href="cart"><span class="icon"><img src="assets/images/icons/flaticon-shopping-cart-white.svg" class="mobilemenu" alt="">
+                          <li class="list-inline-item" *ngIf="auth"><a class="cart_btn signin-filter-btn" href="myaccount"><span class="icon flaticon-profile"></span></a></li>
+                          <li class="list-inline-item" *ngIf="!auth"><a class="cart_btn signin-filter-btn" href="login"><span class="icon flaticon-profile"></span></a></li>
+                          <li class="list-inline-item" *ngIf="auth"><a class="cart_btn signin-filter-btn" href="cart"><span class="mobiletotal">${{this.total.toFixed(2)}}</span></a></li>
+                          <li class="list-inline-item" *ngIf="auth"><a class="cart_btn cart-filter-btn" href="cart"><span class="icon"><img src="assets/images/icons/flaticon-shopping-cart-white.svg" class="mobilemenu" alt="">
                         </span><span class="badge bgc-thm">{{this.countcart}}</span></a></li>
                       </ul>
                   </div>

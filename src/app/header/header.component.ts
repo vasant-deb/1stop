@@ -107,6 +107,6 @@ export class HeaderComponent implements OnInit {
     localStorage.clear();
     localStorage.setItem('justLoggedOut', 'true');
 
-    this.router.navigate(['']);
+    this.router.navigate(['login']);
   }
 }

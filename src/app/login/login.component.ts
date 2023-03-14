@@ -19,19 +19,30 @@ export class LoginComponent {
     this.createForm();
   }
   ngOnInit(): void {
-    let email=localStorage.getItem('email');
-    let token=localStorage.getItem('token');
-    if(email && token){
-      this.checkauth();
-    }
+
     var check=localStorage.getItem('justSignedUp') ;
     this.router.events.subscribe(event => {
       if (check === 'true') {
         // Reload the page only if the user has just signed up
         localStorage.removeItem('justSignedUp');
-        location.reload();
+        window.location.reload();
       }
     });
+    var check=localStorage.getItem('justLoggedOut') ;
+    this.router.events.subscribe(event => {
+      if (check === 'true') {
+        // Reload the page only if the user has just signed up
+        localStorage.removeItem('justLoggedOut');
+        window.location.reload();
+      }
+    });
+
+    let email=localStorage.getItem('email');
+    let token=localStorage.getItem('token');
+    if(email && token){
+      this.checkauth();
+    }
+   
   }
   checkauth(){
     let email = localStorage.getItem('email');
