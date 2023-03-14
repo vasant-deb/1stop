@@ -138,43 +138,7 @@
               </tr>
             </tbody>
           </table>
-          <!--Modal Edit-->
-          <div class="edit-address-modal card" [hidden]="!showEditAddressModal">
-            <div class="modal-content">
-              <h2>Edit Address</h2>
-              <form [formGroup]="editAddressForm" (submit)="onSave()">
-                <input class="form-control" formControlName="id" type="hidden">
-                <label class="col-md-6">Name
-                <input class="form-control" formControlName="name">
-                </label>
-                <label class="col-md-6">Company
-                <input class="form-control" formControlName="company">
-                </label>
-                <label class="col-md-6">Street 1
-                <input class="form-control" formControlName="street1">
-                </label>
-                <label class="col-md-6">Street 2
-                <input class="form-control" formControlName="street2">
-                </label>
-                <label class="col-md-6">City
-                 <input class="form-control" formControlName="city">
-                </label>
-                <label class="col-md-6">State
-                <input class="form-control" formControlName="state">
-                </label>
-                <label class="col-md-6">Postal Code
-                <input class="form-control" formControlName="postalcode">
-                </label>
-                <label class="col-md-6">Phone
-                <input class="form-control" formControlName="phone">
-                </label>
-                <button type="submit" class="btn btn-thm">Save</button>
-                <button type="button" (click)="onCancel()">Cancel</button>
-              </form>
-            </div>
-          </div>
-          
-          <!--Modal Edit End-->
+        
         </div>
 
 
@@ -196,5 +160,44 @@
       
 </div>    
     </div>
+      <!--Modal Edit-->
+      <div class="edit-address-modal card" *ngIf="addressview" [hidden]="!showEditAddressModal">
+        <div class="modal-content">
+          <h2>Edit Address</h2>
+          <form [formGroup]="editAddressForm" (submit)="onSave()">
+            <input class="form-control" formControlName="id" type="hidden">
+            <label class="col-md-6">Name
+            <input class="form-control" formControlName="name">
+            </label>
+            <label class="col-md-6">Company
+            <input class="form-control" formControlName="company">
+            </label>
+            <label class="col-md-6">Street 1
+            <input class="form-control" formControlName="street1">
+            </label>
+            <label class="col-md-6">Street 2
+            <input class="form-control" formControlName="street2">
+            </label>
+            <label class="col-md-6">City
+             <input class="form-control" formControlName="city">
+            </label>
+            <label class="col-md-6">State
+            <input class="form-control" formControlName="state">
+            </label>
+            <label class="col-md-6">Postal Code
+            <input class="form-control" formControlName="postalcode">
+            </label>
+            <label class="col-md-6">Phone
+            <input class="form-control" formControlName="phone">
+            </label>
+            <button type="submit" class="btn btn-thm">Save</button>
+            <button type="button" (click)="onCancel()">Cancel</button>
+          </form>
+        </div>
+      </div>
+      
+      <!--Modal Edit End-->
   </div>
+
+  
 <app-footer></app-footer>
