@@ -54,7 +54,13 @@
         <div class="row">
             <div class="col-md-6 col-xl-3 card" *ngFor="let product of accessories">
                 <div class="for_blog">
-                    <a class="thumb" href="/product/{{product.slug}}"><img class="img-whp" src="https://www.yusyah.com/images/products/{{product.image}}" alt="{{product.name}}"></a>
+                    <a class="thumb" href="/product/{{product.slug}}">
+                        <img class="img-whp" src="https://www.yusyah.com/images/products/{{product.image}}" alt="{{product.name}}">
+                        <div class="tags">
+                            <span *ngIf="product.newarrival == 1">New</span>
+                            <span *ngIf="product.hot_product == 1">Sale</span>
+                        </div>
+                    </a>
                     <div class="details text-center">
                         <div class="title"><a href="/product/{{product.slug}}">{{product.name}}</a></div>
                         <div class="price" *ngIf="auth">${{product.discounted_price}}</div>

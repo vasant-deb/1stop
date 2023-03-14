@@ -84,3 +84,9 @@ span.mobiletotal {
     height: auto !important;
     width: 10vh !important;
 }
+.ps{
+    padding:0px !important;
+}
+.scrollable{
+    overflow-y: scroll !important;
+}

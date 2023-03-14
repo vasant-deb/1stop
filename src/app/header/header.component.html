@@ -15,16 +15,16 @@
                              
                               <div class="col-auto p0">
                                   <div class="top-search home10_style">
-                                      <form action="#" method="get" class="form-search" accept-charset="utf-8">
-                                          <div class="box-search pre_line"><input class="form_control" type="text" name="search" placeholder="Search products…">
-                                        
-                    
-                                          </div>
-                                      </form>
+                                       <form method="get" class="form-search" accept-charset="utf-8">
+                                        <div class="box-search">
+                                            <input class="form_control" type="text" name="search" placeholder="Search products…" [(ngModel)]="searchQuery">
+                                        </div>
+                                     
+                                    </form>
                                   </div>
                               </div>
                               <div class="col-auto p0">
-                                  <div class="advscrh_frm_btn"><button type="submit" class="btn search-btn"><span class="flaticon-search"></span></button></div>
+                                  <div class="advscrh_frm_btn"><button (click)="search()"  type="submit" class="btn search-btn"><span class="flaticon-search"></span></button></div>
                               </div>
                           </div>
                       </div>
@@ -105,8 +105,8 @@
               </div>
               <ul id="respMenu" class="ace-responsive-menu menu_list_custom_code wa pl200" data-menu-style="horizontal">
                
-                <li class="visible_list"><a href="{{menus[0]?.link}}"><span class="title">{{menus[0]?.name}}</span></a></li>
-                <li class="visible_list"><a href="#"><span class="title">{{menus[1]?.name}}</span></a>
+                <li class="visible_list"><a href="{{menus[0]?.link}}"><span class="title">{{menus[0]?.name  ? menus[0]?.name : 'Home'}}</span></a></li>
+                <li class="visible_list"><a href="#"><span class="title">{{menus[1]?.name ? menus[1]?.name : 'Airpods'}}</span></a>
                     <ul>
                     <li><a href="/category/{{menus[1]?.children[0].link}}">{{menus[1]?.children[0].name}}</a></li>
                     <li><a href="/category/{{menus[1]?.children[1].link}}">{{menus[1]?.children[1].name}}</a></li>
@@ -114,26 +114,26 @@
                     <li><a href="/category/{{menus[1]?.children[3].link}}">{{menus[1]?.children[3].name}}</a></li>
                     </ul>
                 </li>
-                <li class="visible_list"><a href="#"><span class="title">{{menus[2]?.name}}</span></a>
+                <li class="visible_list"><a href="#"><span class="title">{{menus[2]?.name ? menus[2]?.name : 'WATCH'}}</span></a>
                     <ul>
                     <li><a href="/category/{{menus[2]?.children[0].link}}">{{menus[2]?.children[0].name}}</a></li>
                  
                     </ul>
                 </li>
-                <li class="megamenu_style"><a href="#"><span class="title">{{menus[3]?.name}}</span></a>
+                <li class="megamenu_style"><a href="#"><span class="title">{{menus[3]?.name ? menus[3]?.name : 'Tablets'}}</span></a>
                     <ul class="row dropdown-megamenu">
                     <li class="col mega_menu_list pl30" *ngFor="let category of menus[3]?.children">
                         <h4 class="title">{{category.name}}</h4>
                         <ul>
-                        <li *ngFor="let subcategory of category.children"><a href="{{subcategory.link}}">{{subcategory.name}}</a></li>
+                        <li class="ps" *ngFor="let subcategory of category.children"><a href="{{subcategory.link}}">{{subcategory.name}}</a></li>
                         </ul>
                     </li>
                     </ul>
                 </li>
-                <li class="visible_list"><a href="/category/{{menus[4]?.name}}"><span class="title">{{menus[4]?.name}}</span></a></li>
-                <li class="visible_list"><a href="/category/{{menus[5]?.name}}"><span class="title">{{menus[5]?.name}}</span></a></li>
-                <li class="visible_list"><a href="/{{menus[6]?.link}}"><span class="title">{{menus[6]?.name}}</span></a></li>
-                <li class="visible_list"><a href="/{{menus[7]?.link}}"><span class="title">{{menus[7]?.name}}</span></a></li>
+                <li class="visible_list"><a href="/category/{{menus[4]?.name}}"><span class="title">{{menus[4]?.name ? menus[4]?.name : 'Pouches'}}</span></a></li>
+                <li class="visible_list"><a href="/page/{{menus[5]?.name}}"><span class="title">{{menus[5]?.name ? menus[5]?.name : 'Sale'}}</span></a></li>
+                <li class="visible_list"><a href="/category/{{menus[6]?.name}}"><span class="title">{{menus[6]?.name ? menus[6]?.name : 'Accessories'}}</span></a></li>
+                <li class="visible_list"><a href="/page/{{menus[7]?.link}}"><span class="title">{{menus[7]?.name ? menus[7]?.name : 'New Arrival'}}</span></a></li>
          
                 </ul>
                 
@@ -191,16 +191,16 @@
                           <div class="row">
                               <div>
                                   <div class="top-search text-start">
-                                      <form action="#" method="get" class="form-search" accept-charset="utf-8">
-                                          <div class="box-search"><input class="form_control" type="text" name="search" placeholder="Search products…">
-                                            
-                                          </div>
-                                      </form>
+                                    <form method="get" class="form-search" accept-charset="utf-8">
+                                        <div class="box-search">
+                                            <input class="form_control" type="text" name="search" placeholder="Search products…" [(ngModel)]="searchQuery">
+                                        </div>
+                                        <div (click)="search()" class="advscrh_frm_btn"><button type="submit" class="btn search-btn"><span class="flaticon-search"></span></button></div>
+                                    </form>
+                                    
                                   </div>
                               </div>
-                              <div>
-                                  <div class="advscrh_frm_btn"><button type="submit" class="btn search-btn"><span class="flaticon-search"></span></button></div>
-                              </div>
+                              
                           </div>
                       </div>
                   </div>
@@ -252,9 +252,9 @@
                 </ul>
             </li>
             <li *ngIf="menus[4]?.name"><span class="category"><a href="/category/{{menus[4]?.name}}">{{menus[4]?.name}}</a></span></li>
-            <li *ngIf="menus[5]?.name"><span class="category"><a href="/category/{{menus[5]?.name}}">{{menus[5]?.name}}</a></span></li>
-            <li *ngIf="menus[6]?.name"><span class="category"><a href="/{{menus[6]?.link}}">{{menus[6]?.name}}</a></span></li>
-            <li *ngIf="menus[7]?.name"><span class="category"><a href="/{{menus[7]?.link}}">{{menus[7]?.name}}</a></span></li>
+            <li *ngIf="menus[5]?.name"><span class="category"><a href="/page/{{menus[5]?.name}}">{{menus[5]?.name}}</a></span></li>
+            <li *ngIf="menus[6]?.name"><span class="category"><a href="/category/{{menus[6]?.link}}">{{menus[6]?.name}}</a></span></li>
+            <li *ngIf="menus[7]?.name"><span class="category"><a href="/page/{{menus[7]?.link}}">{{menus[7]?.name}}</a></span></li>
             
         </ul>
     </nav>

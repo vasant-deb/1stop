@@ -50,6 +50,10 @@ export class AuthService {
     let params = new HttpParams().set('token', token || '').set('email', email || '');
     return this.http.get<any>(`https://checklistforme.online/api/public/getcategory/${slug}`, { params });
   }
+  getPage(slug: string | null, token: string | null, email: string | null): Observable<any> {
+    let params = new HttpParams().set('token', token || '').set('email', email || '');
+    return this.http.get<any>(`https://checklistforme.online/api/public/getpage/${slug}`, { params });
+  }
   getOrderDetails(id: string | null): Observable<any> {
     return this.http.post<any>(`https://checklistforme.online/api/public/getorderdetails`, { id });
   }

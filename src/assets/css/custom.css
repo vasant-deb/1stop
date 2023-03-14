@@ -702,3 +702,23 @@ color: black;
 .drop-menu {
     overflow-y: scroll;
 }
+.tags .new {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0px 10px;
+    border-radius: 2px;
+    font-size: 16px;
+    color: white;
+    background: #397386;
+}
+.tags .sale {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0px 10px;
+    border-radius: 2px;
+    font-size: 16px;
+    color: white;
+    background: black;
+}

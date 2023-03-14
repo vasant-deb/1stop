@@ -22,7 +22,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { OrderComponent } from './order/order.component';
 
-import { MatDialogModule } from '@angular/material/dialog'; // import MatDialogModule
+import { MatDialogModule } from '@angular/material/dialog';
+import { PageComponent } from './page/page.component'; // import MatDialogModule
 
 
 
@@ -39,7 +40,8 @@ import { MatDialogModule } from '@angular/material/dialog'; // import MatDialogM
     CartComponent,
     CheckoutComponent,
     NotFoundComponent,
-    OrderComponent
+    OrderComponent,
+    PageComponent
   ],
   imports: [
     BrowserModule,

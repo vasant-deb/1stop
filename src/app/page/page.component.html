@@ -11,20 +11,7 @@
 </div>
 </section>
 <div class="container">
-<div class="row" *ngIf="categories">
-    <div class="col-sm-6 col-lg-4 col-xl-2 p0" *ngFor="let category of categories">
-      <div class="shop_item style6 bdr1 mx--1">
-        <a href="category/{{category.slug}}" class="thumb pb30">
-            <img [src]="category.image ? 'https://www.yusyah.com/images/categories/' + category.image : 'https://www.yusyah.com/images/no-image.jpg'" alt="{{category.name}}">
 
-        </a>
-        <div class="details text-center">
-          <div class="title"><a href="category/{{category.slug}}">{{category.name}}</a></div>
-        </div>
-      </div>
-    </div>
- 
-  </div>
   <div class="row" *ngIf="products">
     <div class="col-sm-6  col-lg-4 col-xl-3 p0 card-container" *ngFor="let product of products">
       <div class="card">

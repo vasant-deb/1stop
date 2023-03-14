@@ -16,6 +16,8 @@ export class HeaderComponent implements OnInit {
  
   constructor(private spinner: NgxSpinnerService,private router: Router,private sharedService: SharedService,private authService: AuthService) { }
   firstname: string = '';
+  searchQuery: string = '';
+
   lastname: string = '';
   countcart: number = 0;
   total: number = 0.00; // initializes the variable to 0.00
@@ -30,6 +32,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
    this.device();
    this.menu();
+  
     let email=localStorage.getItem('email');
     let token=localStorage.getItem('token');
     if(email && token){
@@ -102,6 +105,13 @@ export class HeaderComponent implements OnInit {
   myaccount() {
     this.router.navigate(['myaccount']);
   }
+  search() {
+ 
+    if (this.searchQuery) {
+    
+        this.router.navigate(['/page/', this.searchQuery]);
+    }
+}
   logout() {
  
     localStorage.clear();
