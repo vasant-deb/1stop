@@ -23,6 +23,11 @@ display: none;
             color: var(--main-color);
             margin-left: 10px;
         }
+        .edit-address-modal.card {
+            width: 95% !important;
+            left: 10px !important;
+            margin:10px auto !important;
+        }
        
 .app-header {
     display: block;

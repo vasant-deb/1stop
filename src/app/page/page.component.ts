@@ -29,6 +29,7 @@ pagename:string| null = null;
     this.route.params.subscribe(params => {
       this.slug = params['slug'];
       // Call a function to load page content based on the new slug value
+     
       this.getcontent();
     });
 
@@ -42,6 +43,10 @@ pagename:string| null = null;
       this.checkauth();
     }
     this.spinner.hide();
+    if(localStorage.getItem('justLoggedOut')==="true"){
+      localStorage.removeItem('justLoggedOut');
+    location.reload();
+    }
     
   }
  
@@ -56,6 +61,7 @@ checkauth(){
           const error = res.error;
           if(error === false){
             this.auth = true;
+           
            }
         },
         err => {
@@ -82,7 +88,7 @@ getcontent(){
       } else {
         
         this.pagename=this.slug;
-       
+        
         if(Array.isArray(res.prod)){
           this.products = res.prod;
           this.products.forEach(product => {
@@ -93,7 +99,7 @@ getcontent(){
           });
 
         }
-     
+    
       }
     },
     err => {

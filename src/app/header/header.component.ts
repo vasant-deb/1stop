@@ -108,7 +108,7 @@ export class HeaderComponent implements OnInit {
   search() {
  
     if (this.searchQuery) {
-    
+      localStorage.setItem('justLoggedOut', 'true');
         this.router.navigate(['/page/', this.searchQuery]);
     }
 }

@@ -57,8 +57,8 @@
                     <a class="thumb" href="/product/{{product.slug}}">
                         <img class="img-whp" src="https://www.yusyah.com/images/products/{{product.image}}" alt="{{product.name}}">
                         <div class="tags">
-                            <span *ngIf="product.newarrival == 1">New</span>
-                            <span *ngIf="product.hot_product == 1">Sale</span>
+                            <span *ngIf="product.newarrival == 1" class="new">New</span>
+                            <span *ngIf="product.hot_product == 1" class="sale">Sale</span>
                         </div>
                     </a>
                     <div class="details text-center">
