@@ -24,6 +24,7 @@ display: none;
             margin-left: 10px;
         }
         .edit-address-modal.card {
+            top:10% !important;
             width: 95% !important;
             left: 10px !important;
             margin:10px auto !important;
