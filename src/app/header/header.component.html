@@ -1,21 +1,21 @@
 <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
 
       <div class="header_middle home10_style pt20 pb20 dn-992">
-      <div class="container">
+      <div class="container-fluid">
           <div class="row">
               <div class="col-lg-2 col-xxl-2">
                   <div class="header_top_logo_home1">
                       <div class="logo text-thm"><img  src="/assets/images/logo.png"/></div>
                   </div>
               </div>
-              <div class="col-lg-5 col-xxl-7">
+              <div class="col-lg-7 col-xxl-7">
                   <div class="header_middle_advnc_search">
                       <div class="search_form_wrapper">
                           <div class="row">
                              
                               <div class="col-auto p0">
                                   <div class="top-search home10_style">
-                                       <form method="get" class="form-search" accept-charset="utf-8">
+                                       <form method="get" class="form-search" accept-charset="utf-8" (keydown.enter)="search()">
                                         <div class="box-search">
                                             <input class="form_control" type="text" name="search" placeholder="Search products…" [(ngModel)]="searchQuery">
                                         </div>
@@ -30,7 +30,7 @@
                       </div>
                   </div>
               </div>
-              <div class="col-lg-5 col-xxl-3">
+              <div class="col-lg-3 col-xxl-3">
                   <div class="">
                       <div class="wrapper ovh">
                           <div class="preloader"></div>
@@ -77,7 +77,7 @@
   </div>
   <header class="header-nav menu_style_home_one menu_home5_style athome3 athome10 main-menu bb1">
       <nav class="posr">
-          <div class="container posr menu_bdrt1">
+          <div class="container-fluid posr menu_bdrt1">
               <div class="menu-toggle"><button type="button" id="menu-btn"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
               <div class="posr logo1 home4_style">
                   <div id="mega-menu"><a class="btn-mega" href="#"><img class="me-2" src="/assets/images/desktop-nav-menu-dark.svg" alt="Desktop Menu Icon"><span class="fw500 fz16 heading-color vam">Devices</span></a>
@@ -125,7 +125,7 @@
                     <li class="col mega_menu_list pl30" *ngFor="let category of menus[3]?.children">
                         <h4 class="title">{{category.name}}</h4>
                         <ul>
-                        <li class="ps" *ngFor="let subcategory of category.children"><a href="{{subcategory.link}}">{{subcategory.name}}</a></li>
+                        <li class="ps" *ngFor="let subcategory of category.children"><a href="/category/{{subcategory.link}}">{{subcategory.name}}</a></li>
                         </ul>
                     </li>
                     </ul>

@@ -3,6 +3,7 @@
 }
 .header_middle.home10_style {
     background-color: #ffffff;
+    text-align: center;
 }
 span.flaticon-profile {
     color: black !important;
@@ -238,9 +239,7 @@ background:#397388;
     display: inline-block;
     line-height: unset;
 }
-.billing .shipping_addressRadio__3eCAN.ant-radio-wrapper-checked {
-    border: 2px solid #42447f;
-}
+
 .billing .ant-form-item label {
     position: relative;
 }
@@ -721,4 +720,14 @@ color: black;
     font-size: 16px;
     color: white;
     background: black;
+}
+button.quantity-arrow-minus.inner_page {
+    top: 10px;
+    background-color: #f3f5f6 !important;
+    align-items: center;
+    text-align: center;
+    line-height: 25px;
+}
+.top-search form.form-search .box-search input {
+    font-size: 18px;
 }

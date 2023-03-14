@@ -92,6 +92,7 @@ cartQuantity: {[key: number]: number} = {};
     if (product) {
         const quantity = parseInt(product.quantity, 10) || 0; // convert to integer and handle NaN
         product.quantity = quantity + 1;
+        this.onAddAllToCart(); 
     }
    
   }
@@ -103,7 +104,7 @@ cartQuantity: {[key: number]: number} = {};
         const quantity = parseInt(product.quantity, 10) || 0; // convert to integer and handle NaN
         if (quantity > 0) {
             product.quantity = quantity - 1;
-          
+            this.onAddAllToCart();
         }
     }
   }
@@ -144,6 +145,23 @@ cartQuantity: {[key: number]: number} = {};
       );
     }
   }
+  onKeyDown(event: KeyboardEvent) {
+    const allowedKeys = [8, 9, 13, 27, 46]; // backspace, tab, enter, escape, delete
+    const allowedChars = /[0-9]/;
+    const key = event.key || String.fromCharCode(event.keyCode);
+
+    if (!allowedChars.test(key) && !allowedKeys.includes(event.keyCode)) {
+        event.preventDefault();
+    }
+}
+onQuantityChanged(productId: number, newQuantity: string) {
+  const product = this.products.find(p => p.id === productId);
+  if (product) {
+      product.quantity = newQuantity;
+      this.onAddAllToCart();
+  }
+}
+
   deleteProduct(cartId: number) {
     this.spinner.show();
     this.products = this.products.filter(product => product.cart_id !== cartId);

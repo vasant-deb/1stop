@@ -34,7 +34,7 @@
                 <div class="cart_btn" *ngIf="auth">
                     <div class="quantity-block">
                       <button class="quantity-arrow-minus inner_page" (click)="decrement(product.id)"> <span class="fa fa-minus"></span> </button>
-                      <input class="quantity-num inner_page" #quantityInputs type="number" [value]="product.quantity" (input)="product.quantity = quantityInputs.value">
+                      <input class="quantity-num inner_page" #quantityInputs type="text" [value]="product.quantity"  (change)="onQuantityChanged(product.id, quantityInputs.value)" (keydown)="onKeyDown($event)">
                       <button class="quantity-arrow-plus inner_page" (click)="increment(product.id)"> <span class="fas fa-plus"></span> </button>
                     </div>
                   </div>
