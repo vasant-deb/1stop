@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute,Router} from '@angular/router';
 
 import { AuthService } from '../auth.service';
@@ -12,6 +12,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent {
+  @ViewChild('myTextarea') myTextarea!:ElementRef;
+
   constructor(private snackBar: MatSnackBar,private spinner: NgxSpinnerService,private router: Router,private authService: AuthService,private route: ActivatedRoute) { }
   modalshow=false;
   subtotal :number=0.00;
@@ -123,6 +125,10 @@ billings:any;
        this.spinner.show();
        const shippingId = localStorage.getItem('shippingId');
        const billingId = localStorage.getItem('billingId');
+
+//get value of textarea name 'notes'
+       const notesValue = this.myTextarea.nativeElement.value;
+       localStorage.setItem('notes', String(notesValue));
        if (shippingId && billingId) {
          this.authService.checkconfirm({ shippingId, billingId })
            .subscribe(
@@ -155,8 +161,13 @@ billings:any;
     let token = localStorage.getItem('token');
     const shippingId = localStorage.getItem('shippingId');
     const billingId = localStorage.getItem('billingId');
-    if (shippingId && billingId && email && token) {
-      this.authService.checkout({ shippingId, billingId,email,token })
+    const shippingType = localStorage.getItem('shippingType');
+    let notes=localStorage.getItem('notes');
+    if(!notes){
+       notes='';
+    }
+    if (shippingId && billingId && email && token && shippingType) {
+      this.authService.checkout({ shippingId, billingId,email,token,notes,shippingType })
       .subscribe(
         res => {
           const error = res.error;
