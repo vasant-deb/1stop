@@ -47,7 +47,7 @@ export class HeaderComponent implements OnInit {
       });
     } 
   }
-
+  
   checkauth(){
     let email = localStorage.getItem('email');
     let token = localStorage.getItem('token');

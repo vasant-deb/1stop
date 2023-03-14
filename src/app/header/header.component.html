@@ -18,7 +18,7 @@
                                       <form action="#" method="get" class="form-search" accept-charset="utf-8">
                                           <div class="box-search pre_line"><input class="form_control" type="text" name="search" placeholder="Search products…">
                                         
-                                         
+                    
                                           </div>
                                       </form>
                                   </div>
@@ -191,47 +191,7 @@
                                   <div class="top-search text-start">
                                       <form action="#" method="get" class="form-search" accept-charset="utf-8">
                                           <div class="box-search"><input class="form_control" type="text" name="search" placeholder="Search products…">
-                                              <div class="search-suggestions text-start">
-                                                  <div class="box-suggestions">
-                                                      <ul>
-                                                          <li>
-                                                              <div class="thumb"><img src="assets/images/listing/sf1.png" alt="sf1.png"></div>
-                                                              <div class="info-product">
-                                                                  <div class="item_title">Sony DJ Headphones 4334205465, Black, Standard</div>
-                                                                  <div class="price"><span class="sale">$32.50</span></div>
-                                                              </div>
-                                                          </li>
-                                                          <li>
-                                                              <div class="thumb"><img src="assets/images/listing/sf2.png" alt="sf2.png"></div>
-                                                              <div class="info-product">
-                                                                  <div class="item_title">Sony E-Mount Full Frame FE 24-70mm f/2.8 GM II G Master</div>
-                                                                  <div class="price"><span class="sale">$32.50</span></div>
-                                                              </div>
-                                                          </li>
-                                                          <li>
-                                                              <div class="thumb"><img src="assets/images/listing/sf3.png" alt="sf3.png"></div>
-                                                              <div class="info-product">
-                                                                  <div class="item_title">TV 55" 4-Series 4K UHD smart TV</div>
-                                                                  <div class="price"><span class="sale">$32.50</span></div>
-                                                              </div>
-                                                          </li>
-                                                          <li>
-                                                              <div class="thumb"><img src="assets/images/listing/sf4.png" alt="sf4.png"></div>
-                                                              <div class="info-product">
-                                                                  <div class="item_title">Hugolog Baby Monitor, 2K Security Camera, PT Cameras for</div>
-                                                                  <div class="price"><span class="sale">$32.50</span></div>
-                                                              </div>
-                                                          </li>
-                                                          <li>
-                                                              <div class="thumb"><img src="assets/images/listing/sf5.png" alt="sf5.png"></div>
-                                                              <div class="info-product">
-                                                                  <div class="item_title">Apple iPhone Retina 6s Plus 64GB</div>
-                                                                  <div class="price"><span class="sale">$32.50</span></div>
-                                                              </div>
-                                                          </li>
-                                                      </ul>
-                                                  </div>
-                                              </div>
+                                            
                                           </div>
                                       </form>
                                   </div>
@@ -248,24 +208,53 @@
               </div>
           </div>
       </div>
-      <nav id="menu" class="stylehome1">
+      <nav id="menu" class="stylehome1 mymobilemenu" *ngIf="devices">
         <ul>
-          
-            <li *ngFor="let parent of devices">
-              <span>{{ parent.parent_name }}</span>
-              <ul>
-                <li *ngFor="let submenu of parent.submenus">
-                  <span>{{ submenu.name }}</span>
-                  <ul>
-                    <li *ngFor="let subcategory of submenu.subcategories">
-                      <a href="category/{{subcategory.slug}}">{{ subcategory.name }}</a>
+            <li *ngFor="let parent of devices"><span class="category" *ngIf="parent.parent_name">{{ parent.parent_name ? parent.parent_name : 'Home' }}   <i class="fas fa-chevron-down"></i>
+            </span>
+                <ul>
+                    <li *ngFor="let submenu of parent.submenus"><span>{{ submenu.name ? submenu.name : 'Home' }}   <i class="fas fa-chevron-down"></i>
+                    </span>
+                        <ul>
+                            <li *ngFor="let subcategory of submenu.subcategories">  <a href="category/{{subcategory.slug}}">{{ subcategory.name ? subcategory.name : 'Home' }}</a></li>
+                        </ul>    
                     </li>
-                  </ul>
-                </li>
-              </ul>
+                </ul>
+            </li> 
+           
+            <hr>
+
+            <li *ngIf="menus[0]?.name"><span class="category"><a href="{{menus[0]?.link}}">{{menus[0]?.name}}</a></span></li>
+
+            <li *ngIf="menus[1]?.name"><span class="category">{{menus[1]?.name}} <i class="fas fa-chevron-down"></i></span>
+                <ul>
+                    <li><a href="/category/{{menus[1]?.children[0].link}}">{{menus[1]?.children[0].name}}</a></li>
+                    <li><a href="/category/{{menus[1]?.children[1].link}}">{{menus[1]?.children[1].name}}</a></li>
+                    <li><a href="/category/{{menus[1]?.children[2].link}}">{{menus[1]?.children[2].name}}</a></li>
+                    <li><a href="/category/{{menus[1]?.children[3].link}}">{{menus[1]?.children[3].name}}</a></li>
+                </ul>
             </li>
-          </ul>
-          
-      </nav>
+            <li *ngIf="menus[2]?.name"><span class="category">{{menus[2]?.name}} <i class="fas fa-chevron-down"></i></span>
+                <ul>
+                  <li><a href="/category/{{menus[2]?.children[0].link}}">{{menus[2]?.children[0].name}}</a></li>
+                </ul>
+            </li>
+            <li *ngIf="menus[3]?.name"><span class="category">{{menus[3]?.name}} <i class="fas fa-chevron-down"></i></span>
+                <ul>
+                <li *ngFor="let category of menus[3]?.children">
+                    <span class="category">{{category.name}} <i class="fas fa-chevron-down"></i></span>
+                    <ul>
+                        <li *ngFor="let subcategory of category.children"><a href="/category/{{subcategory.link}}">{{subcategory.name}}</a></li>
+                    </ul>
+                </li>
+                </ul>
+            </li>
+            <li *ngIf="menus[4]?.name"><span class="category"><a href="/category/{{menus[4]?.name}}">{{menus[4]?.name}}</a></span></li>
+            <li *ngIf="menus[5]?.name"><span class="category"><a href="/category/{{menus[5]?.name}}">{{menus[5]?.name}}</a></span></li>
+            <li *ngIf="menus[6]?.name"><span class="category"><a href="/{{menus[6]?.link}}">{{menus[6]?.name}}</a></span></li>
+            <li *ngIf="menus[7]?.name"><span class="category"><a href="/{{menus[7]?.link}}">{{menus[7]?.name}}</a></span></li>
+            
+        </ul>
+    </nav>
   </div>
  
