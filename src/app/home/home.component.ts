@@ -21,29 +21,52 @@ export class HomeComponent implements OnInit{
     dots: false,
     responsive: [
       {
-        breakpoint: '2800', // define your own breakpoints here
+        breakpoint: 400,
         settings: {
-          slidesToShow: 10
+          slidesToShow: 1
         }
       },
       {
-        breakpoint: '1700', // define your own breakpoints here
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 4
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 5
+        }
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 5
+        }
+      },
+      {
+        breakpoint: 1200,
         settings: {
           slidesToShow: 6
         }
       },
       {
-        breakpoint: '600',
+        breakpoint: 1400,
         settings: {
-          slidesToShow: 4,
-          slidesToScroll: 4
+          slidesToShow: 6
         }
       },
       {
-        breakpoint: '400',
+        breakpoint: 1600,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToShow: 6
+        }
+      }
+      ,
+      {
+        breakpoint: 2700,
+        settings: {
+          slidesToShow: 6
         }
       }
     ]
@@ -54,13 +77,19 @@ export class HomeComponent implements OnInit{
     dots: true,
     responsive: [
       {
-        breakpoint: 768,
+        breakpoint: 3000,
         settings: {
           slidesToShow: 1
         }
       },
       {
         breakpoint: 992,
+        settings: {
+          slidesToShow: 1
+        }
+      },
+      {
+        breakpoint: 400,
         settings: {
           slidesToShow: 1
         }
