@@ -50,7 +50,7 @@
                                     <div class="d-block d-md-flex">
                                       <div class="icon"><span class="flaticon-profile"></span></div>
                                       <div class="details">
-                                        <p (click)="logout()" class="subtitle">Logout</p>
+                                        <p (click)="logout()" class="subtitle hover-pointer">Logout</p>
                                         <a href="myaccount"><h5 class="title">Account</h5></a>
                                       </div>
                                     </div>
@@ -80,7 +80,7 @@
           <div class="container-fluid posr menu_bdrt1">
               <div class="menu-toggle"><button type="button" id="menu-btn"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
               <div class="posr logo1 home4_style">
-                  <div id="mega-menu"><a class="btn-mega" href="#"><img class="me-2" src="https://cdn-icons-png.flaticon.com/32/545/545245.png" alt="Desktop Menu Icon"><span class="fw500 fz16 heading-color vam">Devices</span></a>
+                  <div id="mega-menu"><a class="btn-mega" href="#"><img class="me-2" src="https://cdn-icons-png.flaticon.com/32/545/545245.png" alt="Desktop Menu Icon"><span class="fw500 fz16 heading-color vam f20">Devices</span></a>
                     <ul class="menu">
                         <li *ngFor="let parent of devices">
                           <a class="dropdown" href="category/{{parent.parent_slug}}">
@@ -105,7 +105,7 @@
               </div>
               <ul id="respMenu" class="ace-responsive-menu menu_list_custom_code wa pl200" data-menu-style="horizontal">
                
-           <!--   <li class="visible_list"><a href="{{menus[0]?.link}}"><span class="title">{{menus[0]?.name  ? menus[0]?.name : 'Home'}}</span></a></li>-->  
+            <li class="visible_list"><a href="{{menus[0]?.link}}"><span class="title">{{menus[0]?.name  ? menus[0]?.name : 'Home'}}</span></a></li>
                 <li class="visible_list"><a href="#"><span class="title">{{menus[1]?.name ? menus[1]?.name : 'Airpods'}}</span></a>
                     <ul>
                     <li><a class="mymenustyle" href="/category/{{menus[1]?.children[0].link}}">{{menus[1]?.children[0].name}}</a></li>

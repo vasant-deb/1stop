@@ -21,7 +21,13 @@ export class HomeComponent implements OnInit{
     dots: false,
     responsive: [
       {
-        breakpoint: '2000', // define your own breakpoints here
+        breakpoint: '2800', // define your own breakpoints here
+        settings: {
+          slidesToShow: 10
+        }
+      },
+      {
+        breakpoint: '1700', // define your own breakpoints here
         settings: {
           slidesToShow: 6
         }

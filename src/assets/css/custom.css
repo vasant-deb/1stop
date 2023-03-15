@@ -766,6 +766,9 @@ small {
     line-height: 25px;
     color: black;
 }
+.hover-pointer {
+    cursor: pointer;
+  }
 @media only screen and (max-width: 600px) {
     .mobile_menu_widget_icons a.cart_btn span.badge {
         border-radius: 50%;
