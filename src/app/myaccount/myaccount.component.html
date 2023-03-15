@@ -6,19 +6,19 @@
     <div class="col-md-3">
       <div class="dashboard_sidebar_list">
         <div class="sidebar_list_item">
-          <a (click)="profile()" class="items-center" [ngClass]="{ '-is-active': this.pagestate === 'Profile' }"><i class="flaticon-house mr15"></i>Profile</a>
+          <a (click)="profile()" class="items-center hover-pointer" [ngClass]="{ '-is-active': this.pagestate === 'Profile' }"><i class="flaticon-house mr15"></i>Profile</a>
         </div>
        
         <div class="sidebar_list_item ">
-          <a  (click)="order()" class="items-center" [ngClass]="{ '-is-active': this.pagestate === 'Order History' }"><i class="flaticon-checked-box mr15"></i>Order</a>
+          <a  (click)="order()" class="items-center hover-pointer" [ngClass]="{ '-is-active': this.pagestate === 'Order History' }"><i class="flaticon-checked-box mr15"></i>Order</a>
         </div>
         <div class="sidebar_list_item ">
-          <a (click)="changepassword()" class="items-center" [ngClass]="{ '-is-active': this.pagestate === 'Change Password' }"><i class="flaticon-growth mr15"></i>Change Password</a>
+          <a (click)="changepassword()" class="items-center hover-pointer" [ngClass]="{ '-is-active': this.pagestate === 'Change Password' }"><i class="flaticon-growth mr15"></i>Change Password</a>
         </div>
        
       
         <div class="sidebar_list_item ">
-          <a (click)="myaddress()" class="items-center" [ngClass]="{ '-is-active': this.pagestate === 'My Address' }"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          <a (click)="myaddress()" class="items-center hover-pointer" [ngClass]="{ '-is-active': this.pagestate === 'My Address' }"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
             class="feather feather-users mr15">
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -27,7 +27,7 @@
             <path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>My Address</a>
         </div>
         <div class="sidebar_list_item ">
-          <a  (click)="logout()" class="items-center"><i class="flaticon-exit mr15"></i>Logout</a>
+          <a  (click)="logout()" class="items-center hover-pointer"><i class="flaticon-exit mr15"></i>Logout</a>
         </div>
       </div>
 
@@ -134,7 +134,7 @@
                 <td>{{address?.state}}</td>
                 <td>{{address?.postalcode}}</td>
                 <td>{{address?.phone}}</td>
-                <td class="action"><i class="details fa fa-edit" (click)="openEditAddressModal(address)"></i></td>
+                <td class="action"><i class="details fa fa-edit hover-pointer" (click)="openEditAddressModal(address)"></i></td>
               </tr>
             </tbody>
           </table>
