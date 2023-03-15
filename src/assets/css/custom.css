@@ -782,6 +782,25 @@ small {
     .textcart {
         bottom: 35%;
     }
+    span.shipping_methodCharges__N3_1Z {
+        display: block;
+        margin: 0px 40px;
+        text-align: left;
+        width: 100%;
+    }
+    
+    .billing .shipping_methodRadio__5S_v7 {
+        padding-bottom: 10px;
+        padding-top: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+    
+    
+    label#Express\ Shipping {
+        width: 100%;
+        margin: 0px auto;
+        text-align: left;
+    }
 
 }
   
