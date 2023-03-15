@@ -110,9 +110,5 @@ span.mobiletotal {
 .menu_list_custom_code ul.sub-menu::before{
     display:none;
 }
-.menu_list_custom_code .visible_list a span.title {
-    text-transform: lowercase !important;
-    font-variant: small-caps;
 
-  }
   
