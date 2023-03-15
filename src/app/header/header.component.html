@@ -80,7 +80,7 @@
           <div class="container-fluid posr menu_bdrt1">
               <div class="menu-toggle"><button type="button" id="menu-btn"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
               <div class="posr logo1 home4_style">
-                  <div id="mega-menu"><a class="btn-mega" href="#"><img class="me-2" src="/assets/images/desktop-nav-menu-dark.svg" alt="Desktop Menu Icon"><span class="fw500 fz16 heading-color vam">Devices</span></a>
+                  <div id="mega-menu"><a class="btn-mega" href="#"><img class="me-2" src="https://cdn-icons-png.flaticon.com/32/545/545245.png" alt="Desktop Menu Icon"><span class="fw500 fz16 heading-color vam">Devices</span></a>
                     <ul class="menu">
                         <li *ngFor="let parent of devices">
                           <a class="dropdown" href="category/{{parent.parent_slug}}">
@@ -121,7 +121,7 @@
                 </li>
                 <li class="megamenu_style"><a href="#"><span class="title">{{menus[3]?.name ? menus[3]?.name : 'Tablets'}}</span></a>
                     <ul class="row dropdown-megamenu">
-                    <li class="col mega_menu_list pl30" *ngFor="let category of menus[3]?.children">
+                    <li class="col mega_menu_list pl30 fullwidthcol" *ngFor="let category of menus[3]?.children">
                         <h4 class="title">{{category.name}}</h4>
                         <ul>
                         <li class="ps" *ngFor="let subcategory of category.children"><a href="/category/{{subcategory.link}}">{{subcategory.name}}</a></li>

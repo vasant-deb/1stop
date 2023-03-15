@@ -97,6 +97,10 @@ getcontent(){
             product.prevQuantity = product.quantity;
          
           });
+          if(this.products.length===0){
+            this.pagename='No Result Found for your search "'+this.slug+'"';
+          }
+        
 
         }
     

@@ -123,3 +123,12 @@ span.mobiletotal {
 div#mega-menu {
     text-align: center;
 }
+div#mega-menu ul.menu {
+    text-align: left;
+}
+.fullwidthcol{
+    width: 20% !important;
+}
+.ps{
+    width: 100% !important;
+}
