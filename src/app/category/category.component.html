@@ -11,8 +11,8 @@
 </div>
 </section>
 <div class="container">
-<div class="row" *ngIf="categories">
-    <div class="col-sm-6 col-lg-4 col-xl-2 p0" *ngFor="let category of categories">
+<div class="row categorypost" *ngIf="categories">
+    <div class="col-sm-6 col-lg-4 col-xl-2 p0 singlecategory" *ngFor="let category of categories">
       <div class="shop_item style6 bdr1 mx--1">
         <a href="category/{{category.slug}}" class="thumb pb30">
             <img [src]="category.image ? 'https://www.yusyah.com/images/categories/' + category.image : 'https://www.yusyah.com/images/no-image.jpg'" alt="{{category.name}}">
@@ -58,6 +58,7 @@
     <div id="wrapper">
       <i class="fa fa-shopping-cart"></i>
     </div>
+    <div class="textcart">Add To Cart</div>
   </div>
 <app-footer></app-footer>
 

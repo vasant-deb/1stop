@@ -20,3 +20,23 @@
     background: white;
     margin: 10px;
   }
+
+.categorypost {
+    display: flex !important;
+    flex-wrap: wrap !important; /* to make sure columns wrap properly */
+    align-items: stretch; /* to make columns of equal height */
+    margin:10px;
+}
+
+.singlecategory {
+    background-color: #f2f2f2; /* for visualization purposes */
+    flex-basis: 25% !important; /* to ensure each column takes up the same width */
+}
+
+/* Set fixed height for all images */
+.singlecategory img {
+    object-fit: contain;
+    width: 100%;
+    height: 200px;
+}
+

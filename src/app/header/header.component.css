@@ -110,5 +110,16 @@ span.mobiletotal {
 .menu_list_custom_code ul.sub-menu::before{
     display:none;
 }
-
-  
+.dropdown-megamenu a,.mymenustyle{
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    height: auto !important;
+    line-height: 35px !important;
+    letter-spacing: 0 !important;
+}
+.pl200 {
+    padding-left: 15%;
+}
+div#mega-menu {
+    text-align: center;
+}

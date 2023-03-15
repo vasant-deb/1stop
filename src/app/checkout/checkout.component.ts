@@ -110,7 +110,7 @@ billings:any;
     this.snackBar.open('Select Shipping Type or Shipping Address', 'Dismiss', {
       verticalPosition: 'top',
       horizontalPosition: 'right',
-      duration: 5000
+      duration: 10000
     });
     }
   }
@@ -125,8 +125,7 @@ billings:any;
        this.spinner.show();
        const shippingId = localStorage.getItem('shippingId');
        const billingId = localStorage.getItem('billingId');
-
-//get value of textarea name 'notes'
+       //get value of textarea name 'notes'
        const notesValue = this.myTextarea.nativeElement.value;
        localStorage.setItem('notes', String(notesValue));
        if (shippingId && billingId) {
@@ -147,7 +146,13 @@ billings:any;
        //end
        window.scrollTo(0, 0);
     }else{
-    this.error=true;
+      this.error=true;
+      window.scrollTo(0, 0);
+      this.snackBar.open('Select Billing Address', 'Dismiss', {
+        verticalPosition: 'top',
+        horizontalPosition: 'right',
+        duration: 10000
+      });
     }
   }
   
@@ -175,7 +180,7 @@ billings:any;
           this.snackBar.open(message, 'Dismiss', {
             verticalPosition: 'top',
             horizontalPosition: 'right',
-            duration: 5000
+            duration: 10000
           });
          if(error===false){
           localStorage.setItem('justSignedUp','true') ;
@@ -193,7 +198,7 @@ billings:any;
       this.snackBar.open('Something Went Wrong! Please Try Again Later', 'Dismiss', {
         verticalPosition: 'top',
         horizontalPosition: 'right',
-        duration: 5000
+        duration: 10000
       });
     }
     
