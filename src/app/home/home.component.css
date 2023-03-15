@@ -1,1 +1,5 @@
 
+.slick-slide img {
+    display: block;
+    width: 100%;
+}
