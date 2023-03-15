@@ -59,14 +59,14 @@ export class HomeComponent implements OnInit{
       {
         breakpoint: 1600,
         settings: {
-          slidesToShow: 6
+          slidesToShow: 8
         }
       }
       ,
       {
         breakpoint: 2700,
         settings: {
-          slidesToShow: 6
+          slidesToShow: 10
         }
       }
     ]

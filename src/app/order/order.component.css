@@ -13,3 +13,6 @@
 .panel-body {
     padding: 0px 10px;
 }
+.price img {
+    object-fit: contain;
+}

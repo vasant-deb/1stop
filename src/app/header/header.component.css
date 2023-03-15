@@ -107,6 +107,9 @@ span.mobiletotal {
  .menu_list_custom_code h4.title {
     color: #397388 !important;
 }
+.menu_list_custom_code li{
+    padding: 0em 15px;
+}
 .menu_list_custom_code ul.sub-menu::before{
     display:none;
 }

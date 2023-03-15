@@ -21,17 +21,17 @@
   <!--Latest Devices-->
    
   <section class="features pb20">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-lg-10">
                 <div class="main-title text-center text-sm-start mb80-520 mb25-414">
-                    <h2 class="">Latest Devices</h2>
+                    <h2 class="mgl30">Latest Devices</h2>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12">
-                <ngx-slick-carousel class="carousel" [config]="latestdevicesOptions">
+                <ngx-slick-carousel class="carousel latestdev" [config]="latestdevicesOptions">
                     <a href="category/{{latest.slug}}" ngxSlickItem *ngFor="let latest of latestdevices" class="slide latestdevices">
                       <img src="https://www.yusyah.com/images/categories/{{latest.image}}" alt="">
                       <h4 class="text-center">{{latest.name}}</h4>
