@@ -1,0 +1,14 @@
+[
+{"type":"header","version":"4.9.11","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"wugslfet_books"},
+{"type":"table","name":"users","database":"wugslfet_books","data":
+[
+{"id":"1","role":"customer","email":"user@gmail.com","password":"123456","max_hours":"0","token":"myapp_64113fec84b1f8.10541867"},
+{"id":"2","role":"expert","email":"expert@gmail.com","password":"123456","max_hours":"4","token":""},
+{"id":"3","role":"customer","email":"customer1@example.com","password":"password","max_hours":"0","token":""},
+{"id":"4","role":"customer","email":"customer2@example.com","password":"password","max_hours":"0","token":""},
+{"id":"5","role":"expert","email":"expert1@example.com","password":"password","max_hours":"8","token":""},
+{"id":"6","role":"expert","email":"expert2@example.com","password":"password","max_hours":"6","token":""}
+]
+}
+]

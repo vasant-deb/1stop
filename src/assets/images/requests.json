@@ -1,0 +1,14 @@
+[
+{"type":"header","version":"4.9.11","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"wugslfet_books"},
+{"type":"table","name":"requests","database":"wugslfet_books","data":
+[
+{"id":"1","user_id":"1","assignedTo":"2","title":"My First Request","details":"Help me get this solved","hours":"5","status":"Pending","modified_at":"2023-03-14 23:48:51","created_at":"2023-03-14 23:48:11"},
+{"id":"2","user_id":"1","assignedTo":"2","title":"My Second Request","details":"why i am getting this ?","hours":"7","status":"Pending","modified_at":"2023-03-14 23:51:54","created_at":"2023-03-14 23:51:54"},
+{"id":"3","user_id":"1","assignedTo":"2","title":"My Third Request","details":"is it going to be that easy ?","hours":"9","status":"Pending","modified_at":"2023-03-14 23:52:37","created_at":"2023-03-14 23:52:37"},
+{"id":"4","user_id":"1","assignedTo":"2","title":"Task 4","details":"Again?","hours":"1","status":"Pending","modified_at":"2023-03-14 23:53:11","created_at":"2023-03-14 23:53:11"},
+{"id":"5","user_id":"1","assignedTo":"2","title":"let test","details":"this one","hours":"7","status":"Pending","modified_at":"2023-03-15 00:01:23","created_at":"2023-03-15 00:01:23"},
+{"id":"6","user_id":"1","assignedTo":"2","title":"why ?","details":"it is giving everything to me ?","hours":"9","status":"Pending","modified_at":"2023-03-15 00:01:55","created_at":"2023-03-15 00:01:55"}
+]
+}
+]

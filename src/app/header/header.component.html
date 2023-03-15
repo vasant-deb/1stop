@@ -5,7 +5,7 @@
           <div class="row">
               <div class="col-lg-2 col-xxl-2">
                   <div class="header_top_logo_home1">
-                      <div class="logo text-thm"><img  src="/assets/images/logo.png"/></div>
+                      <a href="" class="logo text-thm"><img  src="/assets/images/logo.png"/></a>
                   </div>
               </div>
               <div class="col-lg-7 col-xxl-7">
@@ -105,7 +105,7 @@
               </div>
               <ul id="respMenu" class="ace-responsive-menu menu_list_custom_code wa pl200" data-menu-style="horizontal">
                
-                <li class="visible_list"><a href="{{menus[0]?.link}}"><span class="title">{{menus[0]?.name  ? menus[0]?.name : 'Home'}}</span></a></li>
+           <!--   <li class="visible_list"><a href="{{menus[0]?.link}}"><span class="title">{{menus[0]?.name  ? menus[0]?.name : 'Home'}}</span></a></li>-->  
                 <li class="visible_list"><a href="#"><span class="title">{{menus[1]?.name ? menus[1]?.name : 'Airpods'}}</span></a>
                     <ul>
                     <li><a href="/category/{{menus[1]?.children[0].link}}">{{menus[1]?.children[0].name}}</a></li>
@@ -114,10 +114,9 @@
                     <li><a href="/category/{{menus[1]?.children[3].link}}">{{menus[1]?.children[3].name}}</a></li>
                     </ul>
                 </li>
-                <li class="visible_list"><a href="#"><span class="title">{{menus[2]?.name ? menus[2]?.name : 'WATCH'}}</span></a>
+                <li class="visible_list"><a href="#"><span class="title">{{menus[2]?.name ? menus[2]?.name : 'Watch'}}</span></a>
                     <ul>
                     <li><a href="/category/{{menus[2]?.children[0].link}}">{{menus[2]?.children[0].name}}</a></li>
-                 
                     </ul>
                 </li>
                 <li class="megamenu_style"><a href="#"><span class="title">{{menus[3]?.name ? menus[3]?.name : 'Tablets'}}</span></a>
@@ -160,7 +159,11 @@
 
                   </li>
                   <li class="list-inline-item list_c me-0">                 
-                    <a href="cart" class="header_iconbox_home3_style cart-filter-btn"><div class="details ms-2"><h5 class="title">Total : ${{this.total.toFixed(2)}}</h5></div></a>
+                    <a href="cart" class="header_iconbox_home3_style cart-filter-btn">
+                        <div class="details ms-2">
+                            <h5 class="title">Total : ${{this.total.toFixed(2)}}</h5>
+                        </div>
+                    </a>
                 </li>
                  
               </ul> 
