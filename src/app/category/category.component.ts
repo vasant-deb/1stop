@@ -57,27 +57,7 @@ checkauth(){
       );
   }
 }
-increment(productId: number) {
- 
-    const product = this.products.find(p => p.id === productId);
-    if (product) {
-        const quantity = parseInt(product.quantity, 10) || 0; // convert to integer and handle NaN
-        product.quantity = quantity + 1;
-    }
-   
-}
 
-decrement(productId: number) {
- 
-    const product = this.products.find(p => p.id === productId);
-    if (product) {
-        const quantity = parseInt(product.quantity, 10) || 0; // convert to integer and handle NaN
-        if (quantity > 0) {
-            product.quantity = quantity - 1;
-          
-        }
-    }
-}
 getcategories(){
  
 
@@ -116,7 +96,27 @@ getcategories(){
     }
   );
 }
+increment(productId: number) {
+ 
+  const product = this.products.find(p => p.id === productId);
+  if (product) {
+      const quantity = parseInt(product.quantity, 10) || 0; // convert to integer and handle NaN
+      product.quantity = quantity + 1;
+  }
+ 
+}
 
+decrement(productId: number) {
+
+  const product = this.products.find(p => p.id === productId);
+  if (product) {
+      const quantity = parseInt(product.quantity, 10) || 0; // convert to integer and handle NaN
+      if (quantity > 0) {
+          product.quantity = quantity - 1;
+        
+      }
+  }
+}
 onAddAllToCart() {
   this.spinner.show();
   const cartItems: any[] = [];
