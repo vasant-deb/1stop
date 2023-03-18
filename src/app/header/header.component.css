@@ -108,7 +108,7 @@ span.mobiletotal {
     color: #397388 !important;
 }
 .menu_list_custom_code li{
-    padding: 0em 15px;
+    padding: 0em 5px;
 }
 .menu_list_custom_code ul.sub-menu::before{
     display:none;

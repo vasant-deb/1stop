@@ -40,6 +40,7 @@ a.header_top_iconbox.home10_style.cart-filter-btn img {
     object-fit: contain; /* scale images to fill container */
     /* add any other styles for your images */
   }
+  /*
   #addalltocart {
     z-index: 10;
     position: fixed;
@@ -61,6 +62,7 @@ a.header_top_iconbox.home10_style.cart-filter-btn img {
     color: white;
     font-size: 36px;
 }
+*/
 .header_top_iconbox.home6_style .icon span.badge, .header_top_iconbox.home8_style .icon span.badge, .header_top_iconbox.home9_style .icon span.badge, .header_top_iconbox.home10_style .icon span.badge {
     color: #ffffff;
 }
@@ -758,17 +760,41 @@ p {
 small {
   font-size: 0.9rem; /* equivalent to 14.4px */
 }
-.textcart {
-    font-size: 18px;
-    position: fixed;
-    bottom: 40%;
-    font-weight: 600;
-    line-height: 25px;
-    color: black;
-}
+
 .hover-pointer {
     cursor: pointer;
   }
+  #addalltocart {
+    position: fixed;
+    right: 20px; /* adjust this value to change the horizontal position */
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  #addalltocart #wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #3a7588;
+  }
+  
+  #addalltocart i {
+      font-size:40px;
+    color: white;
+  }
+  
+  .textcart {
+    display: block;
+    text-align: center;
+    margin-top: 5px;
+    color: black;
+      font-size:18px;
+    font-weight: bold;
+  }
+  
 @media only screen and (max-width: 600px) {
     .mobile_menu_widget_icons a.cart_btn span.badge {
         border-radius: 50%;
@@ -782,9 +808,7 @@ small {
         top: 0px;
         width: 20px;
     }
-    .textcart {
-        bottom: 35%;
-    }
+   
     span.shipping_methodCharges__N3_1Z {
         display: block;
         margin: 0px 40px;
