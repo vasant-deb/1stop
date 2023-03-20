@@ -139,3 +139,14 @@ div#mega-menu ul.menu {
 .ps{
     width: 100% !important;
 }
+.topbar {
+    line-height: 20px;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #f6e58d;
+    width: 100%;
+    height: auto;
+    background-color: #30336b;
+  }
+
+  

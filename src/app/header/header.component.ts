@@ -28,11 +28,11 @@ export class HeaderComponent implements OnInit {
   category: any; // add this line to define the category property
   subcategory: any; // add this line to define the category property
   subsubcategory:any;
-
+  headertext:string='';
   ngOnInit() {
    this.device();
    this.menu();
-  
+  this.heading();
     let email=localStorage.getItem('email');
     let token=localStorage.getItem('token');
     if(email && token){
@@ -92,6 +92,21 @@ export class HeaderComponent implements OnInit {
         this.spinner.hide();
         this.menus = res?.stats;
         
+     //   this.spinner.hide();
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+  heading(){
+    this.spinner.show();
+    this.authService.getheading()
+    .subscribe(
+      res => {
+        this.spinner.hide();
+        this.headertext = res?.stats;
+        console.log(this.headertext);
      //   this.spinner.hide();
       },
       err => {

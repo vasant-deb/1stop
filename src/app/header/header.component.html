@@ -1,8 +1,11 @@
 <ngx-spinner type="ball-scale-multiple"></ngx-spinner>
 
-      <div class="header_middle home10_style pt20 pb20 dn-992">
+      <div class="header_middle home10_style  pb20 dn-992" [class.pt20]="!headertext">
       <div class="container-fluid">
           <div class="row">
+            <div class="col-md-12 topbar" *ngIf="headertext">
+                <marquee> {{this.headertext}}  </marquee>
+             </div>
               <div class="col-lg-2 col-xxl-2">
                   <div class="header_top_logo_home1">
                       <a href="" class="logo text-thm"><img  src="/assets/images/logo.png"/></a>

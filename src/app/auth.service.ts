@@ -86,6 +86,9 @@ export class AuthService {
   getdevices(){
     return this.http.get<{message:string,stats: any[]}>(API_BASE_URL +'devices');
   }
+  getheading(){
+    return this.http.get<{message:string,stats: string}>(API_BASE_URL +'getheading');
+  }
   getmenus(){
     return this.http.get<{message:string,stats: any[]}>(API_BASE_URL +'menus');
   }
