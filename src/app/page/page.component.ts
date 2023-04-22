@@ -88,6 +88,10 @@ getcontent(){
       } else {
         
         this.pagename=this.slug;
+        if(this.pagename=='new-arrival'){
+          this.pagename='New Arrival';
+        }
+       
         
         if(Array.isArray(res.prod)){
           this.products = res.prod;
