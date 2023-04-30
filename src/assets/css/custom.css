@@ -830,4 +830,10 @@ small {
     }
 
 }
-  
+.tags img {
+    height: auto !important;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 130px !important;
+}

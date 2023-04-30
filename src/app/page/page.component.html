@@ -18,8 +18,8 @@
         <a href="/product/{{product.slug}}" class="thumb">
             <img [src]="product.image ? 'https://api.yusyah.com/public/uploads/products/' + product.image : 'https://api.yusyah.com/public/uploads/no-image.jpg'" alt="{{product.name}}">
             <div class="tags">
-                <span *ngIf="product.newarrival == 1" class="new">New</span>
-                <span *ngIf="product.hot_product == 1" class="sale">Sale</span>
+                <img *ngIf="product.newarrival == 1" src="/assets/images/new.png" width="100px">
+                <img *ngIf="product.hot_product == 1" src="/assets/images/sale.png" width="100px">
             </div>
         </a>
         <div class="details text-center">

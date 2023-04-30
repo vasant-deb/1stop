@@ -27,6 +27,7 @@ import { PageComponent } from './page/page.component'; // import MatDialogModule
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,6 @@ import { PageComponent } from './page/page.component'; // import MatDialogModule
     MatSnackBarModule,
     MatDialogModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
