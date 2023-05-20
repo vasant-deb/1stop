@@ -837,3 +837,6 @@ small {
     right: 0;
     width: 130px !important;
 }
+.fivecolnew .card,.fivecolnew .card-container{
+    margin: 10px;
+} 

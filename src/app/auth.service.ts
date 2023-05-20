@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpParams  } from '@angular/common/http';
 import { Observable } from 'rxjs';
-const API_BASE_URL = 'https://api.yusyah.com/public/';
+const API_BASE_URL = 'https://api.1stopwireless.ca/public/';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +23,9 @@ export class AuthService {
   }
   updateaddress({updatedAddress}: { updatedAddress:any }): Observable<any> {
     return this.http.post<any>(API_BASE_URL +'updateaddress', {updatedAddress });
+  }
+  addaddress({addedAddress}: { addedAddress:any }): Observable<any> {
+    return this.http.post<any>(API_BASE_URL +'addaddress', {addedAddress });
   }
   updatepassword({change}: { change:any }): Observable<any> {
     return this.http.post<any>(API_BASE_URL +'updatepassword', {change });

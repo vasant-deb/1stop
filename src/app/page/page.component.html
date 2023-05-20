@@ -16,7 +16,7 @@
     <div class="col-sm-6  col-lg-4 col-xl-3 p0 card-container" *ngFor="let product of products">
       <div class="card">
         <a href="/product/{{product.slug}}" class="thumb">
-            <img [src]="product.image ? 'https://api.yusyah.com/public/uploads/products/' + product.image : 'https://api.yusyah.com/public/uploads/no-image.jpg'" alt="{{product.name}}">
+            <img [src]="product.image ? 'https://api.1stopwireless.ca/public/uploads/products/' + product.image : 'https://api.1stopwireless.ca/public/uploads/no-image.jpg'" alt="{{product.name}}">
             <div class="tags">
                 <img *ngIf="product.newarrival == 1" src="/assets/images/new.png" width="100px">
                 <img *ngIf="product.hot_product == 1" src="/assets/images/sale.png" width="100px">

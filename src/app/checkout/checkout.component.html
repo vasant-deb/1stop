@@ -43,7 +43,7 @@
                                 <div class="col-md-12">
                                     <form class="ant-form ant-form-horizontal" id="shippingform">
                                         <h3 class="checkout_sectionHeading__29Tvy">Shipping Address</h3>
-
+                                        <div *ngIf="addresses">
                                         <div *ngFor="let address of addresses" (click)="shippingaddress(address.id)">
                                             <div class="ant-row ant-form-item shipping_addressItem__1p4yL shippingid" id="{{address.id}}">
                                               <div class="ant-col ant-form-item-control-wrapper">
@@ -74,7 +74,7 @@
                                               </div>
                                             </div>
                                           </div>
-                                          
+                                        </div>
            
                      <label class="error" *ngIf="this.shippingId == 0">Please select a shipping Address.</label>
 
@@ -157,7 +157,7 @@
                                 <div class="col-md-12">
                                     <form class="ant-form ant-form-horizontal" id="shippingform">
                                         <h3 class="checkout_sectionHeading__29Tvy">Billing Address</h3>
-
+                                      <div *ngIf="addresses">
                                         <div *ngFor="let address of addresses" (click)="billingaddress(address.id)">
                                             <div class="ant-row ant-form-item shipping_addressItem__1p4yL shippingid" id="{{address.id}}">
                                               <div class="ant-col ant-form-item-control-wrapper">
@@ -188,7 +188,7 @@
                                               </div>
                                             </div>
                                           </div>
-                                          
+                                        </div>
            
                      <label class="error" *ngIf="this.billingId == 0">Please select a Billing Address.</label>
 
@@ -333,41 +333,41 @@
         <!-- end modal header-->
         <!-- modal body -->
         <div class="modal-body">
-          <form method="post">
+          <form method="post" [formGroup]="editAddressForm" (submit)="onSave()">
             <fieldset class="row">
               <div class="form-group col-md-6 col-xs-6">
                 <label for="name"> Name: *</label>
-                <input type="text" class="form-control" name="data[Address][name]" id="name">
+                <input type="text" class="form-control" formControlName="name" id="name">
               </div>
 
               <div class="form-group col-md-6 col-xs-6">
                 <label for="email"> Company *</label>
-                <input type="text" class="form-control" name="data[Address][company]" id="company">
+                <input type="text" class="form-control" formControlName="company" id="company">
               </div>
 
               <div class="form-group col-md-6 col-xs-6">
                 <label for="tel"> Street 1 *</label>
-                <input type="text" class="form-control" name="data[Address][street1]" id="street1">
+                <input type="text" class="form-control" formControlName="street1" id="street1">
               </div>
 
               <div class="form-group col-md-6 col-xs-6">
                 <label for="tel"> Street 2 *</label>
-                <input type="text" class="form-control" name="data[Address][street2]" id="street2">
+                <input type="text" class="form-control" formControlName="street2" id="street2">
               </div>
               
               <div class="form-group col-md-6 col-xs-6">
                 <label for="tel"> City *</label>
-                <input type="text" class="form-control" name="data[Address][city]" id="city">
+                <input type="text" class="form-control" formControlName="city" id="city">
               </div>
               
               <div class="form-group col-md-6 col-xs-6">
                 <label for="tel"> Postal Code *</label>
-                <input type="text" class="form-control" name="data[Address][postalcode]" id="postalcode">
+                <input type="text" class="form-control" formControlName="postalcode" id="postalcode">
               </div>
               
               <div class="form-group col-md-6 col-xs-6">
                 <label for="tel"> Province *</label>
-                 <select class="form-control" name="data[Address][state]">
+                 <select class="form-control" formControlName="state">
                                        <option>Alberta</option>
                                        <option>British Columbia</option>
                                        <option>Manitoba</option>
@@ -385,18 +385,19 @@
               </div>
               <div class="form-group col-md-6 col-xs-6">
                 <label for="tel"> Phone Number *</label>
-                <input type="hidden" class="form-control" name="data[Address][user_id]" value="11" id="user_id">
-                <input type="text" class="form-control" name="data[Address][phone]" id="phone">
+                <input type="hidden" class="form-control" formControlName="user_id" id="user_id">
+                <input type="text" class="form-control" formControlName="phone" id="phone">
               </div>
             </fieldset>
+            <div class="modal-footer">
+              <div class="mohe">
+                <button type="submit" class="btn btn-default btn-md btn-sm"> Create</button>
+              </div>
+            </div>
         </form></div>
         <!-- end modal body -->
         <!-- modal footer-->
-        <div class="modal-footer">
-          <div class="mohe">
-            <button type="submit" class="btn btn-default btn-md btn-sm"> Create</button>
-          </div>
-        </div>
+      
          
         <!-- end modal footer -->
       </div>

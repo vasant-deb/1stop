@@ -108,6 +108,73 @@
         </div>
 
         <div class="order_table table-responsive" *ngIf="addressview">
+
+          <button class="btn btn-thm right" (click)="addAddress()">Add New Address</button>
+        <div class="myform" *ngIf="addaddress">
+          <form method="post" [formGroup]="addAddressForm" (submit)="onAdd()">
+            <fieldset class="row">
+              <div class="form-group col-md-6 col-xs-6">
+                <label for="name"> Name: *</label>
+                <input type="text" class="form-control" formControlName="name" id="name">
+              </div>
+
+              <div class="form-group col-md-6 col-xs-6">
+                <label for="email"> Company *</label>
+                <input type="text" class="form-control" formControlName="company" id="company">
+              </div>
+
+              <div class="form-group col-md-6 col-xs-6">
+                <label for="tel"> Street 1 *</label>
+                <input type="text" class="form-control" formControlName="street1" id="street1">
+              </div>
+
+              <div class="form-group col-md-6 col-xs-6">
+                <label for="tel"> Street 2 *</label>
+                <input type="text" class="form-control" formControlName="street2" id="street2">
+              </div>
+              
+              <div class="form-group col-md-6 col-xs-6">
+                <label for="tel"> City *</label>
+                <input type="text" class="form-control" formControlName="city" id="city">
+              </div>
+              
+              <div class="form-group col-md-6 col-xs-6">
+                <label for="tel"> Postal Code *</label>
+                <input type="text" class="form-control" formControlName="postalcode" id="postalcode">
+              </div>
+              
+              <div class="form-group col-md-6 col-xs-6">
+                <label for="tel"> Province *</label>
+                 <select class="form-control" formControlName="state">
+                                       <option>Alberta</option>
+                                       <option>British Columbia</option>
+                                       <option>Manitoba</option>
+                                       <option>New Brunswick</option>
+                                       <option>Newfoundland and Labrador</option>
+                                       <option>Northwest Territories</option>
+                                       <option>Nova Scotia</option>
+                                       <option>Nunavut</option>
+                                       <option>Ontario</option>
+                                       <option>Prince Edward Island</option>
+                                       <option>Quebec</option>
+                                       <option>Saskatchewan</option>
+                                       <option>Yukon Territory</option>
+                                       </select>
+              </div>
+              <div class="form-group col-md-6 col-xs-6">
+                <label for="tel"> Phone Number *</label>
+                <input type="hidden" class="form-control" formControlName="user_id" id="user_id">
+                <input type="text" class="form-control" formControlName="phone" id="phone">
+              </div>
+            </fieldset>
+            <div class="modal-footer">
+              <div class="mohe">
+                <button type="submit" class="btn btn-default btn-md btn-sm"> Create</button>
+              </div>
+            </div>
+        </form></div>
+
+
           <table class="table">
             <thead class="table-light">
               <tr>
@@ -162,6 +229,10 @@
     </div>
       <!--Modal Edit-->
       <div class="edit-address-modal card" *ngIf="addressview" [hidden]="!showEditAddressModal">
+        
+
+
+
         <div class="modal-content">
           <h2>Edit Address</h2>
           <form [formGroup]="editAddressForm" (submit)="onSave()">

@@ -26,9 +26,12 @@ export class MyaccountComponent implements OnInit {
   profileview=false;
   orderview=true;
   userdetails:any;
+  addaddress=false;
   addressview=false;
   orders:any[]=[];
   addresses:any[]=[];
+  addAddressForm!: FormGroup;
+
   auth=false;
   message:string='';
   changepasswordview=false;
@@ -58,6 +61,63 @@ export class MyaccountComponent implements OnInit {
     }else{
       this.router.navigate(['']);
     }
+
+    this.addAddressForm = this.fb.group({
+      id:['', Validators.required],
+      name: ['', Validators.required],
+      company: ['', Validators.required],
+      street1: ['', Validators.required],
+      street2: [''],
+      city: ['', Validators.required],
+      state: ['', Validators.required],
+      postalcode: ['', Validators.required],
+      phone: ['', Validators.required],
+      user_id:[email,Validators.required]
+    });
+
+
+  }
+  addAddress(){
+this.addaddress=true;
+  }
+  onAdd(): void {
+   
+   
+    this.spinner.show();
+   
+      const addedAddress = this.addAddressForm.value;
+      
+      // Code to update the address in the database
+      this.authService.addaddress({addedAddress})
+      .subscribe(
+        res => {
+          this.spinner.hide();
+          const error = res.error;
+          const message=res.message;
+          this.addaddress=false;
+          if(error === false){
+           
+            this.snackBar.open(message, 'Dismiss', {
+              verticalPosition: 'top',
+              horizontalPosition: 'right',
+              duration: 5000
+            });
+            this.checkauth();
+         
+           }else{
+            this.snackBar.open(message, 'Dismiss', {
+              verticalPosition: 'top',
+              horizontalPosition: 'right',
+              duration: 5000
+            });
+           }
+        },
+        err => {
+          console.log(err);
+        }
+      );
+      // ...
+    
   }
   checkauth(){
     let email = localStorage.getItem('email');
@@ -208,7 +268,7 @@ export class MyaccountComponent implements OnInit {
   // Method to save the edited address
   onSave(): void {
     this.spinner.show();
-    if (this.editAddressForm.valid) {
+  
       const updatedAddress = this.editAddressForm.value;
       
       // Code to update the address in the database
@@ -242,5 +302,5 @@ export class MyaccountComponent implements OnInit {
       // Hide the modal
       this.showEditAddressModal = false;
     }
-  }
+ 
 }

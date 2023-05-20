@@ -40,3 +40,10 @@
     height: 200px;
 }
 
+.card.newsection {
+    flex: none!important;
+}
+.image-container{
+    height: 250px;
+    width: auto;
+}

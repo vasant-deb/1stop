@@ -16,6 +16,15 @@
 .myaccount a.items-center:hover{
   color: white !important;
 }
+button.btn.btn-thm.right {
+  float: right;
+}
+.myform {
+  width: 100%;
+  margin: 10px auto;
+  padding: 10px;
+  font-size: 16px;
+}
 .sidebar_list_item {
   margin: 10px 0px;
 }

@@ -3,6 +3,7 @@ import { ActivatedRoute,Router} from '@angular/router';
 
 import { AuthService } from '../auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -14,7 +15,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class CheckoutComponent {
   @ViewChild('myTextarea') myTextarea!:ElementRef;
 
-  constructor(private snackBar: MatSnackBar,private spinner: NgxSpinnerService,private router: Router,private authService: AuthService,private route: ActivatedRoute) { }
+  constructor(private fb: FormBuilder,private snackBar: MatSnackBar,private spinner: NgxSpinnerService,private router: Router,private authService: AuthService,private route: ActivatedRoute) { }
   modalshow=false;
   subtotal :number=0.00;
    tax :number=0.00;
@@ -31,7 +32,7 @@ billings:any;
   shipType:string='';
   auth=false;
   statsData :any;
- 
+  editAddressForm!: FormGroup;
   addresses:any[]=[];
   ngOnInit(){
     let email=localStorage.getItem('email');
@@ -54,6 +55,20 @@ billings:any;
         location.reload();
       }
     });
+
+    this.editAddressForm = this.fb.group({
+      id:['', Validators.required],
+      name: ['', Validators.required],
+      company: ['', Validators.required],
+      street1: ['', Validators.required],
+      street2: [''],
+      city: ['', Validators.required],
+      state: ['', Validators.required],
+      postalcode: ['', Validators.required],
+      phone: ['', Validators.required],
+      user_id:[email,Validators.required]
+    });
+
   }
   checkauth(){
     let email = localStorage.getItem('email');
@@ -245,4 +260,46 @@ billings:any;
       this.shipType=shippingtype;
     }
   }
+
+  onSave(): void {
+   
+    this.modalshow=false;
+    this.spinner.show();
+   
+      const addedAddress = this.editAddressForm.value;
+      
+      // Code to update the address in the database
+      this.authService.addaddress({addedAddress})
+      .subscribe(
+        res => {
+          this.spinner.hide();
+          const error = res.error;
+          const message=res.message;
+          if(error === false){
+           
+            this.snackBar.open(message, 'Dismiss', {
+              verticalPosition: 'top',
+              horizontalPosition: 'right',
+              duration: 5000
+            });
+            window.location.reload();
+         
+           }else{
+            this.snackBar.open(message, 'Dismiss', {
+              verticalPosition: 'top',
+              horizontalPosition: 'right',
+              duration: 5000
+            });
+           }
+        },
+        err => {
+          console.log(err);
+        }
+      );
+      // ...
+    
+  }
+
+
+
 }

@@ -10,7 +10,7 @@
                     <div class="col-lg-12">
                         <ngx-slick-carousel class="carousel" [config]="bannerOptions">
                             <div ngxSlickItem *ngFor="let slide of sliders" class="slide">
-                              <img src="https://api.yusyah.com/public/uploads/banners/{{slide.image}}" alt="">
+                              <img src="https://api.1stopwireless.ca/public/uploads/banners/{{slide.image}}" alt="">
                             </div>
                           </ngx-slick-carousel>
                        
@@ -33,7 +33,7 @@
             <div class="col-lg-12">
                 <ngx-slick-carousel class="carousel latestdev" [config]="latestdevicesOptions">
                     <a href="category/{{latest.slug}}" ngxSlickItem *ngFor="let latest of latestdevices" class="slide latestdevices">
-                      <img src="https://api.yusyah.com/public/uploads/categories/{{latest.image}}" alt="">
+                      <img src="https://api.1stopwireless.ca/public/uploads/categories/{{latest.image}}" alt="">
                       <h4 class="text-center">{{latest.name}}</h4>
                     </a>
                   </ngx-slick-carousel>
@@ -51,13 +51,13 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6 col-xl-3 card" *ngFor="let product of accessories">
+        <div class="row d-flex justify-content-center fivecolnew">
+            <div class="col-sm-6 col-md-4 col-lg-2  col-xl-2 card" *ngFor="let product of accessories">
                 <div class="for_blog">
                     
                     <a class="thumb" href="/product/{{product.slug}}">
                         
-                        <img class="img-whp" src="https://api.yusyah.com/public/uploads/products/{{product.image}}" alt="{{product.name}}">
+                        <img class="img-whp" src="https://api.1stopwireless.ca/public/uploads/products/{{product.image}}" alt="{{product.name}}">
                         
                     </a>
                     <div class="details text-center">
@@ -83,7 +83,7 @@
     </div>
 </section>
 
- 
+
 <div *ngIf="auth" id="addalltocart" (click)="onAddAllToCart()">
     <div id="wrapper">
       <i class="fa fa-shopping-cart"></i>

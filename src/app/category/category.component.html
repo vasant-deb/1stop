@@ -10,12 +10,14 @@
   </div>
 </div>
 </section>
+
+
 <div class="container">
 <div class="row categorypost" *ngIf="categories">
     <div class="col-sm-6 col-lg-4 col-xl-2 p0 singlecategory" *ngFor="let category of categories">
       <div class="shop_item style6 bdr1 mx--1">
         <a href="category/{{category.slug}}" class="thumb pb30">
-            <img [src]="category.image ? 'https://api.yusyah.com/public/uploads/categories/' + category.image : 'https://api.yusyah.com/public/uploads/no-image.jpg'" alt="{{category.name}}">
+            <img [src]="category.image ? 'https://api.1stopwireless.ca/public/uploads/categories/' + category.image : 'https://api.1stopwireless.ca/public/uploads/no-image.jpg'" alt="{{category.name}}">
 
         </a>
         <div class="details text-center">
@@ -25,11 +27,12 @@
     </div>
  
   </div>
-  <div class="row" *ngIf="products">
-    <div class="col-sm-6  col-lg-4 col-xl-3 p0 card-container" *ngFor="let product of products">
+  <!--
+  <div class="row d-flex justify-content-center fivecolnew" *ngIf="products">
+    <div class="col-sm-6 col-md-4 col-lg-2  col-xl-2 p0 card-container" *ngFor="let product of products">
       <div class="card">
         <a href="/product/{{product.slug}}" class="thumb">
-            <img [src]="product.image ? 'https://api.yusyah.com/public/uploads/products/' + product.image : 'https://api.yusyah.com/public/uploads/no-image.jpg'" alt="{{product.name}}">
+            <img [src]="product.image ? 'https://api.1stopwireless.ca/public/uploads/products/' + product.image : 'https://api.1stopwireless.ca/public/uploads/no-image.jpg'" alt="{{product.name}}">
             <div class="tags">
               <img *ngIf="product.newarrival == 1" src="/assets/images/new.png" width="100px">
               <img *ngIf="product.hot_product == 1" src="/assets/images/sale.png" width="100px">
@@ -54,6 +57,43 @@
  
   </div>
 </div>
+
+
+
+-->
+
+
+
+  <div class="row justify-content-center"  *ngIf="products">
+  <div class="col-sm-6 col-md-4 col-lg-2  col-xl-2 card newsection" *ngFor="let product of products">
+      <a class=" image-container" href="/product/{{product.slug}}">
+      <img  src="https://api.1stopwireless.ca/public/uploads/products/{{product.image}}" alt="{{product.name}}">
+      </a>
+      <div class="details text-center">
+          <div class="title"><a href="/product/{{product.slug}}">{{product.name}}</a></div>
+          <div class="price" *ngIf="auth">${{product.discounted_price}}</div>
+          <div class="cart_btn" *ngIf="auth">
+            <div class="quantity-block">
+              <button class="quantity-arrow-minus inner_page" (click)="decrement(product.id)"> <span class="fa fa-minus"></span> </button>
+              <input class="quantity-num inner_page" #quantityInputs type="number" [value]="product.quantity" (input)="product.quantity = quantityInputs.value">
+              <button class="quantity-arrow-plus inner_page" (click)="increment(product.id)"> <span class="fas fa-plus"></span> </button>
+            </div>
+          </div>
+          <span class="price" *ngIf="cartQuantity[product.id] > 0 && auth">{{cartQuantity[product.id]}} in cart</span>
+        </div>
+        <div class="tags">
+          <img *ngIf="product.newarrival == 1" src="/assets/images/new.png" width="100px">
+          <img *ngIf="product.hot_product == 1" src="/assets/images/sale.png" width="100px">
+      </div>
+  </div>
+  </div>
+  </div>
+
+
+
+
+
+
 <div *ngIf="auth" id="addalltocart" (click)="onAddAllToCart()">
     <div id="wrapper">
       <i class="fa fa-shopping-cart"></i>
