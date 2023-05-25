@@ -52,7 +52,7 @@
                         <form [formGroup]="angForm" (ngSubmit)="signup()">
                             <div class="row clearfix">
                                 <div class="form-group col-md-4 col-sm-4 col-xs-12">
-                                    <label for="email">First Name</label>
+                                    <label for="email">* First Name</label>
                                     <div class="input text">
                                       
                                         <input  class="form-control col-md-3" id="firstName" type="text" formControlName="firstName"  [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }">
@@ -80,7 +80,7 @@
                                   </div>
                            
                       <div class="form-group col-md-4 col-sm-4 col-xs-12">
-                         <label for="country">Preferred Doc Type</label>
+                         <label for="country">* Preferred Doc Type</label>
                          <select formControlName="docType" name="docType" class="form-control">
                             <option value="" disabled>Select Doc Type</option>
                             <option value="Full Invoice">Full Invoice</option>
@@ -104,7 +104,7 @@
                             </div>	-->   
                       </div>
                       <div class="form-group col-md-4 col-sm-4 col-xs-12">
-                         <label for="email">Email address</label>                                     
+                         <label for="email">* Email address</label>                                     
                          <div class="input email required">
                             <input formControlName="email"  name="email" class="form-control col-md-3"   maxlength="255" type="email" id="UserEmail" required="required"></div>	
                             <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
@@ -112,7 +112,7 @@
                             </div>	
                         </div>
                        <div class="form-group col-md-4 col-sm-4 col-xs-12">
-                         <label for="password">Password</label>
+                         <label for="password">* Password</label>
                          <div class="input password required">
                             <input formControlName="password" name="password" class="form-control col-md-3" type="password" id="UserPassword" required="required"></div>	
                             <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
@@ -120,7 +120,7 @@
                             </div>	
                         </div>
                       <div class="form-group col-md-4 col-sm-4 col-xs-12">
-                         <label for="confirmpassword">Confirm Password</label>
+                         <label for="confirmpassword">* Confirm Password</label>
                          <!-- <input type="password" name="confirmpassword" required="required" class="form-control" id="confirmpassword" required> -->
                          <div class="input password">
                             <input formControlName="confirmPassword" name="confirmpassword" class="form-control col-md-3" required="required" type="password" id="UserConfirmpassword"></div>	
@@ -132,7 +132,7 @@
                         </div>
                       
                       <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                         <label for="email">Name</label>
+                         <label for="email">* Name</label>
                          <div class="input text">
                             <input  formControlName="addressName" name="addressName" class="form-control col-md-3" maxlength="100" type="text" id="UserAddressName"></div>	
                             <div *ngIf="submitted && f['addressName'].errors" class="invalid-feedback">
@@ -140,7 +140,7 @@
                             </div>	
                         </div>
                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                         <label for="email">Company Name</label>
+                         <label for="email">* Company Name</label>
                          <div class="input text">
                             <input formControlName="company"   name="company" class="form-control col-md-3" maxlength="50" type="text" id="UserCompany"></div>	
                             <div *ngIf="submitted && f['company'].errors" class="invalid-feedback">
@@ -148,7 +148,7 @@
                             </div>	
                         </div>
                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                         <label for="email">Street 1</label>
+                         <label for="email">* Street 1</label>
                          <div class="input text">
                             <input formControlName="address" name="address"  class="form-control col-md-3" maxlength="255" type="text" id="UserAddress"></div>	
                             <div *ngIf="submitted && f['address'].errors" class="invalid-feedback">
@@ -162,7 +162,7 @@
                           	
                         </div>
                       <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                         <label for="email">City</label>
+                         <label for="email">* City</label>
                          <div class="input text">
                             <input formControlName="city" name="city"  class="form-control col-md-3" maxlength="50" type="text" id="UserCity"></div>	
                             <div *ngIf="submitted && f['city'].errors" class="invalid-feedback">
@@ -170,7 +170,7 @@
                             </div>	
                         </div>
                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                         <label for="Zip">Postal Code</label>
+                         <label for="Zip">* Postal Code</label>
                          <div class="input text">
                             <input formControlName="zipcode"  name="zipcode"  class="form-control col-md-3" maxlength="100" type="text" id="UserZipcode"></div>	
                             <div *ngIf="submitted && f['zipcode'].errors" class="invalid-feedback">
@@ -180,7 +180,7 @@
                       
                       
                       <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                         <label for="email">Province</label>
+                         <label for="email">* Province</label>
                      
                          
                            <select  formControlName="state" class="form-control" name="state">
@@ -210,7 +210,7 @@
                       
                       
                       <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                         <label for="email">Phone</label>
+                         <label for="email">* Phone</label>
                          <div class="input tel"><input formControlName="phone"  name="phone" class="form-control col-md-3" maxlength="20" type="tel" id="UserPhone"></div>	
                          <div *ngIf="submitted && f['phone'].errors" class="invalid-feedback">
                             <div *ngIf="f['phone'].errors['required']">Phone is required</div>
