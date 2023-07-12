@@ -1,3 +1,9 @@
 #addalltocart {
     right: 0%;
 }
+.notavailable{
+    color:red;
+}
+tr.not-selected {
+    border: 2px solid red !important;
+}

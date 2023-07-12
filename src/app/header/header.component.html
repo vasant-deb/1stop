@@ -95,7 +95,7 @@
                               <div class="cat-title"><a href="category/{{submenu.slug}}">{{ submenu.name }}</a></div>
                               <ul class="mb20">
                                 <li *ngFor="let subcategory of submenu.subcategories">
-                                  <a href="category/{{subcategory.slug}}">{{ subcategory.name }}</a>
+                                  <a href="category/{{subcategory.slug}}">{{ subcategory.name }} <span *ngIf="subcategory.tag==1" class="newcatx">NEW</span></a>
                                 </li>
                               </ul>
                             </div>
@@ -111,15 +111,15 @@
             <li class="visible_list"><a href="{{menus[0]?.link}}"><span class="title">{{menus[0]?.name  ? menus[0]?.name : 'Home'}}</span></a></li>
                 <li class="visible_list"><a href="#"><span class="title">{{menus[1]?.name ? menus[1]?.name : 'Airpods'}}</span></a>
                     <ul>
-                    <li><a class="mymenustyle" href="/category/{{menus[1]?.children[0].link}}">{{menus[1]?.children[0].name}}</a></li>
-                    <li><a class="mymenustyle" href="/category/{{menus[1]?.children[1].link}}">{{menus[1]?.children[1].name}}</a></li>
-                    <li><a class="mymenustyle" href="/category/{{menus[1]?.children[2].link}}">{{menus[1]?.children[2].name}}</a></li>
-                    <li><a class="mymenustyle" href="/category/{{menus[1]?.children[3].link}}">{{menus[1]?.children[3].name}}</a></li>
+                    <li><a class="mymenustyle" href="/category/{{menus[1]?.children[0].link}}">{{menus[1]?.children[0].name}} <span *ngIf="menus[1]?.children[0].tag==1" class="newcatx">NEW</span></a></li>
+                    <li><a class="mymenustyle" href="/category/{{menus[1]?.children[1].link}}">{{menus[1]?.children[1].name}}</a> <span *ngIf="menus[1]?.children[1].tag==1" class="newcatx">NEW</span></li>
+                    <li><a class="mymenustyle" href="/category/{{menus[1]?.children[2].link}}">{{menus[1]?.children[2].name}}</a> <span *ngIf="menus[1]?.children[2].tag==1" class="newcatx">NEW</span></li>
+                    <li><a class="mymenustyle" href="/category/{{menus[1]?.children[3].link}}">{{menus[1]?.children[3].name}}</a> <span *ngIf="menus[1]?.children[3].tag==1" class="newcatx">NEW</span></li>
                     </ul>
                 </li>
                 <li class="visible_list"><a href="#"><span class="title">{{menus[2]?.name ? menus[2]?.name : 'Watch'}}</span></a>
                     <ul>
-                    <li><a class="mymenustyle" href="/category/{{menus[2]?.children[0].link}}">{{menus[2]?.children[0].name}}</a></li>
+                    <li><a class="mymenustyle" href="/category/{{menus[2]?.children[0].link}}">{{menus[2]?.children[0].name}} <span *ngIf="menus[2]?.children[0].tag==1" class="newcatx">NEW</span></a></li>
                     </ul>
                 </li>
                 <li class="megamenu_style"><a href="#"><span class="title">{{menus[3]?.name ? menus[3]?.name : 'Tablets'}}</span></a>

@@ -91,12 +91,18 @@
                    </thead>
                    <tbody>
                     <tr id="row-507" *ngFor="let item of orderItems">
-                         <td class="prod-column" colspan="1">
+                         <td class="prod-column" colspan="1"  *ngIf="item.itemstatus==1">
                           
                             <div class="prod-info">
                                <h5 class="prod-title"><a href="/product/{{item.slug}}">{{item.name}}</a></h5>
                                                          </div>
                          </td>
+                         <td class="prod-column" colspan="1" *ngIf="item.itemstatus==0">
+                          
+                           <div class="prod-info">
+                              <h5 class="prod-title"><a href="/product/{{item.slug}}"><del>{{item.name}}</del></a></h5>
+                                                        </div>
+                        </td>
                          <td class="price" id="price-507"><img width="100px" height="100px" src="https://api.1stopwireless.ca/public/uploads/products/{{item.image}}"></td>
                          <td class="price" id="price-507">$ {{item.discounted_price}}</td>
                          <td class="">										 

@@ -106,30 +106,19 @@
                                                                </span>
                                                                 <span>
                                                                     <span class="shipping_methodName__MymJb">Standard Shipping </span>
-                                                                    <span class="shipping_methodDesc__3aPef"> Approx. 3 - 5 days</span>
-                                                                    <span class="shipping_methodCharges__N3_1Z"> Charges will be added later</span>
+                                                            
                                                                 </span>
                                                             </label><br>
-                                                            <label (click)='shippingType("Expedited Shipping")' class="shipping_methodRadio__5S_v7 ant-radio-wrapper shippingmethod" id="Expedited Shipping">
+                                                            <label (click)='shippingType("Pickup In Person")' class="shipping_methodRadio__5S_v7 ant-radio-wrapper shippingmethod" id="Expedited Shipping">
                                                                 <span class="ant-radio">
-                                                                     <input  type="radio" id="shippingtype" name="shippingtype" value="Expedited Shipping">
+                                                                     <input  type="radio" id="shippingtype" name="shippingtype" value="Pickup In Person">
                                                                      </span>
                                                                 <span>
-                                                                    <span class="shipping_methodName__MymJb">Expedited Shipping </span>
-                                                                    <span class="shipping_methodDesc__3aPef"> Approx. 2 days</span>
-                                                                    <span class="shipping_methodCharges__N3_1Z"> Charges will be added later</span>
+                                                                    <span class="shipping_methodName__MymJb">Pickup In Person </span>
+                                                                  
                                                                 </span>
                                                             </label><br>
-                                                            <label (click)='shippingType("Express Shipping")' class="shipping_methodRadio__5S_v7 ant-radio-wrapper shippingmethod" id="Express Shipping">
-                                                                <span class="ant-radio"> 
-                                                                <input type="radio" id="shippingtype" name="shippingtype" value="Express Shipping" >
-                                                                </span>
-                                                                <span>
-                                                                    <span class="shipping_methodName__MymJb">Express Shipping </span>
-                                                                    <span class="shipping_methodDesc__3aPef"> Approx. 1 day</span>
-                                                                    <span class="shipping_methodCharges__N3_1Z"> Charges will be added later</span>
-                                                                </span>
-                                                            </label><br>
+                                                          
                                                               
                                                         </div>
                                                     </span>
@@ -256,9 +245,9 @@
                                         <p> Phone: {{this.shipping?.phone}}</p>
                                     </div>
                                     <h3 class="checkout_sectionHeading__29Tvy">Shipping Method</h3>
-                                    <p *ngIf="this.shipType" class="confirm_method__1OJpz"><span>{{this.shipType}}</span> - 
-                                    Approx. 2 days                                
-                                    </p>
+                                    
+                                    <p  class="confirm_method__1OJpz"><span>{{this.shipType}}</span>               
+                                      </p>
     
                                     <h3 class="checkout_sectionHeading__29Tvy">Billing Address</h3>
                                     <div class="billingdetails">
@@ -304,7 +293,7 @@
                                         <p class="summary">Shipping charges will be added after order is processed. Your order will be processed within 24 working hours. Orders placed after 2:00 pm EST will be processed next working day.</p>
                                         <ul>
                                           <li class="subtitle"><p>Subtotal <span class="float-end">${{this?.subtotal}}</span></p></li>
-                                          <li class="subtitle"><p>Shipping <span class="float-end">TBD Later</span></p></li>
+                                          <li class="subtitle"><p>Shipping <span class="float-end">{{this.shiptax}}</span></p></li>
                                           <li class="subtitle"><p>Taxes <span class="float-end">{{this?.tax}}</span></p></li>
                                         
                                           <li class="subtitle"><hr></li>

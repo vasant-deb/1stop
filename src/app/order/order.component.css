@@ -16,3 +16,6 @@
 .price img {
     object-fit: contain;
 }
+h5.prod-title del{
+    color:red;
+}

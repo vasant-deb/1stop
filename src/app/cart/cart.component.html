@@ -2,8 +2,10 @@
 
 <section class="shop-cart pt30 mycart">
     <div class="container">
-  
-  <div class="row mt15">
+      <h3  *ngIf="this.total==0.00">Empty Cart</h3>
+      <button type="button"   *ngIf="this.total!=0.00" (click)="clearcart()" class="btn btn-thm btn-block width-max-content">Clear Cart</button>
+  <div class="row mt15"  *ngIf="this.total!=0.00" >
+   
     <div class="col-lg-8 col-xl-9">
       <div class="shopping_cart_table table-responsive">
         <table class="table table-borderless">
@@ -17,13 +19,13 @@
             </tr>
           </thead>
           <tbody class="table_body" *ngIf="products">
-            <tr *ngFor="let product of products">
+            <tr *ngFor="let product of products" class="{{product.active == 0 ? 'not-selected' : ''}}">
               <th scope="row">
                 <ul class="cart_list d-block d-xl-flex">
                   <li class="ps-1 ps-sm-4 pe-1 pe-sm-4"><a href="/product/{{product.slug}}"><img src="https://api.1stopwireless.ca/public/uploads/products/{{product.image}}" width="100px" height="100px" alt=""></a></li>
                   <li class="ms-2 ms-md-3">
                     <a class="cart_title" href="/product/{{product.slug}}">
-                      <span class="fz16">{{product.name}} </span>
+                      <span class="fz16">{{product.name}} <span class="notavailable" *ngIf="product.active==0"> - Not Available</span> </span>
                     
                     </a>
                   </li>

@@ -32,6 +32,7 @@ billings:any;
   shipType:string='';
   auth=false;
   statsData :any;
+  shiptax:string='TBD Later';
   editAddressForm!: FormGroup;
   addresses:any[]=[];
   ngOnInit(){
@@ -109,7 +110,6 @@ billings:any;
     );
     }
   billing(pagename:string){
-  
     var currentpage=pagename;
     if(currentpage=="Shipping"){
     const shippingId = localStorage.getItem('shippingId');
@@ -120,6 +120,13 @@ billings:any;
       this.confirmview=false;
       this.pagename='Billing';
       window.scrollTo(0, 0);
+    }else if(shippingType =="Pickup In Person"){
+      this.shippingview=false;
+      this.billingview=true;
+      this.confirmview=false;
+      this.pagename='Billing';
+      window.scrollTo(0, 0);
+
     }else{
     this.error=true;
     this.snackBar.open('Select Shipping Type or Shipping Address', 'Dismiss', {
@@ -130,7 +137,8 @@ billings:any;
     }
   }
   else if(currentpage=="Billing"){
-    const billingId = localStorage.getItem('billingId');
+    let billingId = localStorage.getItem('billingId');
+    const shippingType = localStorage.getItem('shippingType');
     if(billingId !="0" && billingId !=undefined){
       this.shippingview=false;
       this.billingview=false;
@@ -138,7 +146,13 @@ billings:any;
        this.pagename='Confirm';
        //confirm view
        this.spinner.show();
-       const shippingId = localStorage.getItem('shippingId');
+       let shippingId = localStorage.getItem('shippingId');
+       if(shippingType=="Pickup In Person"){
+        shippingId=localStorage.getItem('billingId');
+        if(shippingId!=null){
+        localStorage.setItem('shippingId', shippingId);
+      }
+      }
        const billingId = localStorage.getItem('billingId');
        //get value of textarea name 'notes'
        const notesValue = this.myTextarea.nativeElement.value;
@@ -170,11 +184,14 @@ billings:any;
       });
     }
   }
-  
   else{
     this.error=true;
   }
   }
+
+
+
+
   orderplace(){
     this.spinner.show();
     let email = localStorage.getItem('email');
@@ -258,6 +275,11 @@ billings:any;
     if (shippingtype) {
       localStorage.setItem('shippingType',shippingtype);
       this.shipType=shippingtype;
+      if(shippingtype=='Standard Shipping'){
+        this.shiptax='TBD Later';
+      }else{
+        this.shiptax='0.00';
+      }
     }
   }
 

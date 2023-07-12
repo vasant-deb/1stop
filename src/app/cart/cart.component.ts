@@ -20,6 +20,7 @@ export class CartComponent {
   total :number=0.00;
   auth=false;
   products:any[]=[];
+  check:number=0;
 cartQuantity: {[key: number]: number} = {};
 
   ngOnInit(){
@@ -51,6 +52,30 @@ cartQuantity: {[key: number]: number} = {};
         );
     }
   }
+  clearcart(){
+   
+    const token = localStorage.getItem('token');
+    const email = localStorage.getItem('email');
+    if (token && email) {
+      this.authService.deleteallfromcarts({token, email}).subscribe(
+        res => {
+          this.spinner.hide();
+          var message = res.message;
+          this.snackBar.open(message, 'Dismiss', {
+            verticalPosition: 'top',
+            horizontalPosition: 'right',
+            duration: 5000
+          });
+          this.cartitems();
+          window.location.reload();
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    }
+    
+  }
   cartitems(){
   const token = localStorage.getItem('token');
   const email = localStorage.getItem('email');
@@ -65,7 +90,8 @@ cartQuantity: {[key: number]: number} = {};
         this.subtotal = res.stats.subtotal.toFixed(2);
         this.tax = res.stats.tax.toFixed(2);
         this.total = res.stats.total.toFixed(2);
-         
+         this.check=res.stats.check;
+
           if(Array.isArray(res.stats.products)){
             this.products = res.stats.products;
             
@@ -194,10 +220,17 @@ onQuantityChanged(productId: number, newQuantity: string) {
     }
   }
   checkout(){
+    if(this.check > 0){
+      this.snackBar.open('Please Remove Unavailable Products From Cart', 'Dismiss', {
+        verticalPosition: 'top',
+        horizontalPosition: 'right',
+        duration: 5000
+      });
+    }else{
+    
     if(this.total > 0){
      localStorage.setItem('justSignedUp','true') ;
-
-    this.router.navigate(['checkout']);
+     this.router.navigate(['checkout']);
   }else{
     this.snackBar.open('Add Products TO Proceed Further', 'Dismiss', {
       verticalPosition: 'top',
@@ -205,6 +238,7 @@ onQuantityChanged(productId: number, newQuantity: string) {
       duration: 5000
     });
   }
+}
   }
 
 }

@@ -52,6 +52,10 @@ export class AuthService {
     let params = new HttpParams().set('token', token || '').set('email', email || '');
     return this.http.post<any>(API_BASE_URL +`addalltoacart`, { cartItems }, { params });
 }
+
+deleteallfromcarts({ email, token }: { email: string, token: string }): Observable<any> {
+  return this.http.post<any>(API_BASE_URL +'deleteallfromacart', { email, token });
+}
   getCategory(slug: string | null, token: string | null, email: string | null): Observable<any> {
     let params = new HttpParams().set('token', token || '').set('email', email || '');
     return this.http.get<any>(API_BASE_URL +`getcategory/${slug}`, { params });
